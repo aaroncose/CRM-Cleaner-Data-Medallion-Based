@@ -1,0 +1,4 @@
+num_factura,fecha,proveedor,nif_cif,tipo,categoria,importe_base,iva,importe_total,estado_factura
+  FAC-2024-0001  ,15/01/2024,  Empresa ABC  ,B-12345678,ingreso,  Marketing  ,1000€,210.00,1210,00,Pagada
+FAC/2024/0002,20-02-2024,PROVEEDOR XYZ,A87654321,GASTO,tecnología,2.500,50 EUR,525,11,3025.61,pendiete
+FAC 2024 003,10 de marzo de 2024,servicios pro,11223344B,Ingrso,CONSULTORÍA,500,00,105.00,605.00,Pagda
