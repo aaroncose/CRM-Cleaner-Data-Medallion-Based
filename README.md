@@ -1,4 +1,4 @@
-# CRM Data Medallion Framework
+# CRM Cleaner Data Medallion-Based
 
 A Python library for cleaning dirty CRM data using the Medallion architecture (Bronze-Silver-Gold layers).
 
@@ -55,7 +55,7 @@ crm-medallion process data.csv
 # Process with custom output directory
 crm-medallion process data.csv -o ./output
 
-# Process with LLM enhancement
+# Process CSV with LLM enhancement
 crm-medallion process data.csv --with-llm
 
 # Process with verbose output
@@ -315,42 +315,199 @@ Examples:
   crm-medallion generate-schema --format json -o schema.json
 ```
 
-## Extending
+## LLM Enhancement (Optional)
 
-Register custom cleaning rules:
+Enable LLM-powered data cleaning for records that fail validation:
+
+```bash
+# Set your OpenAI API key
+export OPENAI_API_KEY=sk-...
+
+# Process with LLM enhancement
+crm-medallion process data.csv --with-llm
+```
+
+The LLM cleaner will:
+- Attempt to correct ambiguous or invalid data
+- Provide confidence scores for corrections
+- Flag low-confidence records for manual review
+- Log all corrections with reasoning
+
+## RAG Queries (Optional)
+
+Query your data using natural language:
+
+```bash
+crm-medallion query ./data/gold/gold.json --api-key sk-...
+```
+
+Example queries:
+- "¿Cuántas facturas tenemos de Marketing?"
+- "¿Cuál es el importe total de facturas pagadas?"
+- "Muéstrame las facturas vencidas de más de 10.000 euros"
+- "¿Qué proveedor tiene más facturas?"
+
+## Extending the Framework
+
+### Custom Cleaning Rules
 
 ```python
 from crm_medallion.silver.rules import CleaningRule
 
-class MyRule(CleaningRule):
+class UppercaseRule(CleaningRule):
+    """Convert specific fields to uppercase."""
+    
     def applies_to(self, field: str) -> bool:
-        return field == "my_field"
-
+        return field in ["categoria", "estado_factura"]
+    
     def clean(self, value, field: str):
-        return value.upper()
+        if isinstance(value, str):
+            return value.upper()
+        return value
 
-framework._get_silver_layer().register_cleaning_rule(MyRule())
+# Register the rule
+from crm_medallion import Framework, FrameworkConfig
+
+config = FrameworkConfig()
+framework = Framework(config)
+framework._get_silver_layer().register_cleaning_rule(UppercaseRule())
 ```
 
-Register hooks for custom processing:
+### Custom Hooks
 
 ```python
-def log_records(context):
-    print(f"Processing {len(context.data)} records")
+def log_progress(context):
+    """Log processing progress."""
+    print(f"Processing {len(context.data)} records at {context.stage}")
     return None
 
-framework.register_hook("silver", "pre", log_records)
+def validate_totals(context):
+    """Custom validation after Silver layer."""
+    for record in context.data:
+        base = record.get("importe_base", 0)
+        iva = record.get("iva", 0)
+        total = record.get("importe_total", 0)
+        if abs((base + iva) - total) > 0.01:
+            print(f"Warning: Total mismatch in record {record.get('num_factura')}")
+    return None
+
+# Register hooks
+framework.register_hook("silver", "pre", log_progress)
+framework.register_hook("silver", "post", validate_totals)
+```
+
+## Project Structure
+
+```
+crm-medallion/
+├── src/crm_medallion/
+│   ├── bronze/          # Raw data ingestion
+│   ├── silver/          # Validation and cleaning
+│   ├── gold/            # Aggregation and RAG
+│   ├── config/          # Configuration management
+│   ├── cli/             # Command-line interface
+│   └── utils/           # Utilities (logging, errors, retry)
+├── tests/
+│   ├── unit/            # Unit tests
+│   ├── integration/     # Integration tests
+│   └── fixtures/        # Test data files
+├── examples/            # Example scripts
+├── pyproject.toml       # Package configuration
+└── README.md
 ```
 
 ## Requirements
 
+**Core Dependencies:**
 - Python 3.9+
-- pandas, pydantic, click, chardet, pyyaml
+- pandas >= 2.0.0
+- pydantic >= 2.0.0
+- click >= 8.0.0
+- chardet >= 5.0.0
+- pyyaml >= 6.0
 
-Optional:
-- langchain, langchain-openai (LLM features)
-- chromadb (RAG queries)
+**Optional Dependencies:**
+- langchain >= 0.1.0 (LLM features)
+- langchain-openai >= 0.0.1 (OpenAI integration)
+- langgraph >= 0.0.1 (LLM orchestration)
+- chromadb >= 0.4.0 (RAG queries)
+- sentence-transformers >= 2.2.0 (Embeddings)
+
+## Development
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd crm-medallion
+
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install in development mode with all dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+
+# Run tests with coverage
+pytest --cov=crm_medallion --cov-report=html
+
+# Run linting
+ruff check src/
+
+# Format code
+ruff format src/
+```
+
+
+
+
+🚧 **Upcoming Features** - Currently in development:
+
+### Pre-CSV Configuration Wizard
+- Interactive CLI wizard to configure schema before uploading CSV
+- Auto-detect field types from sample data
+- Custom validation rules builder
+- Export configuration for reuse
+
+### Web UI Dashboard
+- Browser-based interface for data processing
+- Drag-and-drop CSV upload
+- Real-time processing progress
+- Visual data quality reports
+- Interactive data preview (Bronze → Silver → Gold)
+- Configuration editor with live validation
+
+### Advanced Analytics
+- Time-series analysis and forecasting
+- Anomaly detection in financial data
+- Custom aggregation pipelines
+- Export to Excel/PDF reports
+
+### Enhanced LLM Features
+- Multi-model support (Claude, Gemini, local models)
+- Batch LLM processing for cost optimization
+- Confidence scoring and human-in-the-loop review
+- Fine-tuned models for domain-specific cleaning
+
+### Data Lineage & Audit
+- Track data transformations across layers
+- Audit trail for compliance
+- Rollback to previous versions
+- Change history visualization
+
+### Performance Improvements
+- Parallel processing for large datasets
+- Incremental updates (process only new rows)
+- Caching layer for repeated operations
+- Distributed processing support
+
+---
+
+
 
 ## License
 
-MIT
+MIT 
+@AARONCORTESSERRANO
