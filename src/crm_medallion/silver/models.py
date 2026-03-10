@@ -113,6 +113,9 @@ class SilverDataset:
     manual_review_records: int = 0
     processing_time_seconds: float = 0.0
     validation_errors_log: list[dict[str, Any]] = field(default_factory=list)
+    dedupe_auto_merged: int = 0
+    dedupe_pending_review: int = 0
+    dedupe_review_file: Path | None = None
 
     def __post_init__(self) -> None:
         if isinstance(self.clean_csv_path, str):

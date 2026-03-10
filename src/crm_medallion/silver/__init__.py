@@ -17,6 +17,7 @@ from crm_medallion.silver.cleaner import DataCleaner
 from crm_medallion.silver.validator import SchemaValidator, ValidationResult
 from crm_medallion.silver.layer import SilverLayer
 from crm_medallion.silver.llm_cleaner import LLMCleaner
+from crm_medallion.silver.deduplicator import EntityDeduplicator, DeduplicationResult, EntityGroup
 from crm_medallion.silver.rules import (
     CleaningRule,
     WhitespaceStripper,
@@ -48,6 +49,9 @@ __all__ = [
     "ValidationResult",
     "SilverLayer",
     "LLMCleaner",
+    "EntityDeduplicator",
+    "DeduplicationResult",
+    "EntityGroup",
     "CleaningRule",
     "WhitespaceStripper",
     "CurrencyNormalizer",

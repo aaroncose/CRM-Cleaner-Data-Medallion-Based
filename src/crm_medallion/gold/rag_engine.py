@@ -28,14 +28,16 @@ The data contains invoices with fields:
 - importe_base: Base amount
 - iva: VAT amount
 - importe_total: Total amount
-- estado_factura: Status (Pagada=Paid, Pendiente=Pending, Vencida=Overdue)
+- estado_factura: Status (Pagada=Paid, Pendiente=Pending, Vencida=Overdue, Parcialmente pagada=Partially paid)
 
 When answering:
 1. Be precise with numbers and dates
 2. Always specify the currency (EUR) for amounts
 3. If data is insufficient, say so clearly
 4. For comparisons, show both values being compared
-5. Answer in the same language as the question (Spanish if asked in Spanish)
+5. ALWAYS respond in Spanish (español), regardless of the question language
+6. When counting or aggregating, use the COMPLETE dataset statistics provided
+7. Never approximate - use exact numbers from the precomputed statistics
 """
 
 QUERY_PROMPT_TEMPLATE = """Based on the following context, answer the user's question.
@@ -49,6 +51,7 @@ QUERY_PROMPT_TEMPLATE = """Based on the following context, answer the user's que
 ## User Question:
 {question}
 
+IMPORTANT: Respond ONLY in Spanish (español). Never respond in English.
 Provide a clear, concise answer. If you need to show data, format it nicely.
 If the question is ambiguous or cannot be answered with the available data, explain why and suggest clarifying questions.
 """
@@ -83,6 +86,18 @@ class RAGQueryEngine:
         if self._initialized:
             return
 
+        provider = getattr(self.llm_config, "provider", "openai")
+
+        if provider == "ollama":
+            self._init_ollama()
+        else:
+            self._init_openai()
+
+        self._initialized = True
+        logger.debug(f"RAG engine initialized with provider: {provider}")
+
+    def _init_openai(self) -> None:
+        """Initialize OpenAI LLM and embeddings."""
         try:
             from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
@@ -95,13 +110,35 @@ class RAGQueryEngine:
             self._embeddings = OpenAIEmbeddings(
                 api_key=self.llm_config.api_key,
             )
-
-            self._initialized = True
-            logger.debug("RAG engine initialized with LLM and embeddings")
         except ImportError as e:
             raise LLMError(
                 "LangChain OpenAI package not installed. "
                 "Install with: pip install 'crm-medallion[llm]'",
+                context={"error": str(e)},
+            ) from None
+
+    def _init_ollama(self) -> None:
+        """Initialize Ollama LLM and embeddings."""
+        try:
+            from langchain_community.chat_models import ChatOllama
+            from langchain_community.embeddings import OllamaEmbeddings
+
+            host = getattr(self.llm_config, "host", None) or "http://localhost:11434"
+
+            self._llm = ChatOllama(
+                model=self.llm_config.model_name,
+                temperature=self.llm_config.temperature,
+                base_url=host,
+            )
+
+            self._embeddings = OllamaEmbeddings(
+                model=self.llm_config.model_name,
+                base_url=host,
+            )
+        except ImportError as e:
+            raise LLMError(
+                "LangChain Community package not installed. "
+                "Install with: pip install 'crm-medallion[ollama]'",
                 context={"error": str(e)},
             ) from None
 
@@ -155,6 +192,7 @@ class RAGQueryEngine:
 
         for i, record in enumerate(data_records):
             content = self._format_record_for_embedding(record)
+            # Rich metadata for filtering
             metadata = {
                 "doc_type": "record",
                 "record_id": record.get("num_factura", str(i)),
@@ -162,6 +200,10 @@ class RAGQueryEngine:
                 "categoria": record.get("categoria", ""),
                 "proveedor": record.get("proveedor", ""),
                 "estado_factura": record.get("estado_factura", ""),
+                "fecha": str(record.get("fecha", "")),
+                "importe_base": float(record.get("importe_base", 0)),
+                "iva": float(record.get("iva", 0)),
+                "importe_total": float(record.get("importe_total", 0)),
             }
             documents.append(Document(page_content=content, metadata=metadata))
 
@@ -289,12 +331,32 @@ class RAGQueryEngine:
         query_type = self._classify_query(natural_language_query)
         logger.debug(f"Query classified as: {query_type}")
 
-        relevant_docs = self._vectorstore.similarity_search(
-            natural_language_query,
-            k=self._get_k_for_query_type(query_type),
-        )
+        # For aggregation queries, use metadata filtering and pass precomputed statistics
+        metadata_filter = self._build_metadata_filter(natural_language_query, query_type)
+        
+        k = self._get_k_for_query_type(query_type)
+        
+        if metadata_filter:
+            logger.debug(f"Using metadata filter: {metadata_filter}")
+            relevant_docs = self._vectorstore.similarity_search(
+                natural_language_query,
+                k=k,
+                filter=metadata_filter,
+            )
+        else:
+            relevant_docs = self._vectorstore.similarity_search(
+                natural_language_query,
+                k=k,
+            )
 
-        context_text = "\n\n".join([doc.page_content for doc in relevant_docs])
+        # Add precomputed statistics to context for aggregation queries
+        context_parts = [doc.page_content for doc in relevant_docs]
+        
+        if query_type in ["statistics", "comparison"] and self._gold_dataset:
+            stats_summary = self._format_precomputed_stats()
+            context_parts.insert(0, stats_summary)
+        
+        context_text = "\n\n".join(context_parts)
 
         prompt = QUERY_PROMPT_TEMPLATE.format(
             context=context_text,
@@ -370,14 +432,118 @@ class RAGQueryEngine:
 
         return "data"
 
+    def _build_metadata_filter(self, query: str, query_type: str) -> dict[str, Any] | None:
+        """Build metadata filter for ChromaDB based on query content."""
+        query_lower = query.lower()
+        filters = {}
+        
+        # Filter by estado_factura
+        if "pendiente" in query_lower:
+            filters["estado_factura"] = "Pendiente"
+        elif "pagada" in query_lower or "pagadas" in query_lower:
+            filters["estado_factura"] = "Pagada"
+        elif "vencida" in query_lower or "vencidas" in query_lower:
+            filters["estado_factura"] = "Vencida"
+        elif "parcialmente" in query_lower:
+            filters["estado_factura"] = "Parcialmente pagada"
+        
+        # Filter by tipo
+        if "ingreso" in query_lower or "ingresos" in query_lower:
+            filters["tipo"] = "Ingreso"
+        elif "gasto" in query_lower or "gastos" in query_lower:
+            filters["tipo"] = "Gasto"
+        
+        # Always filter to only record documents (not statistics/summary docs)
+        filters["doc_type"] = "record"
+        
+        return filters if len(filters) > 1 else {"doc_type": "record"}
+
+    def _format_precomputed_stats(self) -> str:
+        """Format precomputed statistics from Gold dataset for LLM context."""
+        if not self._gold_dataset:
+            return ""
+
+        lines = ["## PRECOMPUTED STATISTICS (COMPLETE DATASET):"]
+        lines.append(f"Total records in dataset: {self._gold_dataset.record_count}")
+        lines.append("")
+
+        # Add field statistics
+        for field_name, stats in self._gold_dataset.statistics.items():
+            lines.append(f"### {field_name}:")
+            lines.append(f"  - Count: {stats.count}")
+            lines.append(f"  - Sum: {stats.sum:.2f} EUR")
+            lines.append(f"  - Mean: {stats.mean:.2f} EUR")
+            lines.append(f"  - Median: {stats.median:.2f} EUR")
+            lines.append(f"  - Min: {stats.min:.2f} EUR")
+            lines.append(f"  - Max: {stats.max:.2f} EUR")
+            lines.append(f"  - Std Dev: {stats.std:.2f} EUR")
+            lines.append("")
+
+        # Add segmented statistics (CRITICAL for aggregation queries)
+        if hasattr(self._gold_dataset, 'segmented_statistics') and self._gold_dataset.segmented_statistics:
+            lines.append("## SEGMENTED STATISTICS (BY CATEGORY):")
+            lines.append("")
+
+            for seg_name, seg_stats in self._gold_dataset.segmented_statistics.items():
+                lines.append(f"### Statistics by {seg_name}:")
+
+                # Sort segments by count descending
+                sorted_segments = sorted(
+                    seg_stats.segments.items(),
+                    key=lambda x: x[1].get("count", 0),
+                    reverse=True,
+                )
+
+                for segment_value, metrics in sorted_segments:
+                    lines.append(f"  {segment_value}:")
+                    lines.append(f"    - Count: {metrics.get('count', 0)} records")
+
+                    for metric_name, metric_value in metrics.items():
+                        if metric_name != "count" and isinstance(metric_value, (int, float)):
+                            lines.append(f"    - {metric_name}: {metric_value:.2f} EUR")
+
+                lines.append("")
+
+        # Add index information (counts by category, provider, etc.)
+        for index_name, index in self._gold_dataset.indexes.items():
+            lines.append(f"### Index: {index_name}")
+            lines.append(f"  - Unique values: {index.unique_values}")
+
+            # Show ALL entries for complete accuracy
+            sorted_entries = sorted(
+                index.entries.items(),
+                key=lambda x: x[1].count,
+                reverse=True,
+            )
+
+            for key, entry in sorted_entries:
+                lines.append(f"  - {key}: {entry.count} records")
+            lines.append("")
+
+        return "\n".join(lines)
+
     def _get_k_for_query_type(self, query_type: str) -> int:
-        """Get number of documents to retrieve based on query type."""
-        return {
-            "statistics": 5,
-            "comparison": 8,
-            "filter": 10,
-            "data": 6,
-        }.get(query_type, 5)
+        """Get number of documents to retrieve based on query type.
+        
+        For aggregation/counting queries, we need ALL documents.
+        For other queries, we still retrieve many documents to ensure completeness.
+        """
+        if self._vectorstore is None:
+            return 100
+        
+        # Get total document count from vectorstore
+        try:
+            total_docs = self._vectorstore._collection.count()
+        except Exception:
+            # Fallback to a large number if we can't get the count
+            total_docs = 10000
+        
+        # For statistics and comparisons, we need ALL documents
+        if query_type in ["statistics", "comparison", "filter"]:
+            return total_docs
+        
+        # For general data queries, still retrieve a large number
+        return min(total_docs, 1000)
 
     def _extract_supporting_data(self, docs: list) -> list[dict]:
         """Extract supporting data from retrieved documents."""

@@ -8,7 +8,9 @@ from unittest.mock import MagicMock, patch
 import pytest
 
 from crm_medallion.config.framework_config import LLMConfig, GoldConfig
-from crm_medallion.gold.models import FieldStatistics, GoldDataset, Index, IndexEntry
+from crm_medallion.gold.models import (
+    FieldStatistics, GoldDataset, Index, IndexEntry, SegmentedStatistics
+)
 from crm_medallion.gold.rag_models import (
     ConversationContext,
     ConversationMessage,
@@ -141,6 +143,23 @@ class TestRAGQueryEngine:
         }
         index = Index(field_name="categoria", entries=entries, unique_values=2)
 
+        segmented_stats = {
+            "tipo": SegmentedStatistics(
+                segment_field="tipo",
+                segments={
+                    "Ingreso": {"count": 3, "importe_total_sum": 3000.0},
+                    "Gasto": {"count": 2, "importe_total_sum": 2000.0},
+                },
+            ),
+            "estado_factura": SegmentedStatistics(
+                segment_field="estado_factura",
+                segments={
+                    "Pagada": {"count": 2, "importe_total_sum": 2000.0},
+                    "Pendiente": {"count": 3, "importe_total_sum": 3000.0},
+                },
+            ),
+        }
+
         return GoldDataset(
             id="test-gold-123",
             silver_dataset_id="test-silver-456",
@@ -149,6 +168,7 @@ class TestRAGQueryEngine:
             record_count=5,
             statistics={"importe_total": stats},
             indexes={"categoria": index},
+            segmented_statistics=segmented_stats,
         )
 
     @pytest.fixture
@@ -237,14 +257,40 @@ class TestRAGQueryEngine:
         assert engine._classify_query("¿Qué es una factura?") == "data"
         assert engine._classify_query("Información general") == "data"
 
-    def test_get_k_for_query_type(self, llm_config):
+    def test_get_k_for_query_type_without_vectorstore(self, llm_config):
+        """Without vectorstore, fallback k value is used."""
         engine = RAGQueryEngine(llm_config=llm_config)
 
-        assert engine._get_k_for_query_type("statistics") == 5
-        assert engine._get_k_for_query_type("comparison") == 8
-        assert engine._get_k_for_query_type("filter") == 10
-        assert engine._get_k_for_query_type("data") == 6
-        assert engine._get_k_for_query_type("unknown") == 5
+        # Without vectorstore, returns fallback value (100)
+        k_stats = engine._get_k_for_query_type("statistics")
+        k_comparison = engine._get_k_for_query_type("comparison")
+        k_filter = engine._get_k_for_query_type("filter")
+        k_data = engine._get_k_for_query_type("data")
+
+        # All types return 100 as fallback when no vectorstore
+        assert k_stats == 100
+        assert k_comparison == 100
+        assert k_filter == 100
+        assert k_data == 100
+
+    def test_get_k_for_query_type_with_vectorstore(self, llm_config):
+        """With vectorstore, k should return ALL documents for aggregation queries."""
+        engine = RAGQueryEngine(llm_config=llm_config)
+
+        # Mock vectorstore with 100 documents
+        mock_collection = MagicMock()
+        mock_collection.count.return_value = 100
+        mock_vectorstore = MagicMock()
+        mock_vectorstore._collection = mock_collection
+        engine._vectorstore = mock_vectorstore
+
+        # For statistics, comparison, filter: should return ALL docs
+        assert engine._get_k_for_query_type("statistics") == 100
+        assert engine._get_k_for_query_type("comparison") == 100
+        assert engine._get_k_for_query_type("filter") == 100
+
+        # For data queries, returns capped value
+        assert engine._get_k_for_query_type("data") == 100
 
     def test_check_needs_clarification(self, llm_config):
         engine = RAGQueryEngine(llm_config=llm_config)

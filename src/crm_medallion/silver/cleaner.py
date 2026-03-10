@@ -1,5 +1,6 @@
 """Data cleaner for the Silver Layer."""
 
+import math
 from typing import Any
 
 from crm_medallion.silver.models import RawRecord, CleanedRecord
@@ -47,6 +48,11 @@ class DataCleaner:
 
             cleaned_data[field_name] = current_value
 
+        # Calculate importe_pendiente if missing or NaN
+        cleaned_data, pendiente_log = self._calculate_importe_pendiente(cleaned_data)
+        if pendiente_log:
+            cleaning_log.append(pendiente_log)
+
         consistency_warnings = self.consistency_checker.check_consistency(cleaned_data)
         for warning in consistency_warnings:
             cleaning_log.append(f"WARNING: {warning}")
@@ -57,6 +63,72 @@ class DataCleaner:
             cleaning_log=cleaning_log,
             source_dataset_id=record.source_dataset_id,
         )
+
+    def _calculate_importe_pendiente(
+        self, data: dict[str, Any]
+    ) -> tuple[dict[str, Any], str | None]:
+        """
+        Calculate importe_pendiente based on estado_factura and importe_total.
+
+        Rules:
+        - Pagada → 0.0
+        - Pendiente or Vencida → importe_total
+        - Parcialmente pagada → importe_total * 0.5
+
+        Args:
+            data: The cleaned record data
+
+        Returns:
+            Tuple of (modified_data, log_message or None)
+        """
+        importe_pendiente = data.get("importe_pendiente")
+        estado = data.get("estado_factura", "")
+        importe_total = data.get("importe_total")
+
+        # Check if importe_pendiente needs to be calculated
+        needs_calculation = (
+            importe_pendiente is None
+            or importe_pendiente == ""
+            or (isinstance(importe_pendiente, float) and math.isnan(importe_pendiente))
+        )
+
+        if needs_calculation and importe_total is not None:
+            try:
+                total = float(importe_total)
+                estado_lower = str(estado).lower().strip()
+
+                if "pagada" in estado_lower and "parcialmente" not in estado_lower:
+                    # Pagada → 0.0
+                    data["importe_pendiente"] = 0.0
+                    return data, f"Calculated importe_pendiente=0.0 (estado={estado})"
+
+                elif "pendiente" in estado_lower or "vencida" in estado_lower:
+                    # Pendiente or Vencida → importe_total
+                    data["importe_pendiente"] = total
+                    return data, f"Calculated importe_pendiente={total:.2f} (estado={estado})"
+
+                elif "parcialmente" in estado_lower:
+                    # Parcialmente pagada → importe_total * 0.5
+                    pending = total * 0.5
+                    data["importe_pendiente"] = pending
+                    return data, f"Calculated importe_pendiente={pending:.2f} (estado={estado})"
+
+                else:
+                    # Unknown estado, set to 0.0 to avoid NaN
+                    data["importe_pendiente"] = 0.0
+                    return data, f"Set importe_pendiente=0.0 (unknown estado: {estado})"
+
+            except (ValueError, TypeError):
+                # Can't calculate, set to 0.0 to avoid NaN
+                data["importe_pendiente"] = 0.0
+                return data, "Set importe_pendiente=0.0 (could not calculate)"
+
+        # If importe_pendiente exists but is NaN, replace with 0.0
+        if isinstance(importe_pendiente, float) and math.isnan(importe_pendiente):
+            data["importe_pendiente"] = 0.0
+            return data, "Replaced NaN importe_pendiente with 0.0"
+
+        return data, None
 
     def clean_batch(self, records: list[RawRecord]) -> list[CleanedRecord]:
         """

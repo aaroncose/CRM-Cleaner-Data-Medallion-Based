@@ -304,6 +304,111 @@ class TestDataCleaner:
         assert len(cleaner.rules) == 1
 
 
+class TestImportePendienteCalculation:
+    """Tests for automatic importe_pendiente calculation."""
+
+    def test_pagada_has_zero_pendiente(self):
+        rules = get_default_cleaning_rules()
+        cleaner = DataCleaner(rules=rules)
+        raw = RawRecord(
+            row_number=1,
+            data={
+                "estado_factura": "Pagada",
+                "importe_total": "1000.00",
+            },
+            source_dataset_id="test",
+        )
+
+        cleaned = cleaner.clean(raw)
+
+        assert cleaned.data["importe_pendiente"] == 0.0
+
+    def test_pendiente_has_full_amount(self):
+        rules = get_default_cleaning_rules()
+        cleaner = DataCleaner(rules=rules)
+        raw = RawRecord(
+            row_number=1,
+            data={
+                "estado_factura": "Pendiente",
+                "importe_total": "1500.00",
+            },
+            source_dataset_id="test",
+        )
+
+        cleaned = cleaner.clean(raw)
+
+        assert cleaned.data["importe_pendiente"] == 1500.0
+
+    def test_vencida_has_full_amount(self):
+        rules = get_default_cleaning_rules()
+        cleaner = DataCleaner(rules=rules)
+        raw = RawRecord(
+            row_number=1,
+            data={
+                "estado_factura": "Vencida",
+                "importe_total": "2000.00",
+            },
+            source_dataset_id="test",
+        )
+
+        cleaned = cleaner.clean(raw)
+
+        assert cleaned.data["importe_pendiente"] == 2000.0
+
+    def test_parcialmente_pagada_has_half_amount(self):
+        rules = get_default_cleaning_rules()
+        cleaner = DataCleaner(rules=rules)
+        raw = RawRecord(
+            row_number=1,
+            data={
+                "estado_factura": "Parcialmente pagada",
+                "importe_total": "1000.00",
+            },
+            source_dataset_id="test",
+        )
+
+        cleaned = cleaner.clean(raw)
+
+        assert cleaned.data["importe_pendiente"] == 500.0
+
+    def test_existing_pendiente_not_overwritten(self):
+        rules = get_default_cleaning_rules()
+        cleaner = DataCleaner(rules=rules)
+        raw = RawRecord(
+            row_number=1,
+            data={
+                "estado_factura": "Pendiente",
+                "importe_total": "1000.00",
+                "importe_pendiente": "750.00",
+            },
+            source_dataset_id="test",
+        )
+
+        cleaned = cleaner.clean(raw)
+
+        # Existing value should be preserved (after currency normalization)
+        assert cleaned.data["importe_pendiente"] == 750.0
+
+    def test_missing_pendiente_gets_calculated(self):
+        import math
+        rules = get_default_cleaning_rules()
+        cleaner = DataCleaner(rules=rules)
+        raw = RawRecord(
+            row_number=1,
+            data={
+                "estado_factura": "Pagada",
+                "importe_total": "1000.00",
+            },
+            source_dataset_id="test",
+        )
+
+        cleaned = cleaner.clean(raw)
+
+        # Should be calculated as 0.0 for Pagada
+        assert cleaned.data["importe_pendiente"] == 0.0
+        assert not math.isnan(cleaned.data["importe_pendiente"])
+
+
 class TestRecordParser:
     @pytest.fixture
     def bronze_dataset(self):

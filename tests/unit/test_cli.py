@@ -318,3 +318,125 @@ class TestCLIHelp:
 
         assert result.exit_code == 0
         assert "crm-medallion" in result.output
+
+
+class TestCLIQuery:
+    @pytest.fixture
+    def runner(self):
+        return CliRunner()
+
+    def test_query_help_shows_no_support_option(self, runner):
+        result = runner.invoke(cli, ["query", "--help"])
+
+        assert result.exit_code == 0
+        assert "--no-support" in result.output
+
+    def test_query_requires_api_key(self, runner, temp_dir):
+        """Query command requires API key."""
+        gold_file = temp_dir / "gold.json"
+        gold_file.write_text('{"records": [{"id": "1"}]}')
+
+        result = runner.invoke(cli, ["query", str(gold_file)])
+
+        assert result.exit_code != 0
+        assert "API key required" in result.output
+
+    def test_query_with_directory_finds_latest(self, runner, temp_dir):
+        """Query command finds latest Gold JSON when given a directory."""
+        # Create multiple gold files with timestamps
+        (temp_dir / "20240101_000000_abc_gold.json").write_text('{"records": []}')
+        (temp_dir / "20240201_000000_def_gold.json").write_text('{"records": []}')
+        (temp_dir / "20240301_000000_ghi_gold.json").write_text('{"records": []}')
+
+        result = runner.invoke(cli, ["query", str(temp_dir)])
+
+        # Should fail due to no API key, but should have found the latest file
+        assert result.exit_code != 0
+        assert "Using latest Gold dataset: 20240301_000000_ghi_gold.json" in result.output
+
+    def test_query_with_empty_directory(self, runner, temp_dir):
+        """Query command fails gracefully with empty directory."""
+        result = runner.invoke(cli, ["query", str(temp_dir)])
+
+        assert result.exit_code != 0
+        assert "No Gold JSON files found" in result.output
+
+    @pytest.fixture
+    def temp_dir(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            yield Path(tmpdir)
+
+
+class TestCLIDetectSchema:
+    @pytest.fixture
+    def runner(self):
+        return CliRunner()
+
+    @pytest.fixture
+    def temp_dir(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            yield Path(tmpdir)
+
+    @pytest.fixture
+    def sample_csv(self, temp_dir):
+        csv_content = """id,nombre,fecha,importe,activo
+1,Empresa A,2024-01-15,1500.50,true
+2,Empresa B,2024-02-20,2300.75,false
+3,Empresa C,2024-03-10,1800.00,true
+"""
+        csv_file = temp_dir / "sample.csv"
+        csv_file.write_text(csv_content)
+        return csv_file
+
+    def test_detect_schema_outputs_yaml(self, runner, sample_csv):
+        result = runner.invoke(cli, ["detect-schema", str(sample_csv)])
+
+        assert result.exit_code == 0
+        assert "name:" in result.output
+        assert "fields:" in result.output
+        assert "id" in result.output
+
+    def test_detect_schema_infers_types(self, runner, sample_csv):
+        result = runner.invoke(cli, ["detect-schema", str(sample_csv)])
+
+        assert result.exit_code == 0
+        # Should detect int for id, str for nombre, date for fecha, float for importe
+        assert "int" in result.output or "float" in result.output
+
+    def test_detect_schema_with_output_file(self, runner, sample_csv, temp_dir):
+        output_file = temp_dir / "schema.yaml"
+
+        result = runner.invoke(
+            cli,
+            ["detect-schema", str(sample_csv), "-o", str(output_file)]
+        )
+
+        assert result.exit_code == 0
+        assert output_file.exists()
+        assert "Schema written to" in result.output
+
+    def test_detect_schema_with_custom_name(self, runner, sample_csv):
+        result = runner.invoke(
+            cli,
+            ["detect-schema", str(sample_csv), "--name", "MySchema"]
+        )
+
+        assert result.exit_code == 0
+        assert "MySchema" in result.output
+
+    def test_detect_schema_empty_csv(self, runner, temp_dir):
+        empty_file = temp_dir / "empty.csv"
+        empty_file.write_text("")
+
+        result = runner.invoke(cli, ["detect-schema", str(empty_file)])
+
+        assert result.exit_code != 0
+        assert "Error" in result.output
+
+    def test_detect_schema_help(self, runner):
+        result = runner.invoke(cli, ["detect-schema", "--help"])
+
+        assert result.exit_code == 0
+        assert "Auto-detect schema" in result.output
+        assert "--output" in result.output
+        assert "--name" in result.output

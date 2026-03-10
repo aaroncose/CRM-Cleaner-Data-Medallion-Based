@@ -12,6 +12,7 @@ from pydantic import BaseModel
 from crm_medallion.bronze.models import BronzeDataset
 from crm_medallion.config.framework_config import LLMConfig, SilverConfig
 from crm_medallion.silver.cleaner import DataCleaner
+from crm_medallion.silver.deduplicator import EntityDeduplicator, DeduplicationResult
 from crm_medallion.silver.models import (
     CleanedRecord,
     LLMCleaningResult,
@@ -39,6 +40,7 @@ class SilverLayer:
         cleaning_rules: list[CleaningRule] | None = None,
         llm_config: LLMConfig | None = None,
         hook_registry: HookRegistry | None = None,
+        dedupe_fields: list[str] | None = None,
     ):
         """
         Initialize Silver layer with configuration.
@@ -49,6 +51,7 @@ class SilverLayer:
             cleaning_rules: List of cleaning rules (uses defaults if None)
             llm_config: Optional LLM configuration for enhanced cleaning
             hook_registry: Optional hook registry for extensibility
+            dedupe_fields: Fields to deduplicate (default: proveedor, categoria)
         """
         self.schema_model = schema_model
         self.config = config or SilverConfig()
@@ -61,6 +64,9 @@ class SilverLayer:
         self.parser = RecordParser(chunk_size=self.config.batch_size)
         self.cleaner = DataCleaner(rules=self.cleaning_rules)
         self.validator = SchemaValidator(schema_model=schema_model)
+
+        self.dedupe_fields = dedupe_fields if dedupe_fields is not None else ["proveedor", "categoria"]
+        self.deduplicator = EntityDeduplicator(fields_to_dedupe=self.dedupe_fields)
 
         self._llm_cleaner = None
         if llm_config:
@@ -148,12 +154,31 @@ class SilverLayer:
         llm_corrected_count = 0
         validation_errors_log: list[dict] = []
 
-        total_records = 0
-
+        # Phase 1: Parse and clean all records
+        cleaned_records: list[CleanedRecord] = []
         for raw_record in self.parser.parse(bronze_dataset):
-            total_records += 1
-
             cleaned_record = self.cleaner.clean(raw_record)
+            cleaned_records.append(cleaned_record)
+
+        total_records = len(cleaned_records)
+        logger.info(f"Cleaned {total_records} records")
+
+        # Phase 2: Deduplicate entities
+        dedupe_result = self.deduplicator.deduplicate(cleaned_records)
+
+        # Critical assertion: record count must not change
+        assert len(dedupe_result.records) == total_records, (
+            f"CRITICAL: Record count changed! Before: {total_records}, "
+            f"After: {len(dedupe_result.records)}"
+        )
+
+        # Save review file if there are pending reviews
+        review_file_path = None
+        if dedupe_result.pending_review:
+            review_file_path = self.deduplicator.save_review_file(dedupe_result, self.config.output_path)
+
+        # Phase 3: Validate each record
+        for cleaned_record in dedupe_result.records:
             result = self.validator.validate(cleaned_record)
 
             if result.success:
@@ -207,7 +232,7 @@ class SilverLayer:
             invalid_records.append(validated_record)
 
             validation_errors_log.append({
-                "row_number": raw_record.row_number,
+                "row_number": cleaned_record.row_number,
                 "errors": [
                     {"field": e.field, "message": e.message, "value": e.value}
                     for e in result.errors
@@ -217,7 +242,7 @@ class SilverLayer:
 
             for error in result.errors:
                 logger.warning(
-                    f"Row {raw_record.row_number}: Validation error in '{error.field}': {error.message}"
+                    f"Row {cleaned_record.row_number}: Validation error in '{error.field}': {error.message}"
                 )
 
         output_filename = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{dataset_id[:8]}_clean.csv"
@@ -230,7 +255,8 @@ class SilverLayer:
         logger.info(
             f"Silver layer processing complete: "
             f"{len(valid_records)}/{total_records} valid records "
-            f"(LLM corrected: {llm_corrected_count}, manual review: {len(manual_review_records)}) "
+            f"(LLM corrected: {llm_corrected_count}, manual review: {len(manual_review_records)}, "
+            f"dedupe auto: {dedupe_result.total_auto_merged}, dedupe review: {dedupe_result.total_pending_review}) "
             f"({processing_time:.2f}s)"
         )
 
@@ -246,6 +272,9 @@ class SilverLayer:
             manual_review_records=len(manual_review_records),
             processing_time_seconds=processing_time,
             validation_errors_log=validation_errors_log,
+            dedupe_auto_merged=dedupe_result.total_auto_merged,
+            dedupe_pending_review=dedupe_result.total_pending_review,
+            dedupe_review_file=review_file_path,
         )
 
         post_result, silver_dataset = self._execute_hook(

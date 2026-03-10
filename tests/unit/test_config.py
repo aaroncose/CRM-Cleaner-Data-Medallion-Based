@@ -47,6 +47,25 @@ class TestLLMConfig:
         config = LLMConfig(api_key="test-key", temperature=0.5)
         config.validate()
 
+    def test_ollama_provider_no_api_key_required(self):
+        """Ollama provider should not require API key."""
+        config = LLMConfig(provider="ollama", model_name="llama3.2")
+        config.validate()  # Should not raise
+
+    def test_openai_provider_requires_api_key(self):
+        """OpenAI provider should require API key."""
+        config = LLMConfig(provider="openai")
+        with pytest.raises(ConfigurationError) as exc_info:
+            config.validate()
+        assert "API key" in str(exc_info.value)
+
+    def test_invalid_provider(self):
+        """Invalid provider should raise error."""
+        config = LLMConfig(provider="invalid", api_key="test")
+        with pytest.raises(ConfigurationError) as exc_info:
+            config.validate()
+        assert "Invalid provider" in str(exc_info.value)
+
 
 class TestFrameworkConfig:
     def test_default_values(self):

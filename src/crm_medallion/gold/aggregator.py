@@ -15,6 +15,7 @@ from crm_medallion.gold.models import (
     GoldDataset,
     Index,
     IndexEntry,
+    SegmentedStatistics,
 )
 from crm_medallion.silver.models import SilverDataset
 from crm_medallion.utils.errors import FrameworkError
@@ -29,6 +30,7 @@ class DataAggregator:
 
     DEFAULT_INDEX_FIELDS = ["fecha", "categoria", "proveedor", "tipo", "estado_factura"]
     NUMERIC_FIELDS = ["importe_base", "iva", "importe_total", "importe_pendiente"]
+    SEGMENT_FIELDS = ["tipo", "estado_factura", "categoria", "proveedor"]
 
     def __init__(
         self,
@@ -125,11 +127,12 @@ class DataAggregator:
 
         stats = self._compute_statistics(df)
         indexes = self._build_indexes(df)
+        segmented_stats = self._compute_segmented_statistics(df)
 
         storage_filename = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{dataset_id[:8]}_gold.json"
         storage_path = self.config.storage_path / storage_filename
 
-        self._save_aggregation(df, stats, indexes, storage_path)
+        self._save_aggregation(df, stats, indexes, storage_path, segmented_stats)
 
         gold_dataset = GoldDataset(
             id=dataset_id,
@@ -139,6 +142,7 @@ class DataAggregator:
             record_count=len(df),
             statistics=stats,
             indexes=indexes,
+            segmented_statistics=segmented_stats,
             column_names=list(df.columns),
             metadata={
                 "source_csv": str(silver_dataset.clean_csv_path),
@@ -200,6 +204,47 @@ class DataAggregator:
 
         return stats
 
+    def _compute_segmented_statistics(
+        self, df: pd.DataFrame
+    ) -> dict[str, SegmentedStatistics]:
+        """Compute statistics segmented by categorical fields."""
+        segmented = {}
+
+        for segment_field in self.SEGMENT_FIELDS:
+            if segment_field not in df.columns:
+                continue
+
+            segments = {}
+            grouped = df.groupby(segment_field, dropna=False)
+
+            for segment_value, group in grouped:
+                display_key = str(segment_value) if not pd.isna(segment_value) else "N/A"
+                segment_stats = {
+                    "count": len(group),
+                }
+
+                for numeric_field in self.numeric_fields:
+                    if numeric_field not in group.columns:
+                        continue
+
+                    series = pd.to_numeric(group[numeric_field], errors="coerce").dropna()
+                    if len(series) > 0:
+                        segment_stats[f"{numeric_field}_sum"] = float(series.sum())
+                        segment_stats[f"{numeric_field}_mean"] = float(series.mean())
+
+                segments[display_key] = segment_stats
+
+            segmented[segment_field] = SegmentedStatistics(
+                segment_field=segment_field,
+                segments=segments,
+            )
+
+            logger.debug(
+                f"Segmented statistics for {segment_field}: {len(segments)} segments"
+            )
+
+        return segmented
+
     def _build_indexes(self, df: pd.DataFrame) -> dict[str, Index]:
         """Build indexes for common query patterns."""
         indexes = {}
@@ -243,6 +288,7 @@ class DataAggregator:
         stats: dict[str, FieldStatistics],
         indexes: dict[str, Index],
         storage_path: Path,
+        segmented_stats: dict[str, SegmentedStatistics] | None = None,
     ) -> None:
         """Save aggregation results to storage."""
         data = {
@@ -270,6 +316,13 @@ class DataAggregator:
                     },
                 }
                 for name, idx in indexes.items()
+            },
+            "segmented_statistics": {
+                name: {
+                    "segment_field": seg.segment_field,
+                    "segments": seg.segments,
+                }
+                for name, seg in (segmented_stats or {}).items()
             },
         }
 

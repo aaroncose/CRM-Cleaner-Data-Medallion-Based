@@ -48,6 +48,18 @@ class Index:
 
 
 @dataclass
+class SegmentedStatistics:
+    """Statistics grouped by a segment field (e.g., tipo, estado_factura)."""
+
+    segment_field: str
+    segments: dict[str, dict[str, float]]  # segment_value -> {metric_name -> value}
+
+    def get_segment(self, segment_value: str) -> dict[str, float] | None:
+        """Get statistics for a specific segment value."""
+        return self.segments.get(segment_value)
+
+
+@dataclass
 class GoldDataset:
     """Output of Gold layer aggregation."""
 
@@ -58,6 +70,7 @@ class GoldDataset:
     record_count: int
     statistics: dict[str, FieldStatistics]
     indexes: dict[str, Index]
+    segmented_statistics: dict[str, SegmentedStatistics] = field(default_factory=dict)
     column_names: list[str] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 

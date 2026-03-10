@@ -6,12 +6,14 @@ Transform messy CSV files with inconsistent formats, typos, and missing data int
 
 ## Features
 
-✨ **Medallion Architecture** - Bronze (raw) → Silver (clean) → Gold (analytics)  
-🧹 **Smart Data Cleaning** - Automatic normalization of dates, currencies, whitespace, and more  
-🤖 **Optional LLM Enhancement** - AI-powered correction for ambiguous data  
-📊 **Pre-computed Analytics** - Statistics, indexes, and aggregations  
-💬 **Natural Language Queries** - Ask questions about your data in plain English (RAG)  
-🔧 **Extensible** - Custom cleaning rules, hooks, and validators  
+✨ **Medallion Architecture** - Bronze (raw) → Silver (clean) → Gold (analytics)
+🧹 **Smart Data Cleaning** - Automatic normalization of dates, currencies, whitespace, and more
+🤖 **Optional LLM Enhancement** - AI-powered correction for ambiguous data
+📊 **Pre-computed Analytics** - Statistics, indexes, and segmented aggregations
+💬 **Natural Language Queries** - Ask questions about your data in Spanish (RAG)
+🦙 **Multiple LLM Providers** - OpenAI or Ollama (local, free)
+🔍 **Schema Auto-Detection** - Infer schema from CSV headers automatically
+🔧 **Extensible** - Custom cleaning rules, hooks, and validators
 ⚡ **Performance** - Batch processing, streaming for large files, memory limits
 
 ## Installation
@@ -20,8 +22,11 @@ Transform messy CSV files with inconsistent formats, typos, and missing data int
 # Basic installation
 pip install -e .
 
-# With LLM and RAG features
+# With LLM and RAG features (OpenAI)
 pip install -e ".[llm,rag]"
+
+# With Ollama support (local LLM, free)
+pip install -e ".[ollama,rag]"
 
 # Full installation (all optional features)
 pip install -e ".[all]"
@@ -61,11 +66,20 @@ crm-medallion process data.csv --with-llm
 # Process with verbose output
 crm-medallion process data.csv -v
 
+# Auto-detect schema from CSV
+crm-medallion detect-schema data.csv -o schema.yaml
+
 # View dataset summary
 crm-medallion summary ./output/gold/gold.json
 
-# Interactive RAG queries
+# Interactive RAG queries (OpenAI)
 crm-medallion query ./output/gold/gold.json --api-key sk-...
+
+# Interactive RAG queries (Ollama - local, free)
+crm-medallion query ./output/gold/ --provider ollama
+
+# Query with directory (auto-finds latest Gold JSON)
+crm-medallion query ./output/gold/
 ```
 
 ## Configuration
@@ -97,9 +111,10 @@ gold:
 
 llm_enabled: true
 llm:
-  model_name: gpt-4o-mini
+  provider: openai           # or "ollama" for local LLM
+  model_name: gpt-4o-mini    # or "llama3.2" for Ollama
   temperature: 0.0
-  api_key: ${OPENAI_API_KEY}
+  api_key: ${OPENAI_API_KEY} # not required for Ollama
   confidence_threshold: 0.7
   max_retries: 5
 
@@ -147,6 +162,26 @@ The framework automatically applies these cleaning rules:
 - **Amount parsing** - Handles spaces, currency symbols, comma/dot separators
 
 ## Schema Definition
+
+### Auto-Detect Schema from CSV
+
+```bash
+# Auto-detect schema from CSV headers and sample data
+crm-medallion detect-schema data.csv
+
+# Save detected schema to file
+crm-medallion detect-schema data.csv -o schema.yaml
+
+# Use custom name and sample size
+crm-medallion detect-schema data.csv --name MySchema --sample-rows 50
+```
+
+The schema detector analyzes sample rows to infer field types:
+- **Integer** - Numeric values without decimals
+- **Float** - Numeric values with decimals, currency formats
+- **Date** - ISO dates, DD/MM/YYYY, Spanish dates
+- **Boolean** - true/false, yes/no, si/no
+- **String** - Default for text fields
 
 ### Generate Schema Template
 
@@ -253,16 +288,44 @@ crm-medallion query <gold_data> [OPTIONS]
 Options:
   -c, --config PATH       Path to YAML configuration file
   -k, --api-key TEXT      OpenAI API key (or set OPENAI_API_KEY env var)
+  -p, --provider TEXT     LLM provider: "openai" or "ollama" (default: openai)
+  --no-support            Hide supporting data in responses
   --help                  Show help message
 
 Examples:
+  # With OpenAI
   crm-medallion query ./data/gold/gold.json --api-key sk-...
-  crm-medallion query ./data/gold/gold.json --config config.yaml
-  
+
+  # With Ollama (local, free - no API key needed)
+  crm-medallion query ./data/gold/gold.json --provider ollama
+
+  # Auto-find latest Gold JSON in directory
+  crm-medallion query ./data/gold/
+
+  # Hide supporting data in responses
+  crm-medallion query ./data/gold/ --no-support
+
   # In the interactive session:
   Question: ¿Cuántas facturas tenemos de Marketing?
   Question: ¿Cuál es el importe total de facturas pagadas?
   Question: exit
+```
+
+### `detect-schema` - Auto-detect schema from CSV
+
+```bash
+crm-medallion detect-schema <csv_file> [OPTIONS]
+
+Options:
+  -o, --output PATH       Output file path (default: stdout)
+  -n, --name TEXT         Name for the generated schema
+  -s, --sample-rows INT   Number of rows to sample (default: 20)
+  --help                  Show help message
+
+Examples:
+  crm-medallion detect-schema data.csv
+  crm-medallion detect-schema data.csv -o schema.yaml
+  crm-medallion detect-schema data.csv --name FacturaSchema -s 50
 ```
 
 ### `summary` - Display dataset statistics
@@ -335,17 +398,41 @@ The LLM cleaner will:
 
 ## RAG Queries (Optional)
 
-Query your data using natural language:
+Query your data using natural language. **Responses are always in Spanish.**
+
+### With OpenAI
 
 ```bash
-crm-medallion query ./data/gold/gold.json --api-key sk-...
+export OPENAI_API_KEY=sk-...
+crm-medallion query ./data/gold/gold.json
 ```
 
-Example queries:
+### With Ollama (Local, Free)
+
+First, install and run Ollama:
+```bash
+# Install Ollama (https://ollama.ai)
+# Pull a model
+ollama pull llama3.2
+
+# Run the query command
+crm-medallion query ./data/gold/ --provider ollama
+```
+
+### Example Queries
+
 - "¿Cuántas facturas tenemos de Marketing?"
 - "¿Cuál es el importe total de facturas pagadas?"
+- "¿Cuántas facturas están pendientes por proveedor?"
 - "Muéstrame las facturas vencidas de más de 10.000 euros"
 - "¿Qué proveedor tiene más facturas?"
+
+### Query Features
+
+- **Auto-find latest Gold JSON** - Pass a directory and it finds the most recent file
+- **Segmented statistics** - Aggregations by tipo, estado_factura, categoria, proveedor
+- **Hide supporting data** - Use `--no-support` or say "sin datos de soporte" in your question
+- **Spanish responses** - All answers are in Spanish regardless of question language
 
 ## Extending the Framework
 
@@ -425,13 +512,19 @@ crm-medallion/
 - click >= 8.0.0
 - chardet >= 5.0.0
 - pyyaml >= 6.0
+- thefuzz >= 0.22.0 (fuzzy matching for deduplication)
 
-**Optional Dependencies:**
-- langchain >= 0.1.0 (LLM features)
-- langchain-openai >= 0.0.1 (OpenAI integration)
-- langgraph >= 0.0.1 (LLM orchestration)
-- chromadb >= 0.4.0 (RAG queries)
-- sentence-transformers >= 2.2.0 (Embeddings)
+**Optional Dependencies (LLM):**
+- langchain >= 0.1.0
+- langchain-openai >= 0.0.5 (OpenAI integration)
+- langgraph >= 0.0.1
+
+**Optional Dependencies (RAG):**
+- chromadb >= 0.4.0
+- langchain-community >= 0.0.20
+
+**Optional Dependencies (Ollama):**
+- langchain-community >= 0.0.20
 
 ## Development
 
@@ -463,13 +556,19 @@ ruff format src/
 
 
 
-🚧 **Upcoming Features** - Currently in development:
+## Recent Updates (v0.2.0)
 
-### Pre-CSV Configuration Wizard
-- Interactive CLI wizard to configure schema before uploading CSV
-- Auto-detect field types from sample data
-- Custom validation rules builder
-- Export configuration for reuse
+✅ **Schema Auto-Detection** - `crm-medallion detect-schema data.csv`
+✅ **Ollama Support** - Use local LLMs for free with `--provider ollama`
+✅ **Segmented Statistics** - Aggregations by tipo, estado, categoria, proveedor
+✅ **Spanish Responses** - RAG always responds in Spanish
+✅ **Auto-find Gold JSON** - Pass directory to query command
+✅ **importe_pendiente Calculation** - Auto-calculated based on estado_factura
+✅ **Hide Supporting Data** - `--no-support` option in query command
+
+---
+
+🚧 **Upcoming Features** - Currently in development:
 
 ### Web UI Dashboard
 - Browser-based interface for data processing
@@ -477,7 +576,6 @@ ruff format src/
 - Real-time processing progress
 - Visual data quality reports
 - Interactive data preview (Bronze → Silver → Gold)
-- Configuration editor with live validation
 
 ### Advanced Analytics
 - Time-series analysis and forecasting
@@ -486,26 +584,21 @@ ruff format src/
 - Export to Excel/PDF reports
 
 ### Enhanced LLM Features
-- Multi-model support (Claude, Gemini, local models)
+- Multi-model support (Claude, Gemini)
 - Batch LLM processing for cost optimization
-- Confidence scoring and human-in-the-loop review
 - Fine-tuned models for domain-specific cleaning
 
 ### Data Lineage & Audit
 - Track data transformations across layers
 - Audit trail for compliance
 - Rollback to previous versions
-- Change history visualization
 
 ### Performance Improvements
 - Parallel processing for large datasets
 - Incremental updates (process only new rows)
-- Caching layer for repeated operations
 - Distributed processing support
 
 ---
-
-
 
 ## License
 

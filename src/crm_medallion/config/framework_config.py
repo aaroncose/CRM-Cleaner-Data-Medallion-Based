@@ -23,12 +23,18 @@ class LLMConfig:
     max_retries: int = 5
     initial_retry_delay: float = 1.0
     backoff_multiplier: float = 2.0
+    provider: str = "openai"  # "openai" or "ollama"
 
     def validate(self) -> None:
         """Validate LLM configuration."""
-        if not self.api_key:
+        if self.provider not in ("openai", "ollama"):
             raise ConfigurationError(
-                "API key is required for LLM features",
+                f"Invalid provider: {self.provider}. Must be 'openai' or 'ollama'",
+                context={"field": "llm_config.provider", "value": self.provider},
+            )
+        if self.provider == "openai" and not self.api_key:
+            raise ConfigurationError(
+                "API key is required for OpenAI provider",
                 context={"field": "llm_config.api_key"},
             )
         if not 0.0 <= self.temperature <= 2.0:
@@ -44,6 +50,15 @@ class LLMConfig:
                     "value": self.confidence_threshold,
                 },
             )
+
+
+@dataclass
+class OllamaConfig:
+    """Configuration for Ollama (local LLM) provider."""
+
+    host: str = "http://localhost:11434"
+    model_name: str = "llama3.2"
+    temperature: float = 0.0
 
 
 @dataclass
@@ -207,6 +222,7 @@ class FrameworkConfig:
                 api_key=llm_data.get("api_key", ""),
                 confidence_threshold=llm_data.get("confidence_threshold", 0.7),
                 max_retries=llm_data.get("max_retries", 5),
+                provider=llm_data.get("provider", "openai"),
             )
 
         log_file = None

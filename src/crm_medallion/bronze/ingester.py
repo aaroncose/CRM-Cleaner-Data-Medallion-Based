@@ -1,6 +1,7 @@
 """CSV ingestion for the Bronze Layer."""
 
 import csv
+import re
 import shutil
 import uuid
 from datetime import datetime
@@ -10,6 +11,7 @@ import chardet
 
 from crm_medallion.bronze.models import BronzeDataset, BronzeValidationResult
 from crm_medallion.config.framework_config import BronzeConfig
+from crm_medallion.config.schema import FieldDefinition, FieldType, SchemaDefinition
 from crm_medallion.utils.errors import ConfigurationError, FrameworkError
 from crm_medallion.utils.hooks import HookExecutor, HookPhase, HookRegistry, HookResult
 from crm_medallion.utils.logging import get_logger
@@ -269,3 +271,129 @@ class CSVIngester:
             )
 
         return dataset
+
+    def detect_schema(
+        self,
+        file_path: Path,
+        sample_rows: int = 20,
+        schema_name: str | None = None,
+    ) -> SchemaDefinition:
+        """
+        Auto-detect schema from CSV headers and sample data.
+
+        Args:
+            file_path: Path to the CSV file
+            sample_rows: Number of rows to sample for type inference (default: 20)
+            schema_name: Optional name for the schema
+
+        Returns:
+            SchemaDefinition with inferred field types
+
+        Raises:
+            FrameworkError: If CSV has no header or cannot be read
+        """
+        if isinstance(file_path, str):
+            file_path = Path(file_path)
+
+        if not file_path.exists():
+            raise FileNotFoundError(f"CSV file not found: {file_path}")
+
+        encoding = self.detect_encoding(file_path) if self.config.encoding_detection else "utf-8"
+
+        logger.info(f"Detecting schema from: {file_path.name}")
+
+        with open(file_path, "r", encoding=encoding, newline="") as f:
+            reader = csv.reader(f)
+
+            try:
+                header = next(reader)
+            except StopIteration:
+                raise FrameworkError(
+                    "CSV file is empty or has no header",
+                    context={"path": str(file_path)},
+                )
+
+            column_names = [col.strip() for col in header]
+            if not column_names or all(not col for col in column_names):
+                raise FrameworkError(
+                    "CSV header is empty or contains only empty values",
+                    context={"path": str(file_path)},
+                )
+
+            # Collect sample values for each column
+            column_values: dict[str, list[str]] = {col: [] for col in column_names}
+
+            for i, row in enumerate(reader):
+                if i >= sample_rows:
+                    break
+                for j, value in enumerate(row):
+                    if j < len(column_names):
+                        column_values[column_names[j]].append(value.strip())
+
+        # Infer types for each column
+        fields = []
+        for col_name in column_names:
+            values = column_values[col_name]
+            field_type = self._infer_field_type(values)
+
+            fields.append(FieldDefinition(
+                name=col_name,
+                field_type=field_type,
+                required=True,
+                description=f"Auto-detected as {field_type.value}",
+            ))
+
+        schema = SchemaDefinition(
+            name=schema_name or file_path.stem.title().replace("_", "") + "Schema",
+            fields=fields,
+            description=f"Auto-generated schema from {file_path.name}",
+        )
+
+        logger.info(f"Detected schema with {len(fields)} fields")
+        return schema
+
+    def _infer_field_type(self, values: list[str]) -> FieldType:
+        """
+        Infer the field type from sample values.
+
+        Args:
+            values: List of sample values for the column
+
+        Returns:
+            Inferred FieldType
+        """
+        non_empty_values = [v for v in values if v]
+
+        if not non_empty_values:
+            return FieldType.STRING
+
+        # Check for integer
+        int_pattern = re.compile(r"^-?\d+$")
+        if all(int_pattern.match(v) for v in non_empty_values):
+            return FieldType.INTEGER
+
+        # Check for float (handles European format with comma)
+        float_pattern = re.compile(r"^-?\d+[.,]?\d*$|^-?\d*[.,]\d+$")
+        currency_pattern = re.compile(r"^-?[\d.,]+\s*(€|EUR|USD|\$)?$", re.IGNORECASE)
+        if all(float_pattern.match(v) or currency_pattern.match(v) for v in non_empty_values):
+            return FieldType.FLOAT
+
+        # Check for date/datetime patterns
+        date_patterns = [
+            r"^\d{4}-\d{2}-\d{2}$",  # ISO format: 2024-01-15
+            r"^\d{2}/\d{2}/\d{4}$",  # DD/MM/YYYY
+            r"^\d{2}-\d{2}-\d{4}$",  # DD-MM-YYYY
+            r"^\d{1,2}\s+de\s+\w+\s+de\s+\d{4}$",  # Spanish: 15 de enero de 2024
+            r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}",  # ISO datetime
+        ]
+        for pattern in date_patterns:
+            if all(re.match(pattern, v, re.IGNORECASE) for v in non_empty_values):
+                return FieldType.DATE
+
+        # Check for boolean
+        bool_values = {"true", "false", "yes", "no", "si", "sí", "1", "0", "verdadero", "falso"}
+        if all(v.lower() in bool_values for v in non_empty_values):
+            return FieldType.BOOLEAN
+
+        # Default to string
+        return FieldType.STRING

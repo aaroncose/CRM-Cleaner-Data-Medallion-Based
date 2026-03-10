@@ -168,6 +168,30 @@ def process(csv_file: Path, config: Path | None, output: Path | None, with_llm: 
         sys.exit(1)
 
 
+def _find_latest_gold_json(folder: Path) -> Path | None:
+    """
+    Find the latest Gold JSON file in a folder.
+
+    Args:
+        folder: Path to search for Gold JSON files
+
+    Returns:
+        Path to the latest Gold JSON file, or None if not found
+    """
+    gold_files = list(folder.glob("*_gold.json")) + list(folder.glob("*gold*.json"))
+
+    if not gold_files:
+        # Also check for any .json file
+        gold_files = list(folder.glob("*.json"))
+
+    if not gold_files:
+        return None
+
+    # Sort by filename (which contains timestamp) in descending order
+    gold_files.sort(key=lambda p: p.name, reverse=True)
+    return gold_files[0]
+
+
 @cli.command()
 @click.argument("gold_data", type=click.Path(exists=True, path_type=Path))
 @click.option(
@@ -180,20 +204,55 @@ def process(csv_file: Path, config: Path | None, output: Path | None, with_llm: 
     envvar="OPENAI_API_KEY",
     help="OpenAI API key (or set OPENAI_API_KEY env var)",
 )
-def query(gold_data: Path, config: Path | None, api_key: str | None):
+@click.option(
+    "--no-support",
+    is_flag=True,
+    help="Hide supporting data in responses",
+)
+@click.option(
+    "--provider", "-p",
+    type=click.Choice(["openai", "ollama"]),
+    default="openai",
+    help="LLM provider to use (default: openai)",
+)
+def query(gold_data: Path, config: Path | None, api_key: str | None, no_support: bool, provider: str):
     """
     Start an interactive query session with Gold layer data.
 
-    GOLD_DATA: Path to the Gold layer JSON file.
+    GOLD_DATA: Path to the Gold layer JSON file or directory containing Gold files.
+
+    If a directory is provided, the most recent Gold JSON file will be used automatically.
 
     Examples:
 
         crm-medallion query ./data/gold/gold.json --api-key sk-...
 
+        crm-medallion query ./data/gold/ --api-key sk-...
+
         crm-medallion query ./data/gold/gold.json --config config.yaml
     """
-    if not api_key and not config:
-        print_error("API key required. Use --api-key or set OPENAI_API_KEY environment variable.")
+    # Handle directory input - find latest Gold JSON
+    if gold_data.is_dir():
+        latest_gold = _find_latest_gold_json(gold_data)
+        if latest_gold is None:
+            # Also check subdirectories (e.g., output_llm/gold/)
+            for subdir in ["gold", "Gold"]:
+                subdir_path = gold_data / subdir
+                if subdir_path.exists() and subdir_path.is_dir():
+                    latest_gold = _find_latest_gold_json(subdir_path)
+                    if latest_gold:
+                        break
+
+        if latest_gold is None:
+            print_error(f"No Gold JSON files found in: {gold_data}")
+            sys.exit(1)
+
+        print_info(f"Using latest Gold dataset: {latest_gold.name}")
+        gold_data = latest_gold
+
+    # Check for API key only when using OpenAI provider
+    if provider == "openai" and not api_key and not config:
+        print_error("API key required for OpenAI. Use --api-key, set OPENAI_API_KEY, or use --provider ollama.")
         sys.exit(1)
 
     try:
@@ -203,14 +262,23 @@ def query(gold_data: Path, config: Path | None, api_key: str | None):
             framework_config = FrameworkConfig(
                 gold=GoldConfig(enable_rag=True),
                 llm_enabled=True,
-                llm_config=LLMConfig(api_key=api_key or ""),
+                llm_config=LLMConfig(
+                    api_key=api_key or "",
+                    provider=provider,
+                    model_name="llama3.2" if provider == "ollama" else "gpt-4o-mini",
+                ),
             )
 
         if api_key and framework_config.llm_config:
             framework_config.llm_config.api_key = api_key
 
+        if framework_config.llm_config:
+            framework_config.llm_config.provider = provider
+
         from datetime import datetime
-        from crm_medallion.gold.models import GoldDataset, FieldStatistics, Index, IndexEntry
+        from crm_medallion.gold.models import (
+            GoldDataset, FieldStatistics, Index, IndexEntry, SegmentedStatistics
+        )
         from crm_medallion.gold.rag_engine import RAGQueryEngine
 
         print_info("Loading Gold dataset...")
@@ -251,6 +319,13 @@ def query(gold_data: Path, config: Path | None, api_key: str | None):
                 unique_values=idx_data.get("unique_values", len(entries)),
             )
 
+        segmented_statistics = {}
+        for name, seg_data in data.get("segmented_statistics", {}).items():
+            segmented_statistics[name] = SegmentedStatistics(
+                segment_field=seg_data.get("segment_field", name),
+                segments=seg_data.get("segments", {}),
+            )
+
         gold_dataset = GoldDataset(
             id=data.get("id", "loaded"),
             silver_dataset_id=data.get("silver_dataset_id", "unknown"),
@@ -259,6 +334,7 @@ def query(gold_data: Path, config: Path | None, api_key: str | None):
             record_count=len(records),
             statistics=statistics,
             indexes=indexes,
+            segmented_statistics=segmented_statistics,
             column_names=list(records[0].keys()) if records else [],
         )
 
@@ -295,7 +371,17 @@ def query(gold_data: Path, config: Path | None, api_key: str | None):
                 click.secho("Answer:", fg="cyan", bold=True)
                 click.echo(response.answer)
 
-                if response.supporting_data:
+                # Check if user wants to hide supporting data
+                hide_support_phrases = [
+                    "sin datos de soporte", "no quiero supporting data",
+                    "sin supporting data", "no supporting data",
+                    "sin soporte", "without supporting",
+                ]
+                hide_support = no_support or any(
+                    phrase in user_input.lower() for phrase in hide_support_phrases
+                )
+
+                if response.supporting_data and not hide_support:
                     click.echo()
                     click.secho("Supporting data:", fg="cyan")
                     for item in response.supporting_data[:3]:
@@ -501,6 +587,80 @@ def generate_config(output: Path | None, with_llm: bool):
         print_success(f"Configuration written to: {output}")
     else:
         click.echo(content)
+
+
+@cli.command("detect-schema")
+@click.argument("csv_file", type=click.Path(exists=True, path_type=Path))
+@click.option(
+    "--output", "-o",
+    type=click.Path(path_type=Path),
+    help="Output file path for the generated schema (default: stdout)",
+)
+@click.option(
+    "--name", "-n",
+    type=str,
+    help="Name for the generated schema",
+)
+@click.option(
+    "--sample-rows", "-s",
+    type=int,
+    default=20,
+    help="Number of rows to sample for type inference (default: 20)",
+)
+def detect_schema(csv_file: Path, output: Path | None, name: str | None, sample_rows: int):
+    """
+    Auto-detect schema from a CSV file.
+
+    Reads the CSV headers and samples data to infer field types.
+    Generates a schema.yaml that can be used with the process command.
+
+    CSV_FILE: Path to the CSV file to analyze.
+
+    Examples:
+
+        crm-medallion detect-schema data.csv
+
+        crm-medallion detect-schema data.csv -o schema.yaml
+
+        crm-medallion detect-schema data.csv --name MyCustomSchema
+    """
+    import yaml
+    from crm_medallion.bronze.ingester import CSVIngester
+    from crm_medallion.config.framework_config import BronzeConfig
+
+    try:
+        ingester = CSVIngester(BronzeConfig())
+        schema = ingester.detect_schema(
+            csv_file,
+            sample_rows=sample_rows,
+            schema_name=name,
+        )
+
+        schema_dict = schema.to_dict()
+
+        # Remove empty descriptions for cleaner output
+        for field in schema_dict.get("fields", []):
+            if "description" in field and field["description"].startswith("Auto-detected"):
+                del field["description"]
+
+        content = yaml.dump(schema_dict, default_flow_style=False, allow_unicode=True, sort_keys=False)
+
+        if output:
+            output.write_text(content)
+            print_success(f"Schema written to: {output}")
+            click.echo()
+            click.echo("Detected fields:")
+            for field in schema.fields:
+                click.echo(f"  - {field.name}: {field.field_type.value}")
+        else:
+            click.echo(content)
+
+    except FrameworkError as e:
+        print_error(f"Error: {e.message}")
+        sys.exit(1)
+    except Exception as e:
+        print_error(f"Error: {e}")
+        sys.exit(1)
 
 
 @cli.command()
