@@ -6,15 +6,23 @@ Transform messy CSV files with inconsistent formats, typos, and missing data int
 
 ## Features
 
-✨ **Medallion Architecture** - Bronze (raw) → Silver (clean) → Gold (analytics)
-🧹 **Smart Data Cleaning** - Automatic normalization of dates, currencies, whitespace, and more
-🤖 **Optional LLM Enhancement** - AI-powered correction for ambiguous data
-📊 **Pre-computed Analytics** - Statistics, indexes, and segmented aggregations
-💬 **Natural Language Queries** - Ask questions about your data in Spanish (RAG)
-🦙 **Multiple LLM Providers** - OpenAI or Ollama (local, free)
-🔍 **Schema Auto-Detection** - Infer schema from CSV headers automatically
-🔧 **Extensible** - Custom cleaning rules, hooks, and validators
-⚡ **Performance** - Batch processing, streaming for large files, memory limits
+**Medallion Architecture** - Bronze (raw) → Silver (clean) → Gold (analytics)
+
+**Smart Data Cleaning** - Automatic normalization of dates, currencies, whitespace, and more
+
+**Optional LLM Enhancement** - AI-powered correction for ambiguous data
+
+**Pre-computed Analytics** - Statistics, indexes, and segmented aggregations
+
+**Natural Language Queries** - Ask questions about your data in Spanish (RAG)
+
+**Multiple LLM Providers** - OpenAI or Ollama (local, free)
+
+**Schema Auto-Detection** - Infer schema from CSV headers automatically
+
+**Extensible** - Custom cleaning rules, hooks, and validators
+
+**Performance** - Batch processing, streaming for large files, memory limits
 
 ## Installation
 
