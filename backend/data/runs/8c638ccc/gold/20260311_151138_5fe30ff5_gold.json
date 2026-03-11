@@ -1,0 +1,458 @@
+{
+  "records": [
+    {
+      "num_factura": "FAC-2024-0001",
+      "fecha": "2024-01-15 00:00:00",
+      "proveedor": "Empresa Abc",
+      "nif_cif": "B12345678",
+      "tipo": "Ingreso",
+      "categoria": "Marketing",
+      "importe_base": 1000.0,
+      "iva": 0.0,
+      "importe_total": 210.0,
+      "estado_factura": "00 \u20ac",
+      "importe_pendiente": 0.0
+    },
+    {
+      "num_factura": "FAC-2024-0002",
+      "fecha": "2024-01-20 00:00:00",
+      "proveedor": "Tech Solutions Sl",
+      "nif_cif": "A87654321",
+      "tipo": "Gasto",
+      "categoria": "Tecnolog\u00eda",
+      "importe_base": 2500.5,
+      "iva": 525.11,
+      "importe_total": 3025.61,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 3025.61
+    },
+    {
+      "num_factura": "FAC-2024-0003",
+      "fecha": "2024-01-25 00:00:00",
+      "proveedor": "Consulting Partners",
+      "nif_cif": "B11223344",
+      "tipo": "Ingreso",
+      "categoria": "Consultor\u00eda",
+      "importe_base": 3500.0,
+      "iva": 735.0,
+      "importe_total": 4235.0,
+      "estado_factura": "Pagada",
+      "importe_pendiente": 0.0
+    },
+    {
+      "num_factura": "FAC-2024-0004",
+      "fecha": "2024-02-01 00:00:00",
+      "proveedor": "Marketing Pro",
+      "nif_cif": "C99887766",
+      "tipo": "Gasto",
+      "categoria": "Marketing",
+      "importe_base": 800.0,
+      "iva": 168.0,
+      "importe_total": 968.0,
+      "estado_factura": "Vencida",
+      "importe_pendiente": 968.0
+    },
+    {
+      "num_factura": "FAC-2024-0005",
+      "fecha": "2024-02-05 00:00:00",
+      "proveedor": "Desarrollo Web",
+      "nif_cif": "B55443322",
+      "tipo": "Ingreso",
+      "categoria": "Tecnolog\u00eda",
+      "importe_base": 1200.0,
+      "iva": 252.0,
+      "importe_total": 1452.0,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 1452.0
+    }
+  ],
+  "statistics": {
+    "importe_base": {
+      "field_name": "importe_base",
+      "count": 5,
+      "sum": 9000.5,
+      "mean": 1800.1,
+      "median": 1200.0,
+      "min": 800.0,
+      "max": 3500.0,
+      "std": 1159.816817432822
+    },
+    "iva": {
+      "field_name": "iva",
+      "count": 5,
+      "sum": 1680.1100000000001,
+      "mean": 336.022,
+      "median": 252.0,
+      "min": 0.0,
+      "max": 735.0,
+      "std": 292.8905895039989
+    },
+    "importe_total": {
+      "field_name": "importe_total",
+      "count": 5,
+      "sum": 9890.61,
+      "mean": 1978.122,
+      "median": 1452.0,
+      "min": 210.0,
+      "max": 4235.0,
+      "std": 1628.9671296315344
+    },
+    "importe_pendiente": {
+      "field_name": "importe_pendiente",
+      "count": 5,
+      "sum": 5445.610000000001,
+      "mean": 1089.122,
+      "median": 968.0,
+      "min": 0.0,
+      "max": 3025.61,
+      "std": 1251.869623571081
+    }
+  },
+  "indexes": {
+    "fecha": {
+      "field_name": "fecha",
+      "unique_values": 5,
+      "entries": {
+        "2024-01-15": {
+          "key": "2024-01-15",
+          "count": 1,
+          "row_indices": [
+            0
+          ]
+        },
+        "2024-01-20": {
+          "key": "2024-01-20",
+          "count": 1,
+          "row_indices": [
+            1
+          ]
+        },
+        "2024-01-25": {
+          "key": "2024-01-25",
+          "count": 1,
+          "row_indices": [
+            2
+          ]
+        },
+        "2024-02-01": {
+          "key": "2024-02-01",
+          "count": 1,
+          "row_indices": [
+            3
+          ]
+        },
+        "2024-02-05": {
+          "key": "2024-02-05",
+          "count": 1,
+          "row_indices": [
+            4
+          ]
+        }
+      }
+    },
+    "categoria": {
+      "field_name": "categoria",
+      "unique_values": 3,
+      "entries": {
+        "Consultor\u00eda": {
+          "key": "Consultor\u00eda",
+          "count": 1,
+          "row_indices": [
+            2
+          ]
+        },
+        "Marketing": {
+          "key": "Marketing",
+          "count": 2,
+          "row_indices": [
+            0,
+            3
+          ]
+        },
+        "Tecnolog\u00eda": {
+          "key": "Tecnolog\u00eda",
+          "count": 2,
+          "row_indices": [
+            1,
+            4
+          ]
+        }
+      }
+    },
+    "proveedor": {
+      "field_name": "proveedor",
+      "unique_values": 5,
+      "entries": {
+        "Consulting Partners": {
+          "key": "Consulting Partners",
+          "count": 1,
+          "row_indices": [
+            2
+          ]
+        },
+        "Desarrollo Web": {
+          "key": "Desarrollo Web",
+          "count": 1,
+          "row_indices": [
+            4
+          ]
+        },
+        "Empresa Abc": {
+          "key": "Empresa Abc",
+          "count": 1,
+          "row_indices": [
+            0
+          ]
+        },
+        "Marketing Pro": {
+          "key": "Marketing Pro",
+          "count": 1,
+          "row_indices": [
+            3
+          ]
+        },
+        "Tech Solutions Sl": {
+          "key": "Tech Solutions Sl",
+          "count": 1,
+          "row_indices": [
+            1
+          ]
+        }
+      }
+    },
+    "tipo": {
+      "field_name": "tipo",
+      "unique_values": 2,
+      "entries": {
+        "Gasto": {
+          "key": "Gasto",
+          "count": 2,
+          "row_indices": [
+            1,
+            3
+          ]
+        },
+        "Ingreso": {
+          "key": "Ingreso",
+          "count": 3,
+          "row_indices": [
+            0,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    "estado_factura": {
+      "field_name": "estado_factura",
+      "unique_values": 4,
+      "entries": {
+        "00 \u20ac": {
+          "key": "00 \u20ac",
+          "count": 1,
+          "row_indices": [
+            0
+          ]
+        },
+        "Pagada": {
+          "key": "Pagada",
+          "count": 1,
+          "row_indices": [
+            2
+          ]
+        },
+        "Pendiente": {
+          "key": "Pendiente",
+          "count": 2,
+          "row_indices": [
+            1,
+            4
+          ]
+        },
+        "Vencida": {
+          "key": "Vencida",
+          "count": 1,
+          "row_indices": [
+            3
+          ]
+        }
+      }
+    }
+  },
+  "segmented_statistics": {
+    "tipo": {
+      "segment_field": "tipo",
+      "segments": {
+        "Gasto": {
+          "count": 2,
+          "importe_base_sum": 3300.5,
+          "importe_base_mean": 1650.25,
+          "iva_sum": 693.11,
+          "iva_mean": 346.555,
+          "importe_total_sum": 3993.61,
+          "importe_total_mean": 1996.805,
+          "importe_pendiente_sum": 3993.61,
+          "importe_pendiente_mean": 1996.805
+        },
+        "Ingreso": {
+          "count": 3,
+          "importe_base_sum": 5700.0,
+          "importe_base_mean": 1900.0,
+          "iva_sum": 987.0,
+          "iva_mean": 329.0,
+          "importe_total_sum": 5897.0,
+          "importe_total_mean": 1965.6666666666667,
+          "importe_pendiente_sum": 1452.0,
+          "importe_pendiente_mean": 484.0
+        }
+      }
+    },
+    "estado_factura": {
+      "segment_field": "estado_factura",
+      "segments": {
+        "00 \u20ac": {
+          "count": 1,
+          "importe_base_sum": 1000.0,
+          "importe_base_mean": 1000.0,
+          "iva_sum": 0.0,
+          "iva_mean": 0.0,
+          "importe_total_sum": 210.0,
+          "importe_total_mean": 210.0,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Pagada": {
+          "count": 1,
+          "importe_base_sum": 3500.0,
+          "importe_base_mean": 3500.0,
+          "iva_sum": 735.0,
+          "iva_mean": 735.0,
+          "importe_total_sum": 4235.0,
+          "importe_total_mean": 4235.0,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Pendiente": {
+          "count": 2,
+          "importe_base_sum": 3700.5,
+          "importe_base_mean": 1850.25,
+          "iva_sum": 777.11,
+          "iva_mean": 388.555,
+          "importe_total_sum": 4477.610000000001,
+          "importe_total_mean": 2238.8050000000003,
+          "importe_pendiente_sum": 4477.610000000001,
+          "importe_pendiente_mean": 2238.8050000000003
+        },
+        "Vencida": {
+          "count": 1,
+          "importe_base_sum": 800.0,
+          "importe_base_mean": 800.0,
+          "iva_sum": 168.0,
+          "iva_mean": 168.0,
+          "importe_total_sum": 968.0,
+          "importe_total_mean": 968.0,
+          "importe_pendiente_sum": 968.0,
+          "importe_pendiente_mean": 968.0
+        }
+      }
+    },
+    "categoria": {
+      "segment_field": "categoria",
+      "segments": {
+        "Consultor\u00eda": {
+          "count": 1,
+          "importe_base_sum": 3500.0,
+          "importe_base_mean": 3500.0,
+          "iva_sum": 735.0,
+          "iva_mean": 735.0,
+          "importe_total_sum": 4235.0,
+          "importe_total_mean": 4235.0,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Marketing": {
+          "count": 2,
+          "importe_base_sum": 1800.0,
+          "importe_base_mean": 900.0,
+          "iva_sum": 168.0,
+          "iva_mean": 84.0,
+          "importe_total_sum": 1178.0,
+          "importe_total_mean": 589.0,
+          "importe_pendiente_sum": 968.0,
+          "importe_pendiente_mean": 484.0
+        },
+        "Tecnolog\u00eda": {
+          "count": 2,
+          "importe_base_sum": 3700.5,
+          "importe_base_mean": 1850.25,
+          "iva_sum": 777.11,
+          "iva_mean": 388.555,
+          "importe_total_sum": 4477.610000000001,
+          "importe_total_mean": 2238.8050000000003,
+          "importe_pendiente_sum": 4477.610000000001,
+          "importe_pendiente_mean": 2238.8050000000003
+        }
+      }
+    },
+    "proveedor": {
+      "segment_field": "proveedor",
+      "segments": {
+        "Consulting Partners": {
+          "count": 1,
+          "importe_base_sum": 3500.0,
+          "importe_base_mean": 3500.0,
+          "iva_sum": 735.0,
+          "iva_mean": 735.0,
+          "importe_total_sum": 4235.0,
+          "importe_total_mean": 4235.0,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Desarrollo Web": {
+          "count": 1,
+          "importe_base_sum": 1200.0,
+          "importe_base_mean": 1200.0,
+          "iva_sum": 252.0,
+          "iva_mean": 252.0,
+          "importe_total_sum": 1452.0,
+          "importe_total_mean": 1452.0,
+          "importe_pendiente_sum": 1452.0,
+          "importe_pendiente_mean": 1452.0
+        },
+        "Empresa Abc": {
+          "count": 1,
+          "importe_base_sum": 1000.0,
+          "importe_base_mean": 1000.0,
+          "iva_sum": 0.0,
+          "iva_mean": 0.0,
+          "importe_total_sum": 210.0,
+          "importe_total_mean": 210.0,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Marketing Pro": {
+          "count": 1,
+          "importe_base_sum": 800.0,
+          "importe_base_mean": 800.0,
+          "iva_sum": 168.0,
+          "iva_mean": 168.0,
+          "importe_total_sum": 968.0,
+          "importe_total_mean": 968.0,
+          "importe_pendiente_sum": 968.0,
+          "importe_pendiente_mean": 968.0
+        },
+        "Tech Solutions Sl": {
+          "count": 1,
+          "importe_base_sum": 2500.5,
+          "importe_base_mean": 2500.5,
+          "iva_sum": 525.11,
+          "iva_mean": 525.11,
+          "importe_total_sum": 3025.61,
+          "importe_total_mean": 3025.61,
+          "importe_pendiente_sum": 3025.61,
+          "importe_pendiente_mean": 3025.61
+        }
+      }
+    }
+  }
+}

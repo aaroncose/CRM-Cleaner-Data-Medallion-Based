@@ -1,0 +1,21 @@
+num_factura,fecha,proveedor,nif_cif,tipo,categoria,importe_base,iva,importe_total,estado_factura,importe_pendiente
+FAC-2023-0001,2023-10-13,Distribuciones Lopez,D86379402,Ingreso,Limpiesa,36955.33,7760.62,44715.95,Pendiente,44715.95
+FAC-2024-0002,2024-08-23,Marketing Online Bcn,E13164752,Ingreso,Marketing,41555.53,8726.66,50282.19,Pagad,0.0
+FAC-2025-0003,2023-04-25,Fontanería Express,F37672423,Gasto,Infraestructura,5764.75,1210.6,6975.35,Pendiente,6975.35
+FAC-2023-0004,2023-11-10,Materiales Hernández,E80184514,Gasto,Tecnología,15704.78,3298.0,19002.78,Pagada,0.0
+FAC-2024-0005,2025-12-22,Limpieza Industrial Norte,E30391171,Ingreso,Transporte,45965.43,9652.74,55618.17,Vencida,55618.17
+FAC-2025-0006,2025-06-16,Transporte Veloz,10310518,Ingreso,Limpieza,45030.9,9456.49,54487.39,Parcialmente Pagada,27243.695
+FAC-2023-0007,2025-04-21,Distribuciones Lopez,B33387262,Ingreso,Marketing,23617.72,4959.72,28577.44,Vencida,28577.44
+FAC-2024-0008,2025-09-12,Logística Martínez,E68723430,Ingreso,Transporte,11080.49,2326.9,13407.39,Parcialmente Pagada,6703.695
+FAC-2025-0009,2025-04-06,Servicios Digitales Ruiz,F43534624,Ingreso,Mantenimiento,6434.39,1351.22,7785.61,Pagada,0.0
+FAC-2023-0010,2024-08-06,Materiales Hernández,A84124118,Gasto,Tecnologia,3985.78,837.01,4822.79,Pendiente,4822.79
+FAC-2024-0011,2023-11-27,Techparts España,A59826204,Ingreso,Consultoría,37190.93,7810.1,45001.03,Pendiente,45001.03
+FAC-2023-0001,2023-11-29,Formación Tech Academy,D42160733,Gasto,Mantenimiento,24406.34,2440.63,26846.97,Pendiente,26846.97
+FAC-2023-0013,2023-08-25,Electricidad Pérez,56981693,Gasto,Infraestructura,21932.11,877.28,22809.39,Vencida,22809.39
+FAC-2024-0014,2024-08-28,Limpieza Industrial Norte,E68044369,Gasto,Marketing,13882.59,1388.26,15270.85,Vencida,15270.85
+FAC-2025-0015,2024-04-05,Limpieza Industrial Norte,76936763,Gasto,Tecnología,20173.74,2017.37,22191.11,Pendiente,22191.11
+FAC-2023-0016,2025-07-23,Marketing Online Bcn,H98687277,Ingreso,Infraestructura,7100.29,1491.06,8591.35,Pendiente,8591.35
+FAC-2024-0017,2023-11-05,Consultoría Ramos,D66909670,Gasto,Infraestructura,5819.97,582.0,6401.97,Pagada,0.0
+FAC-2025-0018,2025-06-11,Moviliario Oficina Plus,C98069901,Ingreso,Formacion,24539.28,5153.25,29692.53,Pendiente,29692.53
+FAC-2023-0019,2023-04-17,Seguridad Total S.L.,D09232719,Gasto,Tecnologia,24997.7,999.91,25997.61,Parcialmente Pagada,12998.805
+FAC-2024-0020,2024-02-11,Distribuciones Lopez,F86518506,Ingreso,Limpieza,4261.83,426.18,4688.01,Parcialmente Pagada,2344.005

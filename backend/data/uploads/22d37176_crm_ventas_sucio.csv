@@ -1,0 +1,501 @@
+num_factura,fecha,proveedor,nif_cif,tipo,categoria,importe_base,iva,importe_total,estado_factura
+FAC-2023-0001,2023-10-13,distribuciones lopez,D86379402,INGRESO,Limpiesa,36955.33 EUR,7760.62,44715.95,pendiente
+FAC-2024-0002,23-08-2024,marketing online bcn,E13164752,Ingrso,Marketing,41555.53,"8726,66",50282.19,pagad
+FAC-2025-0003,25/4/2023,Fontanería Express,F37672423,Gasto,Infraestructura,5764.75,1210.60,6975.35,Pendiente
+FAC-2023-0004,10/11/2023,Materiales Hernández,E80184514,Gasto,Tecnología,15704.78,"3298,0",  19002.78  ,Pagada
+FAC 2024 0005,22/12/2025,Limpieza Industrial Norte,E30391171,Ingreso,TRANSPORTE,45965.43,9652.74,  55618.17  ,Vencida
+FAC-2025-0006,16/06/2025,transporte veloz,10310518,INGRESO,Limpieza,45030.90,9456.49,54487.39 EUR,Parcialmente pagada
+FAC-2023-0007,04/21/2025,Distribuciones López,B-33387262,Ingreso,Marketing,23617.72,4959.72,  28577.44  ,Vencida
+2024/8,12/09/2025,Logística Martínez,E68723430,Ingreso,Transporte,"11080,49",2326.90,13407.39,parcialmente pagada
+FAC-2025-0009,06/04/2025,Servicios Digitales Ruiz,F43534624,Ingreso,Mantenimiento,"6434,39",1351.22,"7785,61",Pagada
+FAC-2023-0010,06/08/2024,Materiales Hernández,A-84124118,Gatso,TECNOLOGIA,3985.78,  837.01  ,"4822,79",Pendiente
+FAC-2024-0011,27 de noviembre de 2023,TechParts España,A59826204,Ingreso,Consultoría,37190.93 EUR,7810.10,45001.03,Pendiente
+,29/11/2023,Formación Tech Academy,D42160733,Gasto,mantenimiento,"24406,34",2440.63,26846.97€,Pendiente
+FAC-2023-0013,25-08-2023,Electricidad Pérez,56981693,GASTO,Infraestructura,"21932,11",877.28,22809.39,Vencida
+FAC-2024-0014,28/08/2024,Limpieza Industrial Norte,E68044369,gsato,Marketing,13882.59 EUR,1388.26,15270.85,vencida
+FAC-2025-0015,05/04/2024,Limpieza Industrial Norte,76936763,Gasto,Tecnología,20173.74,2017.37,  22191.11  ,Pendiente
+FAC-2023-0016,23/07/2025,Marketing Online BCN,H-98687277,Ingreso,Infraestructura,7100.29,1491.06,8591.35€,Pendiete
+2024/17,05/11/2023,Consultoría Ramos,D66909670,gsato,Infraestructura,5819.97,582.00,6401.97,Pagada
+FAC-2025-0018,11/06/2025,Moviliario Oficina Plus,C98069901,ingeso,FORMACION,24539.28,5153.25 EUR,29692.53,Pendiente
+FAC-2023-0019,17-04-2023,Seguridad Total S.L.,D09232719,Gasto,TECNOLOGIA,"24997,7",999.91,  25997.61  ,Parcialmente pagada
+FAC-2024-0020,11/02/2024,distribuciones lopez,F86518506,Ingrso,Limpieza,4261.83,426.18,4688.01,Parcialmente pagada
+FAC-2025-0021,07/03/2024,Papelería Central,G50752735,Gatso,Formación,8091.50,809.15€,8900.65,Parcialmente pagada
+FAC-2023-0022,10/07/2023,Alimentación Costa,g85574443,GASTO,Formacón,"7391,18",1552.15,8943.33,Parcialmente pagada
+fac-2024-23,2024-09-11,Transporte Veloz S.A.,h10947775,Gasto,Alimentación,403.00,84.63,"487,63",VENCIDA
+FAC-2025-0024,02/05/2025,Hosting & Cloud SLU,g49909133,gasto,Tegnología,15177.63,3187.30,18364.93€,Pendiente
+fac-2023-25,10-02-2024,Márketing Online BCN,E71746488,ingreso,Alimentación,21544.38,4524.32,26068.70€,Vencida
+FAC-2024-0026,21/08/2025,Hosting & Cloud SLU,17565512,ingeso,Limpieza,26188.71,5499.63,31688.34,pagad
+FAC-2025-0027,22/04/23,Asesoría Fiscal López,E77109324,Ingreso,infraestructura,9785.34,  391.41  ,10176.75,Parcialmente pagada
+FAC-2023-0028,14/05/2024,Asesoría Fiscal López,E65840449,Gasto,Marketing,11446.82,1144.68,12591.50,Parcialmente pagada
+FAC-2024-0029,23/02/2025,Fontanería Express,G27028951,Gasto,Consultoría,5877.38,1234.25,7111.63,Pendiente
+FAC-2025-0030,25/03/2025,Materailes Hernández,A91343161,Ingreso,Formación,32666.91,1306.68,  33973.59  ,Vencda
+FAC-2023-0031,04/01/2024,Seguridad Total S.L., D74740748 ,Ingrso,Alimentación,8914.19,  1871.98  ,10786.17 EUR,Parcialmente pagada
+FAC-2024-0032,28/08/2024,ALIMENTACION COSTA,A97439533,Gasto,Mantenimiento,24817.67,992.71,25810.38,Vencida
+FAC-2025-0033,17/01/2025,TECHPARTS ESPAÑA,,Gasto,Formación,18322.38,3847.70,22170.08,Pagada
+FAC-2023-0034,24/01/2025,fontaneria express,H09859317,ingeso,limpieza,33805.00,1352.20,35157.20,PAGADA
+FAC-2024-0035,13 de noviembre de 2023,Fontanería Express,H73515850,gasto,Consultoría,22141.07,4649.62€,26790.69,Parcialmente pagada
+FAC-2025-0036,25/02/2024,TechParts Espana,A-42284210,Gasto,Alimentación,1761.82 EUR,369.98 EUR,2131.80€,Pendiente
+FAC-2023-0037,03/30/2023,Electricidad Pérez,G-17711592,Ingreso,Formación,36498.53,7664.69,44163.22,Pendiente
+FAC-2024-0038,16/03/2024,Mobiliario Oficina Plus,F65452711,gasto,Tecnología,10780.25,1078.03€,11858.28,Pagada
+FAC-2025-0039,12/08/2024,Distribuciones López,F85149368,Gasto,Consultoría,15030.23,  601.21  ,15631.44,PARCIALMENTE PAGADA
+,07/01/2024,PAPELERIA CENTRAL,D66752545,Gasto,consultoria,  21753.07  ,4568.14€,26321.21,Vencida
+FAC-2024-0041,15/11/2025,Mobiliario Oficina Plus,E03690034,Gasto,Marketing,2889.75€,606.85,3496.60,VENCIDA
+FAC-2025-0042,12/06/2025,Asesoría Fiscal López,B60529751,gsato,Tecnología,517.60,108.70,626.30,Parcialm. pagada
+FAC-2023-0043,10/11/2025,servicios digitales ruiz,C43292127,Ingreso,Infraestructura,10098.23,403.93,10502.16,Pagada
+FAC-2024-0044,08/18/2025,Consultoría Ramos,A54119986,Gasto,Transporte,11083.09,443.32,11526.41,Parcialmente pagada
+,11 de julio de 2025,Consultoría Ramos,H88925546,gasto,Infraestructura,2632.37,105.29€,2737.66,PENDIENTE
+FAC-2023-0046,27/9/2024,Consultoría Ramos,,ingeso,mantenimiento,48400.98 EUR,10164.21,58565.19,Pendiente
+FAC-2024-0047,10/02/2025,Asesoría Fiscál López,A65379473,ingeso,Consultoría,"8135,51",813.55,8949.06,Pendiente
+FAC-2025-0048,11/10/2023,FONTANERIA EXPRESS,,Gasto,Transporte,21831.40,4584.59,26415.99,Pendiente
+fac-2023-49,14/10/2024,Fontanería Express,C77901043,Ingreso,Consultoría,46575.88,1863.04 EUR,48438.92,pendente
+2024/50,03/02/2023,Moviliario Oficina Plus,C18518888,Gasto,Tecnología,15817.28,3321.63,19138.91€,Pagada
+FAC-2025-0051,01/04/2023,Electricidad Pérez,H22170430,Ingreso,TECNOLOGIA,17938.80,717.55,18656.35,VENCIDA
+FAC-2023-0052,12/09/2023,Limpieza Industrial Norte,C77584161,Gasto,MATERIAL DE OFICINA,19993.59,"4198,65",24192.24,Vencida
+FAC-2024-0053,28/03/2023,Seguridad Total S.L.,A16582029,Ingreso,Formación,36477.31,1459.09,37936.40,Vencida
+FAC-2025-0054,28/06/2025,mobiliario oficina plus,A27868144,Ingrso,Formación,38272.68,8037.26€,46309.94€,Vencida
+FAC-2023-0055,17/08/2024,Logística Martínez,D13237058,Gasto,Consultoría,  22288.73  ,2228.87 EUR,24517.60,Pagada
+FAC-2024-0056,11/10/2024,Seguridad Total S.L.,C-26801824,Gasto,MANTENIMIENTO,16076.35,3376.03,"19452,38",Pagada
+FAC-2025-0057,12/12/2023,Materiales Hernández,A01094396,Gatso,Mantenimiento,14815.62,  3111.28  ,17926.90,Pagada
+FAC-2023-0058,09/08/2025,Tech Parts España,C-58815371,Ingrso,Formación,10599.14,2225.82,12824.96,Parcialmente pagada
+2024/59,20/11/2025,CONSULTORIA RAMOS,f00479748,Gatso,Alimentación,11697.04,467.88,12164.92,Pendiente
+FAC-2025-0060,02/03/2025,transporte veloz,G55852398,gasto,Infraestrucutra,12631.18,2652.55,  15283.73  ,Vencda
+FAC-2023-0061,19-11-2024,Servicios Digitales Ruiz,B69409749,Gasto,Mantenimiento,"12707,51",2668.58,15376.09,VENCIDA
+FAC-2024-0062,04/10/2024,TechParts España,a28385786,Ingreso,ALIMENTACION,21229.62,4458.22,25687.84,Pagada
+FAC-2025-0063,03/09/2024,Papelería Central,H58441986,Gasto,Alimentación,5660.43 EUR,226.42,5886.85,Pendiente
+FAC-2023-0064,09/07/2024,PAPELERIA CENTRAL, D30165712 ,Gasto,Alimentación,23328.95,933.16,24262.11,Pendiete
+FAC-2024-0065,20/04/2024,consultoria ramos,,gsato,Material de oficina,"13402,05",  2814.43  ,16216.48,Pagada
+FAC-2025-0066,31 de enero de 2024,papeleria central,H53046374,ingreso,MATERIAL DE OFICINA,9187.00,1929.27€,11116.27,Vencida
+FAC-2023-0067,28/03/2024,Asesoría Fiscal López,H83391878,gasto,Tecnología,5517.26,551.73 EUR,6068.99,VENCIDA
+FAC-2024-0068,17/07/2025,Hosting & Cloud SLU,G40391065,Gasto,tecnologia,3342.01,701.82,4043.83€,Parcialmente pagda
+FAC 2025 0069,14/06/2023,electricidad perez,A-04786863,gasto,Formacón,17084.12,3587.67,20671.79,parcialmente pagada
+FAC-2023-0070,01/04/2023,DISTRIBUCIONES LOPEZ,D95995342,Ingreso,Formación,"20412,13",2041.21,22453.34,pagad
+FAC-2024-0071,10/12/2025,Formación Tech Academy,D42708668,Gasto,MATERIAL DE OFICINA,8002.42,1680.51,9682.93,VENCIDA
+FAC-2025-0072,21/01/2024,TechParts España,F40331739,Gasto,Márketing,20126.03,4226.47,24352.50,Pagada
+FAC-2023-0073,21/07/2023,papeleria central,C-04899642,Gasto,INFRAESTRUCTURA,20080.27,4216.86,  24297.13  ,Parcialmente pagada
+FAC-2024-0074,14/10/2023,Diseño Gráfico Valencia, A10062312 ,Gasto,Transporte,18021.82,3784.58,21806.40,Vencida
+FAC-2025-0075,16/07/2024,Suministros García S.L.,B18233984,gsato,material de ofinina,13416.67,"536,67",  13953.34  ,pagada
+FAC-2023-0076,01/09/2025,logistica martinez,A33974014,Gasto,Márketing,1450.07€,  304.51  ,1754.58,Parcialmente pagada
+FAC-2024-0077,7 de marzo de 2025,Limpieza Industrial Norte,F01631599,Ingreso,Mantenimiento,34013.23 EUR,7142.78,41156.01,Pendiente
+FAC-2025-0078,27/08/2024,Fontanería Express,f51104754,Gasto,Transporte,19961.48,4191.91€,24153.39,Parcialmente pagada
+FAC-2023-0079,05/03/2025,Consultoría Ramós,C24447212,Gasto,Material de oficina,19490.27 EUR,"4092,96",23583.23,vencida
+FAC-2024-0080,17/02/2025,Materiales Hernández,59375265,Gasto,Material de oficina,20111.71 EUR,804.47,20916.18,PARCIALMENTE PAGADA
+FAC 2025 0081,05/03/2024,Hosting & Cloud SLU,C43426617,Ingreso,Infraestructura,22203.52,888.14,23091.66,Pagada
+FAC-2023-0082,07/12/2023,Electricidad Pérez,F61014388,Ingreso,TECNOLOGIA,32526.49,6830.56,39357.05,Pendiente
+FAC-2024-0083,01/05/25,electricidad perez,57177514,Ingrso,Formación,46067.10,  9674.09  ,55741.19€,pagad
+FAC-2025-0084,04/06/2025,marketing online bcn,d41918255,Ingreso,Marketing,20081.33,4217.08,24298.41,Pendiente
+FAC-2023-0085,20/12/2023,distribuciones lopez,C52866929,GASTO,Consultoría,20352.77,814.11 EUR,21166.88,Parcialm. pagada
+FAC-2024-0086,01/11/2025,Suministros García S.L.,90340438,Gasto,Transporte,16344.09,3432.26,19776.35,Pendiete
+FAC-2025-0087,29/07/2023,formacion tech academy,H13395962,Ingreso,Formación,36931.44,3693.14,40624.58,Pendiente
+FAC-2023-0088,07/01/2024,Servicios Digitales Ruiz,22325367,Gasto,Limpieza,  23812.31  ,5000.59,28812.90,Vencida
+FAC-2024-0089,06/01/2023,Electricidad Pérez,B86363745,GASTO,Formación,21729.25,4563.14,26292.39,vencida
+FAC-2025-0090,23 de julio de 2025,Márketing Online BCN,B54152064,Ingreso,Tecnología,533.46€,112.03€,645.49,Pendiente
+FAC-2023-0091,14/05/2025,Márketing Online BCN,42622189,Ingreso,Material de oficina,34854.53,7319.45 EUR,42173.98,Vencida
+fac-2024-92,25/2/2025,Logística Martínez,e04389836,Ingreso,Transporte,17901.01,3759.21 EUR,21660.22,Pagada
+FAC-2025-0093,11/05/2025,suministros garcia,A43006848,Gasto,Consultoría,9167.04,916.70,10083.74€,PENDIENTE
+FAC-2023-0094,14/06/2025,Materiales Hernández,E21020275,Gasto,Marketing,18262.46€,1826.25,  20088.71  ,Pagada
+FAC-2024-0095,11/05/2023,Sumnistros García S.L.,,gsato,Marketing,6610.59,  1388.22  ,  7998.81  ,Vencida
+,2024-10-17,Seguridad Total S.L.,A61744518,Ingreso,CONSULTORIA,13927.27,2924.73 EUR,16852.00,Pendiente
+FAC-2023-0097,18/02/23,TRANSPORTE VELOZ SA,G41383670,Ingrso,transporte,12033.39,481.34,12514.73,Pagada
+FAC-2024-0098,03/06/23,Logística Martínez,G55743132,Ingreso,infraestructura,29798.84,6257.76,36056.60 EUR,Pendiente
+FAC-2025-0099,05/07/23,MARKETING ONLINE BCN,D56804420,Gasto,Formación,3982.50,159.30€,4141.80,vencida
+FAC-2023-0100,22 de junio de 2023,Alimentación Costa,C15107029,Ingreso,Alimentación,29325.03,1173.00,30498.03,Parcialmente pagada
+FAC-2024-0101,18/05/24,Papelería Central,G38380657,Gasto,Formación,16199.60,3401.92,19601.52 EUR,Pendiete
+FAC-2025-0102,21/04/2024,TechParts España,39652239,Gasto,Infraestructura,24350.80,5113.67,29464.47,VENCIDA
+FAC 2023 0103,2023-07-04,diseño grafico valencia,F00292185,Gasto,Transporte,1451.39,304.79 EUR,1756.18€,Parcialmente pagada
+FAC-2024-0104,26/12/2023,Diseño Gráfico Valencia, G90295939 ,gasto,Tranporte,  9490.68  ,"379,63",9870.31,Vencida
+2025/105,19/05/2023,Márketing Online BCN,h65861793,Ingreso,Limpiesa,17848.82€,3748.25,21597.07,pendiente
+2023/106,02/06/2025,Formación Tech Academy,E44310698,Ingrso,consultoria,"47150,89",4715.09,51865.98€,Parcialm. pagada
+FAC-2024-0107,08/22/2025,Logística Martínez,04774349,Gasto,TECNOLOGIA,12252.97,490.12,12743.09,vencida
+2025/108,27/04/2024,Fontanería Express,C17223320,Gasto,Infraestructura,11932.74,2505.88,14438.62,parcialmente pagada
+FAC-2023-0109,29/10/2024,Logística Martínez,G16229991,Gasto,Infraestrucutra,21422.77,4498.78,25921.55,Parcialmente pagda
+FAC-2024-0110,05/04/2025,Hosting & Cloud SLU, D07450544 ,Gasto,Mat. Oficina,  3639.12  ,764.22,4403.34,pendente
+FAC-2025-0111,13/04/25,Mobiliario Oficina Plus, G28902330 ,Ingreso,Alimentación,  37176.77  ,7807.12,44983.89,parcialmente pagada
+FAC-2023-0112,29/08/2025,alimentacion costa,G02933334,Gasto,Formación,14692.66,587.71,15280.37,PARCIALMENTE PAGADA
+FAC-2024-0113,17/09/2024,Moviliario Oficina Plus,E89691085,Ingreso,alimentacion,35780.65,1431.23,37211.88 EUR,Vencda
+FAC-2025-0114,07/04/2025,Transporte Velóz S.A.,G60993538,Ingreso,Infraestructura,33196.25,3319.62,"36515,87",Pendiente
+FAC-2023-0115,10/01/24,Limpieza Industrial Norte,F54947170,Ingreso,Formación,  47372.71  ,1894.91,49267.62,Pendiente
+FAC-2024-0116,15 de febrero de 2024,limpieza industrial norte,H52500743,GASTO,Material de oficina,8599.61,"1805,92",10405.53,Pendiente
+FAC-2025-0117,13/02/2024,diseño grafico valencia,d35421689,Gatso,Material de oficina,18279.94,3838.79,22118.73,Pagada
+FAC-2023-0118,04/12/2023,materiales hernandez,C15064890,gasto,Formación,"23704,7",4977.99,28682.69,Vencida
+FAC-2024-0119,11-05-2025,Diseño Gráfico Valencia,B41173934,Ingreso,Alimentación,33252.40,"6983,0",40235.40,Pagada
+fac-2025-120,02/07/2023,Diseño Gráfico Valencia,B43744701,Gasto,Alimentación,22676.66,4762.10,27438.76,pagada
+FAC 2023 0121,06/15/2025,Suministros García S.L.,H46762120,Ingreso,TRANSPORTE,47776.91,1911.08,49687.99,Vencida
+FAC-2024-0122,20/08/2023,Electricidad Pérez,58891637,Ingreso,Transporte,44435.90,9331.54,"53767,44",Parcialmente pagda
+FAC-2025-0123,08/05/2024,Diseño Gráfico Vaelncia,H97177517,ingeso,Tecnología,16879.29,675.17€,17554.46,Parcialmente pagada
+FAC-2023-0124,22/04/2023,Limpieza Industrial Norte,F71130554,Ingreso,Formación,40921.14,8593.44,49514.58,Vencida
+2024/125,17/03/2024,Papelería Central,B77982708,Ingreso,Alimentación,23123.78,2312.38,25436.16,Pagada
+FAC-2025-0126,21/10/2024,Hosting & Clud SLU,F47226984,Ingreso,TRANSPORTE,25453.45,5345.22,"30798,67",Pagda
+FAC-2023-0127,22/12/2024,Materiales Hernández,E60810620,INGRESO,Infraestructura,28332.87,5949.90€,34282.77,vencida
+2024/128,07/03/2025,Electricidad Pérez,F80043973,Gasto,Tecnología,5978.01,239.12,6217.13,Pendiente
+fac-2025-129,2024-01-18,Transporte Veloz S.A.,,Gasto,Formación,24063.76,5053.39,29117.15,Pendiente
+FAC-2023-0130,23/11/2023,Consultoría Ramos,F-54398780,INGRESO,Transporte,21088.60,4428.61,25517.21,Pagada
+FAC-2024-0131,24/11/2025,FONTANERIA EXPRESS,D58112880,GASTO,Infraestructura,20561.62,"822,46",21384.08,Vencida
+FAC-2025-0132,10/11/2024,Seguirdad Total S.L.,G67665061,Ingreso,Transporte,2375.37,498.83,2874.20,pagada
+FAC-2023-0133,06/15/2025,Limpieza Industrial Norte, E24508821 ,Gasto,Mantenimiento,9566.27€,2008.92,11575.19,PAGADA
+FAC-2024-0134,23/08/2023,Servicios Digitales Ruiz,H81414139,INGRESO,Alimentación,9477.22 EUR,1990.22€,11467.44,Vencda
+FAC-2025-0135,27/05/2025,Hosting & Cloud SLU,F25777547,ingreso,Mantenimiento,8847.66,"353,91",  9201.57  ,vencida
+FAC-2023-0136,11/03/2024,Suministros Garciá S.L,D94278816,INGRESO,Mantenimiento,45362.03,9526.03,"54888,06",Parcialmente pagada
+FAC-2024-0137,2024-03-24,Servicios Digitales Ruiz,F67700518,Ingrso,Formación,38192.88,3819.29,42012.17,Vencida
+FAC-2025-0138,11/04/2025,Logística Martínez,C-72318432,Gasto,marketing,8854.81,354.19,"9209,0",Pendiente
+FAC-2023-0139,30/3/2023,hosting cloud slu,28699041,Ingreso,Marketing,6830.31 EUR,"1434,37",8264.68,Pagada
+2024/140,21/05/2023,Asesoría Fiscal López,C91279908,gsato,Transporte,5783.85,1214.61,  6998.46  ,Vencida
+FAC-2025-0141,28/05/2025,Seguridad Total S.L.,B62473149,Gasto,consultoria,5775.68,1212.89€,6988.57,Pagada
+FAC-2023-0142,22/05/2025,Consultoría Ramos,G36887258,Gatso,Consultoría,16306.82,652.27,  16959.09  ,PAGADA
+FAC-2024-0143,03/31/2025,Marketing Online BCN,a12796114,ingeso,Tecnología,39411.02,8276.31,  47687.33  ,PENDIENTE
+FAC-2025-0144,08/08/2024,Diseño Gráfico Valencia,F30214656,gasto,Material de oficina,4908.93€,  1030.88  ,5939.81,Pendiete
+FAC-2023-0145,10/01/2023,ALIMENTACION COSTA,E89476973,Ingreso,Formación,13424.82,2819.21,16244.03€,PARCIALMENTE PAGADA
+,20/01/2023,alimentacion costa,H55394237,GASTO,Marketing,17535.42€,"701,42",18236.84€,Vencida
+FAC-2025-0147,30/01/2025,diseño grafico valencia,E63920867,Ingrso,Infraestructura,31223.04,  6556.84  ,37779.88,Pagada
+FAC-2023-0148,26/7/2023,Sumnistros García S.L.,h63655647,Ingreso,alimentacion,16609.09,3487.91,20097.00,Parcialmente pagada
+FAC-2024-0149,28/12/2023,Transporte Veloz S.A.,E-48906120,Ingreso,TRANSPORTE,21365.27,2136.53,23501.80,Parcialmente pagada
+FAC-2025-0150,20/12/24,Papelería Central,H71694722,Gasto,Material de oficina,21690.85,4555.08,26245.93,Parcialm. pagada
+FAC-2023-0151,20/03/2025,Alimentación Costa,H-62202341,gsato,Consultoría,6817.64 EUR,1431.70,8249.34 EUR,vencidda
+FAC-2024-0152,16/09/2023,Limpieza Industral Norte,H84872829,Ingreso,Alimentación,6998.22,699.82,7698.04,Vencda
+FAC-2025-0153,19/01/2025,Diseño Gráfico Vaelncia,A77406493,Ingreso,Tegnología,20904.09,"2090,41",22994.50,Parcialmente pagada
+FAC-2023-0154,10/07/2024,Papelería Centrl,b79749735,Ingreso,marketing,14591.50€,3064.21,17655.71€,PENDIENTE
+FAC-2024-0155,08/07/2025,Consultoría Ramós,,gasto,Limpieza,17438.52,3662.09,21100.61,Parcialm. pagada
+,12/09/2025,Servicos Digitales Ruiz,F02491630,Ingreso,Infraestructura,32106.74,  3210.67  ,35317.41 EUR,Pagada
+FAC-2023-0157,08/08/2023,Consultoría Ramós,D06524077,Ingreso,Material de oficina,6728.46,672.85,7401.31,Vencida
+,28/08/2024,mobiliario oficina plus,F93518638,Ingreso,TECNOLOGIA,41061.22,8622.86,"49684,08",PENDIENTE
+FAC-2025-0159,28/01/2024,Servicios Digitales Ruiz,E05391037,Ingreso,Alimentación,5388.30,1131.54,6519.84,Pagada
+FAC-2023-0160,25/03/2023,electricidad perez,G33839288,Ingrso,Mantenimiento,36847.87,1473.91,  38321.78  ,Vencida
+FAC-2024-0161,07/10/2024,asesoria fiscal lopez,D68457760,Gasto,Transporte,13774.53,550.98,14325.51,PARCIALMENTE PAGADA
+2025/162,13/11/25,Transporte Veloz S.A.,D34419693,Gasto,Material de oficina,  13930.26  ,2925.35,16855.61,Vencida
+FAC-2023-0163,25/04/2023,Mobiliario Oficina Plus,D90604805,GASTO,material de ofinina,23050.69,922.03,23972.72,Parcialmente pagda
+FAC-2024-0164,19/06/2023,Limpieza Industrial Norte,C27837693,Gasto,Transporte,11922.57 EUR,2503.74,14426.31,Pendiente
+FAC-2025-0165,26/01/24,Distribuciones López,H92703352,Gasto,marketing,"8052,42",  1691.01  ,9743.43 EUR,Vencida
+FAC-2023-0166,03/04/2024,Limpieza Industrial Norte,06980420,Gasto,formacion,"18513,32",1851.33,20364.65,Pagada
+FAC-2024-0167,2025-02-18,Distribuciones López,H80038457,Ingrso,Limpieza,25672.75,5391.28,31064.03,Parcialmente pagada
+2025/168,27/07/2024,Papelería Central,D63926495,INGRESO,Limpieza,11666.34,466.65€,12132.99,Parcialmente pagada
+FAC-2023-0169,19-05-2023,Materiales Hernández,64742312,Gasto,TRANSPORTE,13955.64,2930.68,16886.32€,pendente
+,03/10/25,Materiales Hernández,D33127975,Gasto,Consultoría,11872.48,1187.25,13059.73,Pendiente
+FAC-2025-0171,24/07/2025,Fontanería Express,A86803476,Ingreso,infraestructura,41437.00,8701.77,"50138,77",pagad
+FAC-2023-0172,26/04/2025,Logísitca Martínez,45211175,Ingreso,Transporte,16511.32,"3467,38",19978.70€,PENDIENTE
+FAC-2024-0173,22/09/2024,Servicios Digitales Ruiz,A94077780,Ingreso,TRANSPORTE,15821.16,3322.44,"19143,6",Pagda
+2025/174,23/04/2023,mobiliario oficina plus,A16224999,ingeso,Material de oficina,32837.21,  6895.81  ,39733.02,Pendiente
+FAC-2023-0175,2025-08-22,Logística Martínez,B98179469,Gatso,Infraestructura,3406.92,136.28,3543.20,Pagada
+FAC-2024-0176,31/08/2023,Servicios Digitales Ruiz,A55830344,Ingrso,Limpieza,1687.35 EUR,354.34,2041.69,Pendiente
+FAC-2025-0177,29/08/2025,Servicios Digitales Ruiz,F76084958,Ingrso,Consultoría,39964.09,3996.41,43960.50,vencida
+FAC-2023-0178,08/03/2025,consultoria ramos,E61735743,Gatso,Infraestructura,4725.10,992.27,5717.37,pendente
+FAC-2024-0179,08/12/2025,Asesoría Fiscal López,C30768104,Ingreso,Alimentación,15862.76 EUR,"634,51",16497.27,Vencda
+FAC-2025-0180,20-07-2024,TRANSPORTE VELOZ SA,B38585424,Gatso,Alimentación,13330.28,2799.36,16129.64 EUR,Pendiente
+FAC-2023-0181,13/03/2025,Distribuciones López,,Gasto,MATERIAL DE OFICINA,4515.63,948.28,5463.91,PAGADA
+FAC-2024-0182,07/11/2024,Materiales Hernández,C45992816,Gasto,consultoria,19730.03,789.20,20519.23,Parcialmente pagada
+FAC-2025-0183,25/02/2025,Mobiliario Oficina Plus,F83219719,ingreso,Infraestructura,  3769.97  ,377.00€,4146.97,Pendiente
+FAC-2023-0184,2024-03-21,Fontanería Express,H84699733,Gatso,Formación,20434.99,4291.35,24726.34,Pagada
+FAC-2024-0185,25/08/2024,Hosting & Clud SLU,A36965666,INGRESO,Mantenimiento,3589.32 EUR,753.76,4343.08,PARCIALMENTE PAGADA
+FAC-2025-0186,23/09/2025,Materiales Hernández,G92786876,ingreso,Tecnología,33067.37,"3306,74",36374.11,Pagada
+FAC-2023-0187,20/08/2023,Electricidad Pérez,H81891371,Ingreso,Material de oficina,29223.30,6136.89,35360.19,Parcialmente pagda
+FAC 2024 0188,23/12/2024,Asesoría Fiscal López, E07929049 ,gasto,Mantenimiento,24016.50€,  960.66  ,24977.16€,VENCIDA
+FAC-2025-0189,2025-09-20,Marketing Online BCN,C76637239,Gatso,Transporte,4561.19€,957.85,5519.04,Vencida
+FAC-2023-0190,21/06/2024,Formación Tech Academy,a18569454,Ingreso,Marketing,7684.92,1613.83,9298.75,Parcialmente pagada
+fac-2024-191,22/01/2023,Transporte Velóz S.A.,E30091093,Gasto,Transporte,  16836.41  ,"3535,65",20372.06,Vencida
+FAC-2025-0192,08/14/2025,Servicios Digitales Ruiz,F42140665,Ingrso,transporte,33193.65,6970.67,40164.32,vencidda
+FAC-2023-0193,08/06/2023,Ditribuciones López,00642569,Ingreso,Infraestructura,45674.16,1826.97,47501.13,PARCIALMENTE PAGADA
+FAC-2024-0194,05/01/2025,SUMINISTROS GARCIA SL,B-74328063,Gatso,Formación,8369.32,334.77,8704.09€,PAGADA
+2025/195,29/12/2025,Diseño Gráfico Valencia,G13878293,GASTO,Tecnología,  24125.60  ,5066.38,"29191,98",vencida
+FAC-2023-0196,11/05/2023,limpieza industrial norte,G56519825,Ingreso,Formación,40981.11,8606.03,49587.14€,Pendiente
+FAC-2024-0197,25/03/2023,electricidad perez,C19467232,Ingreso,Formación,7101.86,1491.39,8593.25€,Pendiente
+FAC-2025-0198,27/04/2024,Logística Martínez,34031277,Gatso,Cosultoría,"4837,98",1015.98,5853.96,parcialmente pagada
+FAC-2023-0199,20/11/2025,FORMACION TECH ACADEMY,F31531363,ingeso,Transporte,6245.22 EUR,"624,52",6869.74 EUR,Pagada
+FAC 2024 0200,18/09/2023,Transporte Velóz S.A.,,Gasto,Limpieza,850.76,178.66,"1029,42",Pendiente
+FAC-2025-0201,31/03/2024,Alimentación Cota,68671773,Ingreso,Consultoría,44645.22 EUR,  9375.50  ,"54020,72",Parcialmente pagda
+,10/04/2025,Hosting & Cloud SLU,A46498931,ingreso,Formación,9654.81,386.19,10041.00 EUR,Parcialmente pagada
+FAC-2024-0203,18/05/2023,TechParts España,D-35548640,Gasto,Consultoría,"14040,92",1404.09,15445.01,Pendiete
+fac-2025-204,2025-03-11,Logística Martínez,D80468275,Ingreso,Formación,  44948.32  ,  1797.93  ,46746.25,Pagada
+FAC-2023-0205,14/09/2024,Consultoría Ramos,,Gasto,Formación,14202.93,568.12€,14771.05 EUR,Parcialm. pagada
+FAC-2024-0206,05/12/2024,Electricidad Pérez,72752088,Ingreso,Alimentación,7823.24,1642.88,9466.12,pagada
+fac-2025-207,20/02/2023,Diseño Gráfico Valencia,D43018718,Ingreso,Transporte,20380.68,"2038,07",22418.75,Pagada
+FAC-2023-0208,5 de agosto de 2024,Seguridad Total S.L.,G-74266299,Gasto,Marketing,8655.76,  346.23  ,9001.99,vencidda
+FAC-2024-0209,08/10/2023,Papelería Central,H87300244,Gasto,Transporte,5021.48,1054.51,6075.99,Parcialmente pagada
+FAC-2025-0210,17/05/2023,Alimentación Costa,H-15890429,Ingreso,Tecnología,30145.12 EUR,1205.80,31350.92,Vencda
+FAC-2023-0211,13/07/2023,Asesoría Fiscal López,E-45189520,Ingreso,Infraestructura,30138.74,3013.87€,33152.61,Pendiente
+FAC-2024-0212,27/08/2023,Formación Tech Academy,F-24013223,Ingreso,Marketing,41032.81,8616.89€,49649.70,Parcialmente pagada
+FAC-2025-0213,01/09/2023,Transporte Veloz S.A.,D93250124,INGRESO,Material de oficina,45472.20,9549.16,55021.36,pagada
+FAC-2023-0214,09/01/2023,Asesoría Fiscal López,c71256638,Ingreso,alimentacion,48692.21,10225.36,58917.57,vencida
+FAC-2024-0215,08/03/2024,Logísitca Martínez,D17520716,Gasto,Formación,11450.80,458.03,11908.83,Pagada
+FAC-2025-0216,15/02/2024,SERVICIOS DIGITALES RUIZ, E65796784 ,ingeso,Consultoría,29950.56,6289.62€,36240.18€,Pendiente
+FAC-2023-0217,12/09/2024,Servicios Digitales Ruiz,H34778485,Gasto,mantenimiento,15568.07,3269.29,18837.36 EUR,Vencida
+,12/09/2024,MARKETING ONLINE BCN,H-88977828,Gasto,Material de oficina,22123.27,2212.33,24335.60€,Pagada
+FAC-2025-0219,2025-02-18,MATERIALES HERNANDEZ,14152085,Gasto,Consultoría,2478.88,99.16 EUR,2578.04 EUR,Pagada
+FAC-2023-0220,19/11/2024,CONSULTORIA RAMOS,B83440496,Ingreso,Formación,25088.20,1003.53,26091.73,pagad
+FAC-2024-0221,30/10/2025,SEGURIDAD TOTAL SL,H82082973,Ingreso,Consultoría,"40304,27",8463.90,48768.17,Pagada
+FAC-2025-0222,05/08/2025,Hosting & Cloud SLU,B36442493,INGRESO,Infraestrucutra,7813.31,781.33,8594.64,Pendiente
+FAC-2023-0223,01/03/2023,TechParts España,H00159416,Ingreso,Transporte,13290.64,531.63,13822.27,vencida
+FAC-2024-0224,08/09/2023,Asesoría Fiscal López,D63212347,Gasto,FORMACION,19341.11,"773,64",20114.75,Pagda
+FAC-2025-0225,13/02/2023,Materiales Hernandéz,E86451837,Gasto,Formación,16152.67,3392.06€,19544.73,VENCIDA
+FAC-2023-0226,15/07/2024,Servicios Digitales Ruiz,B24815698,Gasto,consultoria,21667.79,4550.24 EUR,26218.03,PARCIALMENTE PAGADA
+FAC-2024-0227,20/11/2023,Limpieza Industral Norte,C42954316,Gasto,Mantenimiento,6277.61,627.76,6905.37€,Pagada
+FAC-2025-0228,20/06/24,MOBILIARIO OFICINA PLUS,,Ingreso,Tegnología,35212.43,3521.24,38733.67€,Parcialmente pagada
+FAC-2023-0229,28/02/2023,Transporte Veloz S.A.,B07256366,gasto,Transporte,  7290.31  ,291.61,7581.92,Parcialmente pagada
+FAC 2024 0230,2025-02-19,MOBILIARIO OFICINA PLUS,H-57215862,Ingreso,Material de oficina,15474.11,3249.56 EUR,18723.67,Vencida
+FAC-2025-0231,04/12/2023,Papelería Central,03203207,Gasto,Infraestructura,7922.80,1663.79 EUR,9586.59,Vencida
+FAC-2023-0232,11/07/2023,DISEÑO GRAFICO VALENCIA,D90892613,Ingreso,Transporte,"10584,82",423.39,11008.21,Pagada
+FAC-2024-0233,31/07/2025,distribuciones lopez,H59230450,Gasto,Transporte,20775.95 EUR,  4362.95  ,25138.90,PAGADA
+FAC-2025-0234,04/09/2023,Servicios Digitales Ruiz,15837767,gsato,Marketing,7498.74,1574.74,9073.48,Vencda
+FAC-2023-0235,2025-12-10,Marketing Online BCN,E38649081,Ingreso,Transporte,4656.52,977.87,5634.39,Parcialmente pagada
+FAC-2024-0236,03/02/2023,ELECTRICIDAD PEREZ,e59779452,Gasto,MANTENIMIENTO,"2892,69",607.46€,3500.15 EUR,Pagada
+fac-2025-237,11/09/2024,Mobiliario Oficina Plus,D72368314,gsato,limpieza,2236.50,223.65,2460.15,Vencida
+,26/08/2024,Suministros García S.L.,H99840767,Gasto,Mantenimiento,14257.29,2994.03,17251.32€,Pendiete
+FAC-2024-0239,28/08/2023,Formación Tech Academy,H38395972,Ingreso,Limpieza,24992.05,999.68,25991.73,Parcialmente pagada
+FAC-2025-0240,26/06/2023,Diseño Gráfico Valencia,H43380054,ingreso,Mantenimiento,33519.29,3351.93€,36871.22,Pendiente
+FAC-2023-0241,21/11/2025,Consultoría Ramos,b19918081,Gatso,MATERIAL DE OFICINA,15127.02,3176.67,18303.69,Vencida
+FAC 2024 0242,18/02/2024,Materiales Hernandéz,B45653286,gsato,Consultoría,11005.76,2311.21,13316.97,Pendiente
+FAC-2025-0243,25/11/2025,Electricidad Pérez,G02908466,Ingreso,Formación,47210.32,9914.17,57124.49,Pendiente
+2023/244,24/06/2025,Asesoría Fiscal López,C88431884,Ingreso,marketing,35024.81,7355.21,  42380.02  ,Parcialmente pagda
+FAC-2024-0245,05/11/2025,Asesoría Fiscal López,A75399893,INGRESO,Material de oficina,18046.43,3789.75 EUR,21836.18,Vencida
+fac-2025-246,23 de abril de 2025,Electricidad Pérez,g49767762,Gasto,tecnologia,2094.58,439.86,2534.44€,Pendiente
+FAC-2023-0247,16/08/2024,distribuciones lopez,C29604432,Gasto,TECNOLOGIA,1055.04€,105.50,1160.54,Pagada
+,30/10/2025,Consultoría Ramos,G63658074,Gasto,Formación,15929.68,3345.23,19274.91,Pendiente
+,04/12/2025,Distribuciones López,E33971895,ingreso,Alimentación,9875.10,2073.77,11948.87,pagada
+FAC-2023-0250,7/6/2024,Distribuciones López,C00461526,ingreso,limpieza,38531.08,3853.11,42384.19,Pendiente
+FAC-2024-0251,09-08-2025,FONTANERIA EXPRESS,B38249671,Ingreso,Limpieza,"27879,49",5854.69€,33734.18,Pagada
+FAC-2025-0252,15/08/2024,Formación Tech Academy,G53984028,gsato,Material de oficina,16343.82,1634.38,17978.20,Pagada
+FAC-2023-0253,13/07/2024,TRANSPORTE VELOZ SA,C09700268,Gasto,Consultoría,6185.91,247.44,6433.35,vencida
+FAC-2024-0254,3 de enero de 2025,Márketing Online BCN, F31943375 ,Ingreso,Consultoría,  19644.18  ,4125.28,23769.46 EUR,Parcialmente pagada
+FAC-2025-0255,20/9/2023,Servicios Digitales Ruiz,E30894870,Ingreso,Mantenimiento,  37425.69  ,3742.57,41168.26,pendente
+FAC-2023-0256,07/04/2023,DISEÑO GRAFICO VALENCIA,36133254,gsato,Infraestructura,6984.43,1466.73,8451.16,pagada
+FAC-2024-0257,30/11/2025,Diseño Gráfico Valencia,B10065120,Ingreso,Cosultoría,"39808,5",8359.78,48168.28 EUR,pagad
+FAC-2025-0258,26/5/2025,alimentacion costa,B10919392,ingeso,Formación,44056.94,9251.96€,53308.90€,Parcialmente pagada
+FAC-2023-0259,19/08/2025,Asesoría Fiscal López,C03880653,Gasto,limpieza,7751.43,310.06,8061.49,Pendiente
+FAC-2024-0260,05/09/2024,Mobiliario Oficina Plus,A33793375,Gasto,Mantenimiento,10496.45,1049.65€,11546.10,Vencida
+FAC-2025-0261,07/01/25,Materiales Hernández,83230241,Gasto,Formación,  1145.43  ,240.54,  1385.97  ,Pendiente
+FAC-2023-0262,25/09/2023,Asesoría Fiscal López,09938425,GASTO,Tecnología,19882.71,1988.27,21870.98€,Pagada
+FAC-2024-0263,05/02/2025,Mobiliario Oficina Plus,H49690333,INGRESO,Tranporte,25180.09,5287.82,30467.91,Parcialmente pagada
+FAC-2025-0264,21/12/2024,Materiales Hernández,H54602734,Ingreso,LIMPIEZA,11893.79,2497.70,14391.49,Parcialmente pagada
+FAC-2023-0265,15/02/2024,Distribuciones López,D92840445,Ingreso,Tecnología,17021.01,680.84,17701.85,Vencida
+FAC-2024-0266,29/08/2025,Materiales Hernández,b53663778,Gasto,alimentacion,5881.39,1235.09,7116.48,pendente
+FAC-2025-0267,07/03/2023,Fontanería Express, G63618637 ,Gasto,Consultoría,23057.50€,2305.75,"25363,25",Pagada
+FAC-2023-0268,02/26/2024,Servicios Digitales Ruiz,B28671632,ingeso,TECNOLOGIA,12035.45,2527.44,14562.89,parcialmente pagada
+FAC-2024-0269,20/05/2024,Materailes Hernández,F46926329,Gasto,Tecnología,"13170,12",2765.73,15935.85,PARCIALMENTE PAGADA
+FAC-2025-0270,22/04/2025,Papelería Central,67243807,Gasto,Tecnología,24810.12,5210.13,30020.25€,PENDIENTE
+FAC-2023-0271,2023-06-19,consultoria ramos,B24186210,Gatso,formacion,13733.29,1373.33,15106.62,parcialmente pagada
+FAC-2024-0272,10/01/2023,fontaneria express,A60053131,Gasto,Formación,"1264,18",265.48,1529.66,Pagada
+FAC-2025-0273,05/09/2023,Mobiliario Oficina Plus,H31495013,Ingreso,Infraestructura,12004.20,2520.88,14525.08,Parcialmente pagada
+FAC-2023-0274,26/10/2024,HOSTING & CLOUD SLU,F71509976,Ingreso,Limpieza,49080.09,10306.82€,59386.91,PAGADA
+FAC-2024-0275,09/10/2023,SEGURIDAD TOTAL SL,H52450864,Ingrso,mantenimiento,19038.92,761.56,19800.48,PAGADA
+fac-2025-276,24/06/2025,mobiliario oficina plus,C12983381,Gasto,infraestructura,15763.07€,3310.24 EUR,19073.31,Vencida
+FAC-2023-0277,12/02/2025,Papelería Centrl,A66149828,gsato,TECNOLOGIA,4235.76,889.51,5125.27€,Vencida
+FAC-2024-0278,05/02/2025,Materiales Hernández,B60169236,Ingreso,Material de oficina,24826.96,5213.66,30040.62,Pagada
+FAC-2025-0279,05/09/2025,TechParts España,97243992,Gasto,Marketing,910.96,36.44,947.40,Pendiente
+FAC-2023-0280,10/09/2024,Transporte Veloz S.A.,b19524364,Gasto,TRANSPORTE,12541.14,2633.64,15174.78 EUR,PARCIALMENTE PAGADA
+fac-2024-281,14/08/2023,Materailes Hernández,H-91214161,Ingreso,Formación,22807.71,2280.77€,25088.48,pendiente
+FAC-2025-0282,01/12/2025,Distribuciones López,F55356690,Ingreso,Infraestructura,  49351.39  ,1974.06,51325.45,Pagada
+FAC-2023-0283,24 de enero de 2025,Suministros García S.L.,F05057397,Ingreso,Infraestrucutra,22869.94,4802.69,27672.63,Vencida
+FAC-2024-0284,1 de diciembre de 2025,Distribuciones López,,Gasto,LIMPIEZA,  21912.04  ,4601.53,26513.57,Pendiete
+FAC-2025-0285,12/11/2024,Diseño Gráfico Valencia,G-86334141,Ingreso,transporte,43661.06,9168.82 EUR,52829.88,Parcialmente pagada
+FAC-2023-0286,17 de mayo de 2025,Limpieza Industrial Norte,D16087524,Ingreso,Mantenimiento,16322.33,"652,89",16975.22,Pendiente
+FAC-2024-0287,06/09/2025,Mobiliario Oficina Plus,F23302764,Gasto,Limpieza,15795.37,1579.54,17374.91,Pagada
+FAC-2025-0288,02/08/24,Electricidad Pérez,A47292774,GASTO,Marketing,"7094,98",709.50,7804.48,Pagada
+FAC 2023 0289,16/07/2023,Materiales Hernández,C63013674,Gasto,Marketing,8921.82,1873.58,10795.40,Pendiente
+FAC-2024-0290,24/1/2023,Marketing Online BCN,H41926764,gasto,Limpieza,3044.01,639.24,3683.25,Parcialmente pagada
+2025/291,29/08/2023,FONTANERIA EXPRESS,,gasto,tecnologia,4557.57,957.09,5514.66,Pagada
+FAC-2023-0292,06/12/2025,marketing online bcn,D24329839,ingeso,Mantenimineto,"45583,77",1823.35 EUR,47407.12,Parcialmente pagada
+FAC-2024-0293,02/01/2025,Materiales Hernández,d14181861,Ingreso,Tecnología,  28400.29  ,5964.06€,34364.35,vencida
+FAC-2025-0294,29/09/2025,Distribuciones López,A25625889,Ingreso,Infraestructura,"5229,26",209.17,5438.43,Vencda
+FAC-2023-0295,10/01/2024,TechParts España,D41465111,Gasto,alimentacion,11002.05 EUR,440.08,11442.13,Parcialmente pagda
+FAC-2024-0296,12/26/2025,Asesoría Fiscal López,F38909728,Ingrso,Formación,35045.16,7359.48,42404.64,Parcialmente pagada
+FAC-2025-0297,30/08/2023,Electricidad Pérez, D48079705 ,ingreso,Consultoría,14858.20,3120.22 EUR,"17978,42",Pendiente
+FAC-2023-0298,27/05/2024,Seguridad Total S.L.,E17722560,Ingreso,Formación,11691.71€,2455.26,14146.97,PAGADA
+FAC-2024-0299,11/10/2025,Diseño Gráfico Valencia,21102258,Gatso,Tecnología,20005.51,2000.55 EUR,22006.06€,Parcialmente pagada
+FAC-2025-0300,29/07/2024,MOBILIARIO OFICINA PLUS,b89239231,Ingreso,Infraestructura,38453.02,1538.12,39991.14€,Pendiente
+FAC-2023-0301,08/09/25,Limpieza Industrial Norte, G35020005 ,Ingreso,Alimentación,3536.81 EUR,742.73,"4279,54",Vencida
+FAC-2024-0302,19/12/2025,Materiales Hernández, C91093371 ,gsato,Consultoría,"15137,61",1513.76€,16651.37,Vencda
+FAC-2025-0303,15/09/2025,ELECTRICIDAD PEREZ,A36788127,Gasto,Tecnología,10504.15,2205.87€,12710.02€,Parcialmente pagada
+FAC-2023-0304,2024-03-27,ASESORIA FISCAL LOPEZ,C-42403381,Gasto,Infraestructura,"7444,27",297.77,7742.04,Vencida
+FAC-2024-0305,29/12/2024,Mobiliario Oficina Plus, B64983735 ,Gasto,Consultoría,5521.03€,220.84,5741.87,Pagada
+FAC-2025-0306,27/12/2023,Logística Martínez,G93121637,Gasto,TRANSPORTE,  4762.06  ,1000.03€,5762.09,parcialmente pagada
+FAC-2023-0307,20 de octubre de 2023,TechParts España,B32797245,Ingrso,Alimentación,  46960.62  ,9861.73 EUR,56822.35,Pagada
+FAC-2024-0308,24/05/2025,Materiales Hernández,B72131451,ingreso,Alimentación,19576.46,"783,06",20359.52,Pagada
+FAC-2025-0309,01/08/2023,Materiales Hernández,B02252677,gsato,Mantenimiento,6813.78€,1430.89,8244.67 EUR,vencidda
+FAC-2023-0310,18/05/2024,Diseño Gráfico Valencia,G19689313,gasto,Mantenimiento,9610.47,2018.20€,11628.67,Vencida
+FAC 2024 0311,12/05/2025,Materiales Hernández,A65019179,Gatso,Formación,"6100,31",610.03,6710.34€,Pendiente
+FAC-2025-0312,2025-06-28,Asesoría Fiscal López,A66784984,Gasto,formacion,19545.85,4104.63,23650.48€,Parcialmente pagada
+FAC-2023-0313,04/09/2025,Alimentación Costa,d41115950,GASTO,Transporte,7864.08,1651.46,9515.54,Pagada
+FAC-2024-0314,02/04/23,TechParts España,G83565215,Ingreso,limpieza,  28405.10  ,5965.07,34370.17,PAGADA
+FAC-2025-0315,17/03/2024,Materiales Hernández,F72545960,Gasto,Tecnología,"20196,53",2019.65€,22216.18,Pagada
+FAC-2023-0316,12/07/23,Suministros García S.L.,B27474721,Ingreso,Limpieza,23012.99 EUR,2301.30,25314.29,Pagada
+FAC-2024-0317,02/11/2025,ASESORIA FISCAL LOPEZ,,Gasto,Cosultoría,11279.80,2368.76,13648.56,pagada
+FAC-2025-0318,13-05-2023,Fontanería Express,H23590960,Gasto,Alimentación,7966.26,  1672.91  ,9639.17,Parcialmente pagada
+FAC-2023-0319,22/05/2023,Papelería Central, E20165423 ,Gasto,Transporte,"6883,94",1445.63,8329.57,Pagada
+FAC-2024-0320,10/10/2024,Suministros García S.L.,48072791,INGRESO,Tecnología,1202.25€,"252,47",1454.72,Pendiente
+FAC-2025-0321,13/09/2023,Electricidad Pérez, F12765289 ,ingeso,Limpieza,35116.20,7374.40,42490.60,vencida
+FAC-2023-0322,13/10/2025,DISTRIBUCIONES LOPEZ,G33786137,Ingreso,Material de oficina,37622.21,7900.66,45522.87,Parcialmente pagada
+FAC-2024-0323,03/08/2024,Fontanería Express,a60002589,Ingreso,Consultoría,13746.65,549.87,14296.52,Pendiente
+FAC-2025-0324,05-04-2025,TechParts España,G48253110,Gasto,Transporte,"22609,08",4747.91,27356.99 EUR,Parcialmente pagada
+FAC-2023-0325,30/03/2024,Materiales Hernández,E04120911,Gasto,CONSULTORIA,7458.22€,  1566.23  ,9024.45,pendiente
+FAC-2024-0326,06/06/2023,Diseño Gráfico Valencia,C40299015,Ingreso,Marketing,10909.65,"2291,03",13200.68,pagada
+fac-2025-327,17/01/2025,Formación Tech Academi,H31584776,Ingreso,infraestructura,  6182.03  ,618.20,6800.23,Pendiete
+FAC-2023-0328,17/05/2025,Servicios Digitales Ruiz,,Ingreso,Formación,30018.32,1200.73€,31219.05,Parcialmente pagada
+FAC-2024-0329,31/01/25,ELECTRICIDAD PEREZ, F38164938 ,Ingreso,Tecnología,7679.46,307.18,7986.64,Pendiente
+FAC-2025-0330,04/12/2023,Seguirdad Total S.L.,,Gasto,Consultoría,20077.99,"4216,38",24294.37€,Pendiente
+fac-2023-331,13/06/2023,Limpieza Industrial Norte,B-59103002,Gasto,Consultoría,13933.43€,557.34,14490.77,Vencida
+FAC-2024-0332,09/04/2023,Suministros García S.L.,C29712529,Ingreso,Limpieza,47383.67,"9950,57",57334.24,Pagada
+FAC-2025-0333,24 de junio de 2024,Papelería Central,D11703037,gasto,FORMACION,19166.74,4025.02,23191.76,pendiente
+FAC-2023-0334,17/11/2025,Materiales Hernández, B27113072 ,Ingreso,Consultoría,"10549,53",2215.40,12764.93 EUR,Parcialmente pagada
+FAC-2024-0335,07/20/2023,Consultoría Ramós,h86103131,ingreso,Formación,  2932.15  ,615.75,3547.90,Vencida
+FAC-2025-0336,2024-02-21,Alimentación Costa,H43251225,gasto,Formación,8723.45,  348.94  ,9072.39,pendiente
+FAC-2023-0337,21/05/2024,Mobiliario Oficina Plus,C21145775,gsato,Formacón,11840.58 EUR,2486.52,14327.10,Pagada
+FAC-2024-0338,02/12/2023,MOBILIARIO OFICINA PLUS,G53136148,Gasto,Tecnología,3740.11,"785,42",4525.53,Vencida
+FAC-2025-0339,01/12/2025,Seguridad Total S.L.,F41072728,Gasto,Limpieza,17560.80,  3687.77  ,21248.57€,pendiente
+FAC-2023-0340,22/12/2024,TechParts España, C14236914 ,Gasto,Limpieza,16523.32,3469.90,19993.22,Pagda
+FAC-2024-0341,13/10/2023,LIMPIEZA INDUSTRIAL NORTE,H82661287,Gasto,Transporte,17098.86,1709.89,18808.75,Parcialmente pagada
+FAC-2025-0342,01/07/2023,Marketing Online BCN,E06260787,Ingrso,Infraestructura,37914.89,7962.13,45877.02 EUR,Pagada
+FAC-2023-0343,23/11/2025,CONSULTORIA RAMOS,E07931102,ingreso,tecnologia,7635.52,1603.46,9238.98,pagada
+FAC-2024-0344,17/06/2024,Limpieza Industrial Norte,23288377,Gasto,Formación,20551.08,4315.73,24866.81,pendente
+,04/09/2023,Seguridad Total S.L.,F27740258,Ingreso,material de ofinina,28428.35,5969.95€,34398.30,Vencida
+FAC-2023-0346,20/05/2023,Marketing Online BCN,e25995996,Ingreso,LIMPIEZA,  45849.92  ,9628.48,55478.40,Vencida
+,12/05/2023,Alimentación Costa, C51762983 ,Ingreso,TRANSPORTE,  3565.37  ,142.61,"3707,98",Parcialmente pagada
+fac-2025-348,06/01/2025,Distribuciones López,H33978559,Ingreso,Material de oficina,38832.09,8154.74,46986.83,Pendiente
+FAC-2023-0349,17/04/2024,Materiales Hernández, E65124189 ,Gasto,tecnologia,1334.40,280.22,1614.62,Pagada
+FAC-2024-0350,18/06/2024,Papelería Central,A37199051,Ingreso,Material de oficina,"10425,31",2189.32,12614.63€,VENCIDA
+FAC-2025-0351,13/02/2023,Electricidad Pérez,A87066266,gasto,Formación,23284.60,4889.77,28174.37 EUR,VENCIDA
+fac-2023-352,04/04/2023,LOGISTICA MARTINEZ,F93429671,INGRESO,Alimentación,49551.47,10405.81,59957.28,Parcialm. pagada
+FAC-2024-0353,28/10/2025,electricidad perez,C-83483152,Gasto,Alimentación,2654.24,  106.17  ,"2760,41",vencida
+FAC-2025-0354,08/02/2023,TechParts España,e08509549,Gasto,Mantenimiento,21576.18,4531.00,26107.18,Parcialmente pagada
+FAC-2023-0355,28/11/2025,DISTRIBUCIONES LOPEZ,B-38459609,gasto,LIMPIEZA,6539.51,1373.30,7912.81,Parcialmente pagada
+FAC-2024-0356,4/1/2025,Suministros García S.L.,B72444723,gasto,material oficina,"12031,19",2526.55,14557.74,Parcialmente pagada
+FAC-2025-0357,12/24/2024,alimentacion costa,D-35956164,Ingreso,Limpiesa,27251.85,5722.89,32974.74,vencida
+FAC-2023-0358,22/02/2023,Servicios Digitales Ruiz,F36902611,Gasto,Material de oficina,2700.49,270.05,2970.54,Vencida
+FAC-2024-0359,01/12/2025,Distribuciones López, F37513765 ,Ingrso,Mantenimiento,22330.36,893.21,23223.57,Parcialmente pagada
+2025/360,17/06/2024,Materiales Hernández,D27021648,Ingreso,marketing,39894.87,1595.79€,"41490,66",Pendiente
+FAC-2023-0361,09/05/2024,Fontanería Express,B01576764,Gasto,Consultoría,17813.99,3740.94,21554.93,Pendiente
+FAC-2024-0362,15/02/2025,MATERIALES HERNANDEZ,H-50988986,Ingreso,Mantenimiento,  16361.63  ,1636.16,17997.79,Vencida
+FAC-2025-0363,06/12/23,Papelería Central,,Gasto,Tecnología,3007.85,  120.31  ,3128.16€,Vencida
+FAC-2023-0364,2024-08-27,Hosting & Cloud SLU,51315285,Gasto,Formación,22953.98,4820.34,27774.32,Pendiente
+FAC-2024-0365,05/18/2024,asesoria fiscal lopez, H42318306 ,GASTO,ALIMENTACION,3465.02,727.65,4192.67 EUR,Pagada
+FAC-2025-0366,2025-09-30,Servicos Digitales Ruiz,G75361275,gsato,Alimentación,19928.82,4185.05,24113.87,Vencida
+FAC-2023-0367,05/11/25,Seguridad Total S.L.,H66404735,ingeso,Material de oficina,11147.76,2341.03€,13488.79,Vencida
+FAC-2024-0368,15/02/2025,Mobiliario Oficina Plus,D58328634,Gasto,transporte,2301.81,92.07€,2393.88,Pagada
+FAC-2025-0369,28 de marzo de 2023,Asesoría Fiscál López,,Ingreso,INFRAESTRUCTURA,8268.80,330.75,8599.55,Parcialmente pagada
+FAC-2023-0370,15/07/2024,consultoria ramos,D68474883,Gasto,Infraestructura,11499.70,2414.94,13914.64,Pagada
+FAC-2024-0371,27/01/2025,Hosting & Cloud SLU,B82379312,Ingreso,Marketing,24101.91,5061.40,29163.31 EUR,Pendiente
+FAC-2025-0372,12/04/2025,Consultoría Ramos,F35778811,INGRESO,Material de oficina,"43635,68",1745.43 EUR,45381.11,vencidda
+FAC-2023-0373,06/05/2025,Diseño Gráfico Vaelncia,F92248395,ingeso,Infraestrucutra,20270.58,810.82,21081.40,Parcialmente pagda
+FAC-2024-0374,21/08/2025,Suministros García S.L.,F10979215,Gasto,marketing,1722.85,  361.80  ,2084.65,Pendiente
+FAC-2025-0375,19/02/2024,LIMPIEZA INDUSTRIAL NORTE,59994973,Gasto,MANTENIMIENTO,1983.03€,198.30,2181.33,Parcialmente pagada
+FAC-2023-0376,24/08/2025,TechParts España,F48581932,Ingreso,Infraestructura,16690.92,3505.09,20196.01,Parcialmente pagada
+FAC-2024-0377,18/01/2025,Distribuciones López, D65203758 ,Gatso,Consultoría,21391.54,855.66 EUR,22247.20,Pendiente
+FAC-2025-0378,04/03/2023,Fontanería Express,B05092221,Ingreso,LIMPIEZA,43227.67,9077.81,52305.48,VENCIDA
+FAC-2023-0379,2025-01-20,Mobiliario Oficina Plus,C41270493,Ingreso,Consultoría,26058.85,5472.36,31531.21,Vencida
+2024/380,06/08/2025,Distribuciones Lopéz,A-35713432,Gatso,FORMACION,2249.64,472.42,2722.06€,Pagada
+FAC-2025-0381,28/12/2024,Papelería Central,,Gasto,LIMPIEZA,14488.47,579.54,15068.01,PAGADA
+FAC-2023-0382,25/08/2023,Papelería Central,,Ingrso,Formacón,26092.98,2609.30,28702.28,Vencida
+FAC-2024-0383,01/06/2024,Hosting & Cloud SLU,B66496902,Gasto,Marketing,18098.14,3800.61,  21898.75  ,Parcialmente pagada
+FAC-2025-0384,17/10/2023,Materiales Hernandéz, E41233613 ,Gasto,Mat. Oficina,20047.17,4209.91,24257.08,Pagada
+FAC-2023-0385,4 de marzo de 2025,Diseño Gráfico Valencia,96815790,Gasto,Formación,3256.13,325.61,3581.74,Pendiente
+FAC-2024-0386,01/04/23,Logística Martínez,H04622681,ingreso,Transporte,10956.00,2300.76,13256.76€,Parcialmente pagada
+FAC-2025-0387,22/04/2023,Marketing Online BCN,H58512686,ingreso,FORMACION,  15496.25  ,619.85,16116.10,Parcialm. pagada
+FAC-2023-0388,13/04/2023,TechParts España,C45607540,Ingreso,Formacón,44513.71€,"1780,55",46294.26,Parcialmente pagada
+FAC 2024 0389,27/07/2025,Papelería Central,G81546602,gasto,Formación,1063.99,42.56€,1106.55 EUR,Pendiente
+FAC-2025-0390,13/06/2025,Alimentación Costa,E06306244,Ingreso,Consultoría,14101.94€,1410.19,"15512,13",Parcialmente pagada
+FAC-2023-0391,04/11/2024,Mobiliario Oficina Plus,H73826460,Gasto,Mantenimineto,13559.38,2847.47,  16406.85  ,Parcialmente pagada
+FAC-2024-0392,16/11/2023,Limpieza Industrial Norte,E87368269,gsato,formacion,15640.32,1564.03€,17204.35,Parcialmente pagada
+FAC-2025-0393,25/07/2024,Fontanería Express,,GASTO,Consultoría,  8019.12  ,320.76,8339.88,Pendiente
+FAC-2023-0394,20/04/2025,Distribuciones López,G05932971,gsato,Mantenimiento,4762.43,1000.11,5762.54 EUR,Parcialmente pagada
+FAC-2024-0395,23/8/2024,Servicios Digitales Ruiz,D27819523,Gasto,alimentacion,1667.08,350.09,2017.17,Vencida
+FAC-2025-0396,09/05/2023,Fontanería Express,A46056876,Ingrso,Marketing,35931.85,7545.69,43477.54,Vencida
+FAC-2023-0397,25/06/2024,CONSULTORIA RAMOS,H-57494902,Ingrso,Alimentación,5307.72,1114.62,6422.34,Parcialmente pagada
+FAC-2024-0398,2023-09-21,Limpieza Industrial Norte,C90458867,Gatso,Formación,3705.83,148.23,3854.06,Vencida
+FAC-2025-0399,2025-09-18,DISEÑO GRAFICO VALENCIA,B35779083,Ingreso,INFRAESTRUCTURA,44908.11 EUR,"9430,7",54338.81,Parcialmente pagada
+FAC-2023-0400,8 de junio de 2024,Logística Martínez,C09484131,Ingrso,Formación,  39964.86  ,3996.49,  43961.35  ,pendiente
+FAC-2024-0401,09/01/2025,Transporte Veloz S.A.,B73997046,Gasto,Tegnología,4975.04,1044.76,  6019.80  ,Parcialm. pagada
+FAC-2025-0402,09/25/2025,Formación Tech Academy,B-75823133,Gasto,Formación,212.61,44.65,"257,26",PAGADA
+FAC-2023-0403,23/11/25,Fontanería Express,E52455574,Ingreso,Transporte,49067.14,10304.10,59371.24,Pendiente
+FAC-2024-0404,03/03/2024,Materiales Hernández,F-88339874,gsato,Limpieza,16568.26,662.73,17230.99,Pagada
+FAC-2025-0405,07/02/2025,Fontanería Express,b72156229,GASTO,ALIMENTACION,1529.95,321.29,1851.24,vencida
+FAC-2023-0406,19/10/2024,CONSULTORIA RAMOS,,Gasto,Formación,11734.74,2464.30,14199.04,pendente
+FAC-2024-0407,08/07/2023,Limpieza Industral Norte, D16477251 ,Gasto,Tecnología,24356.98,5114.97,29471.95,Pagada
+FAC-2025-0408,18/01/2023,Limpieza Industrial Norte,d95923234,Ingreso,Mantenimiento,11648.88,2446.26,14095.14,Parcialm. pagada
+FAC-2023-0409,18/05/2025,Alimentación Cota,B60736077,ingeso,Alimentación,  49554.68  ,4955.47,54510.15,Vencida
+2024/410,03/01/2025,Servicios Digitales Ruiz,H00666155,Ingreso,Tecnología,37609.29,1504.37,39113.66,Parcialmente pagda
+fac-2025-411,16/10/2023,Diseño Gráfico Valencia,,Ingreso,Limpieza,42447.03,  4244.70  ,46691.73€,Vencida
+FAC-2023-0412,2024-10-19,Limpieza Industrial Norte,A-86982210,Gasto,Cosultoría,760.53,159.71,920.24,Vencida
+FAC-2024-0413,10/06/2024,Mobiliario Oficina Plus,D23822311,ingreso,Limpiesa,"6845,83",1437.62,8283.45,Parcialmente pagada
+FAC-2025-0414,06/02/2025,Asesoría Fiscal López, A32020326 ,Gasto,TRANSPORTE,16546.99,3474.87,20021.86,Vencida
+FAC-2023-0415,07/26/2024,Marketing Online BCN,H15841560,GASTO,Infraestructura,16403.74,"3444,79",19848.53 EUR,Parcialmente pagada
+FAC-2024-0416,12/11/2025,Formación Tech Academy,C98808583,Ingreso,infraestructura,10146.46€,1014.65,11161.11,Pendiente
+FAC-2025-0417,31/03/2025,MATERIALES HERNANDEZ, A14843991 ,GASTO,Alimentación,7447.59,1563.99,  9011.58  ,Vencida
+FAC-2023-0418,08/04/2024,Fontanería Express,c37245018,Ingreso,Alimentación,48186.19,1927.45€,50113.64,Vencida
+FAC-2024-0419,07/06/2024,Logística Martínez,,Gasto,Limpieza,2865.30,601.71€,3467.01,Pagada
+FAC-2025-0420,29/05/2024,Papelería Central,D96417899,Gasto,Infraestructura,24578.01,5161.38,29739.39,Vencida
+FAC-2023-0421,13/05/2025,Distribuciones López,,Ingreso,Tecnología,40856.54,  8579.87  ,49436.41,Pendiente
+FAC-2024-0422,27/07/2025,Alimentación Costa,F65271559,Gasto,Formación,17492.66,699.71,18192.37,pagad
+FAC-2025-0423,26/06/2024,Consultoría Ramos,F01394884,Gasto,Transporte,21406.60,4495.39€,25901.99,Parcialmente pagada
+FAC-2023-0424,25/12/2024,Fontanería Express,E99153703,Gasto,Tranporte,"9949,08",  2089.31  ,12038.39,Vencida
+FAC-2024-0425,2025-09-16,Materiales Hernández,G96454655,Ingreso,Limpiesa,"41977,57",8815.29,50792.86,Pendiente
+FAC-2025-0426,04/10/2024,Formación Tech Academy,D74907977,INGRESO,Tegnología,5687.98,1194.48 EUR,6882.46,Parcialm. pagada
+FAC-2023-0427,02/10/2025,Logística Martínez,e53986289,Gasto,Mantenimiento,10799.21,  1079.92  ,11879.13,Vencida
+FAC-2024-0428,03/02/2023,Servicios Digitales Ruiz,G66725214,Ingreso,Alimentación,32645.65,6855.59 EUR,  39501.24  ,Pendiente
+fac-2025-429,05/05/2023,Consultoría Ramós,G40995123,Gasto,Tecnología,24551.15,"5155,74",29706.89 EUR,vencidda
+FAC-2023-0430,21/03/23,Servicios Digitales Ruiz,C17392957,Ingreso,Formación,46797.01,"9827,37",56624.38,Pagada
+FAC-2024-0431,03/01/2025,ALIMENTACION COSTA,B58998868,GASTO,Alimentación,  1512.67  ,317.66,1830.33,parcialmente pagada
+FAC-2025-0432,07-03-2025,DISEÑO GRAFICO VALENCIA,C50800463,Ingreso,Consultoría,15641.93,625.68,16267.61,Parcialmente pagada
+fac-2023-433,25 de julio de 2025,Asesoría Fiscal López,A63140352,Gasto,Material de oficina,23751.61,2375.16€,"26126,77",Pendiente
+FAC-2024-0434,01/21/2023,seguridad total,G07231112,Gasto,ALIMENTACION,"10426,39",2189.54,12615.93,Vencida
+FAC-2025-0435,02/09/2023,limpieza industrial norte,H71130621,Gasto,LIMPIEZA,9902.91,990.29,10893.20,Vencida
+FAC-2023-0436,01/30/2023,ASESORIA FISCAL LOPEZ,A66248132,ingeso,Alimentacón,47455.18€,1898.21,49353.39,Vencda
+FAC 2024 0437,30/12/2025,techparts españa,,Ingreso,Tecnología,1364.36,136.44,1500.80,Parcialmente pagada
+FAC-2025-0438,20/07/25,Alimentación Costa, C64250642 ,Gasto,Mantenimiento,12004.27,"1200,43",13204.70 EUR,Vencida
+FAC-2023-0439,14/01/2025,Marketing Online BCN,F78654362,Gasto,Formación,8478.14,1780.41,10258.55,Parcialmente pagada
+FAC-2024-0440,25/11/2025,TRANSPORTE VELOZ SA,C69326573,ingeso,consultoria,21873.30,4593.39,26466.69€,Pendiente
+,20/02/2024,TechParts España,H75244182,gsato,Tegnología,"18602,43",1860.24,20462.67,Vencida
+FAC-2023-0442,22/03/2023,Alimentación Costa,F-79927079,Ingrso,transporte,7212.14,1514.55,8726.69,PARCIALMENTE PAGADA
+FAC-2024-0443,10/10/2025,Consultoría Ramós,A75203447,Gatso,Tecnología,448.09,94.10,"542,19",vencida
+FAC-2025-0444,20/08/2025,Hosting & Cloud SLU,g65254837,Ingreso,Limpieza,19310.84,4055.28,23366.12,Parcialmente pagada
+FAC-2023-0445,29-12-2023,suministros garcia,91297519,ingreso,tecnologia,  18982.72  ,1898.27€,20880.99 EUR,Pendiente
+fac-2024-446,2024-08-12,Diseño Gráfico Valencia,E28931132,Ingreso,Formacón,36712.45,7709.61,44422.06,Pendiente
+FAC-2025-0447,05/08/2024,LIMPIEZA INDUSTRIAL NORTE,A96170159,Ingreso,Marketing,26762.27,1070.49,27832.76,Vencida
+FAC-2023-0448,20/10/2025,Consultoría Ramós,77567772,Gasto,Consultoría,7541.17,1583.65,9124.82,Parcialm. pagada
+2024/449,01/12/2024,SUMINISTROS GARCIA SL,D37976627,gasto,Tranporte,5463.99,1147.44,"6611,43",Pendiente
+FAC-2025-0450,2023-11-21,Transporte Veloz S.A.,F52597107,Gatso,Formación,8497.58,339.90,8837.48,Pagada
+FAC-2023-0451,09/11/2024,Diseño Gráfico Valencia,D37970581,Gatso,Infraestrucutra,17473.32,1747.33,19220.65,Vencida
+FAC-2024-0452,21/10/23,Logística Martínez,,gasto,marketing,9126.37,  1916.54  ,  11042.91  ,Pendiente
+FAC-2025-0453,29/08/2024,Suministros Garciá S.L,C97514743,Gasto,limpieza,680.83,142.97€,823.80,Pendiente
+FAC-2023-0454,25/10/2024,materiales hernandez,27112218,Gatso,Marketing,9918.67,396.75,10315.42,Pagada
+FAC 2024 0455,2023-11-14,FORMACION TECH ACADEMY,A03700332,Ingrso,INFRAESTRUCTURA,27630.83,  5802.47  ,33433.30,Parcialmente pagada
+FAC-2025-0456,15/03/23,Seguridad Total S.L.,C63280944,Ingreso,Mat. Oficina,10837.41,2275.86€,13113.27,Pendiente
+FAC-2023-0457,14/11/2025,Limpieza Industrial Norte,D94394570,Gatso,material oficina,19261.92,1926.19€,21188.11,Parcialmente pagada
+FAC-2024-0458,05/12/2023,FONTANERIA EXPRESS,B00900404,Gasto,Formación,23024.43 EUR,4835.13,27859.56,Parcialmente pagada
+FAC-2025-0459,01/09/2024,Electricidad Pérez,D10720113,Ingreso,Limpieza,38636.96€,8113.76,"46750,72",Parcialmente pagda
+,11/08/25,Fontanería Express,D40433700,Ingreso,Material de oficina,20915.00,4392.15,  25307.15  ,Parcialm. pagada
+FAC-2024-0461,02/12/2023,Logística Martínez,G57542786,Gasto,Formación,9363.02,374.52,9737.54,Parcialmente pagada
+FAC-2025-0462,25/10/2023,Formación Tech Academy,d61618808,Ingreso,Material de oficina,30140.23€,6329.45,36469.68,Vencda
+FAC-2023-0463,20/12/2024,Formación Tech Academy,A-81721436,Gasto,Infraestructura,18758.17€,3939.22€,22697.39,Parcialmente pagada
+FAC-2024-0464,02/01/2025,Logísitca Martínez,99070755,Gasto,Formación,16556.55,"3476,88",20033.43,Pagada
+FAC-2025-0465,27/06/2023,Diseño Gráfico Valencia,76539705,Ingreso,Márketing,"24006,15",5041.29,29047.44,pagad
+2023/466,05/03/2025,Logística Martínez,H42049561,Ingreso,Formacón,40164.73,  8434.59  ,48599.32,Vencida
+FAC-2024-0467,27/11/2024,Fontanería Express,B12229907,Ingreso,Limpieza,43345.50,9102.56,52448.06,Pendiente
+FAC-2025-0468,14/05/2025,Seguridad Total S.L.,D21021923,Gasto,Material de oficina,1720.12€,361.23,2081.35 EUR,Vencida
+2023/469,11/3/2025,alimentacion costa,F-37337773,Ingreso,Transporte,1054.08,221.36€,1275.44,Vencida
+FAC-2024-0470,04/12/23,Logística Martínez,G05603567,Gasto,Infraestructura,"6214,34",1305.01,7519.35,Pagada
+FAC-2025-0471,03/06/2023,Servicios Digitales Ruiz,A54647548,Ingreso,Mantenimiento,21920.71,4603.35,26524.06,Vencida
+FAC-2023-0472,29/09/25,Hosting & Cloud SLU,E-98355393,Ingreso,Formación,48773.72,10242.48 EUR,59016.20,Vencida
+FAC-2024-0473,19/10/2024,Materiales Hernández,D39527536,gsato,Alimentación,"5151,39",  1081.79  ,6233.18,Vencida
+FAC-2025-0474,20/07/2025,suministros garcia,g79176651,Ingreso,Alimentación,46770.18€,"9821,74",56591.92€,Vencida
+FAC-2023-0475,2023-08-17,Seguridad Total S.L.,E85320895,ingeso,material oficina,17211.49,"3614,41",20825.90,pagad
+FAC-2024-0476,10 de mayo de 2024,Ditribuciones López,H33116772,Ingreso,Alimentación,23245.58,2324.56,  25570.14  ,Parcialmente pagada
+FAC-2025-0477,05/11/2025,Asesoría Fiscal López,G-26335564,gsato,Consultoría,15410.16,3236.13,18646.29,pagada
+FAC-2023-0478,02/10/25,Fontanería Express,E72239898,Gasto,Consultoría,10935.48,2296.45,  13231.93  ,parcialmente pagada
+FAC-2024-0479,02/11/23,papeleria central,D19092487,Ingreso,infraestructura,15011.06,  3152.32  ,  18163.38  ,Vencida
+FAC-2025-0480,18-01-2024,Marketing Online BCN,A62207223,Gasto,Transporte,6178.88€,1297.56€,"7476,44",Pendiente
+FAC-2023-0481,01/08/2025,Logística Martínez,,gasto,TRANSPORTE,13245.88,2781.63,  16027.51  ,Pagada
+FAC-2024-0482,11/2/2024,Limpieza Industrial Norte,C46320374,Gasto,Material de oficina,18770.27,1877.03,20647.30,VENCIDA
+FAC-2025-0483,10/08/2025,Ditribuciones López,55348201,gasto,Consultoría,22739.33,4775.26,27514.59,pagad
+FAC-2023-0484,24/11/2025,Electricidad Pérez,B-26574223,Gasto,Limpiesa,14661.25€,3078.86,  17740.11  ,Vencida
+FAC-2024-0485,2023-12-01,Seguridad Total S.L.,H11759574,Gasto,Alimentación,21478.07,859.12,22337.19,Pagda
+FAC-2025-0486,16/09/2025,MOBILIARIO OFICINA PLUS,E41283337,Ingreso,Alimentación,13973.33,2934.40,16907.73,Pagada
+FAC-2023-0487,09/12/2025,Limpieza Industrial Norte,C67055143,Ingreso,Alimentación,47450.34,9964.57 EUR,57414.91€,Pendiente
+FAC-2024-0488,10/2/2025,Consultoría Ramos,B20072024,Ingreso,Mantenimiento,42733.33,8974.00,51707.33,Vencda
+FAC-2025-0489,01/01/2023,Consultoría Ramos,94981942,ingreso,Material de oficina,41160.77 EUR,4116.08,45276.85,pagad
+FAC-2023-0490,01/04/2025,Márketing Online BCN,C20109121,gasto,Infraestrucutra,10478.34,1047.83,11526.17,Vencida
+FAC-2024-0491,15/01/2025,Distribuciones López,H76572565,Gasto,Alimentación,  3955.45  ,395.55 EUR,  4351.00  ,parcialmente pagada
+FAC-2025-0492,19/02/2024,Materiales Hernández,F01783325,Ingreso,Infraestructura,36178.83 EUR,7597.55,43776.38,Parcialmente pagada
+FAC-2023-0493,17/08/2024,Transporte Veloz S.A.,H67993593,gasto,Material de oficina,13492.87,2833.50,16326.37,PARCIALMENTE PAGADA
+FAC-2024-0494,05/01/2023,TechParts España,G08490793,Ingreso,Formación,21785.53,4574.96,26360.49,Pendiente
+FAC-2025-0495,4 de noviembre de 2024,Servicos Digitales Ruiz,G26325144,Ingreso,Material de oficina,32518.73€,  6828.93  ,39347.66,Parcialm. pagada
+,21-10-2025,Servicios Digitales Ruiz,B52638409,Ingreso,formacion,38416.99 EUR,8067.57,46484.56,Vencda
+FAC-2024-0497,15/11/2025,Suministros García S.L.,B37876553,GASTO,Márketing,"19407,76",4075.63,23483.39,Parcialmente pagada
+FAC-2025-0498,16/07/2023,Suministros García S.L.,,Gatso,Formación,14886.48,3126.16,18012.64,Pagada
+FAC-2023-0499,15/01/25,PAPELERIA CENTRAL,B28991511,Gasto,marketing,1924.04€,76.96,2001.00 EUR,Pagada
+FAC 2024 0500,01/09/2024,Formación Tech Academy,,Ingreso,infraestructura,5471.57,1149.03,6620.60,VENCIDA

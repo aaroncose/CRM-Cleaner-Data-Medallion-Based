@@ -1,0 +1,232 @@
+[
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Materiales Hernández",
+      "Materiales Hernandez",
+      "Materailes Hernández",
+      "Materiales Hernandéz"
+    ],
+    "similitud": 0.9,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Fontanería Express",
+      "Fontaneria Express"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Logística Martínez",
+      "Logísitca Martínez",
+      "Logistica Martinez"
+    ],
+    "similitud": 0.89,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Asesoría Fiscal López",
+      "Asesoria Fiscal Lopez",
+      "Asesoría Fiscál López"
+    ],
+    "similitud": 0.9,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Techparts España",
+      "Tech Parts España",
+      "Techparts Espana"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Distribuciones López",
+      "Distribuciones Lopez",
+      "Ditribuciones López",
+      "Distribuciones Lopéz"
+    ],
+    "similitud": 0.9,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Electricidad Pérez",
+      "Electricidad Perez"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Papelería Central",
+      "Papeleria Central",
+      "Papelería Centrl"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Seguridad Total S.L.",
+      "Seguirdad Total S.L.",
+      "Seguridad Total Sl",
+      "Seguridad Total"
+    ],
+    "similitud": 0.86,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Hosting & Cloud Slu",
+      "Hosting & Clud Slu",
+      "Hosting Cloud Slu"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Consultoría Ramos",
+      "Consultoria Ramos",
+      "Consultoría Ramós"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Suministros García S.L.",
+      "Suministros Garcia",
+      "Suministros Garciá S.L",
+      "Sumnistros García S.L.",
+      "Suministros Garcia Sl"
+    ],
+    "similitud": 0.83,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Alimentación Costa",
+      "Alimentacion Costa",
+      "Alimentación Cota"
+    ],
+    "similitud": 0.94,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "proveedor",
+    "grupo": [
+      "Transporte Veloz S.A.",
+      "Transporte Veloz Sa",
+      "Transporte Velóz S.A.",
+      "Transporte Veloz"
+    ],
+    "similitud": 0.86,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Formación",
+      "Formacion",
+      "Formacón"
+    ],
+    "similitud": 0.89,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Infraestructura",
+      "Infraestrucutra"
+    ],
+    "similitud": 0.93,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Alimentación",
+      "Alimentacion",
+      "Alimentacón"
+    ],
+    "similitud": 0.92,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Consultoría",
+      "Consultoria",
+      "Cosultoría"
+    ],
+    "similitud": 0.91,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Limpieza",
+      "Limpiesa"
+    ],
+    "similitud": 0.88,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Material De Oficina",
+      "Material De Ofinina",
+      "Material Oficina"
+    ],
+    "similitud": 0.91,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Mantenimiento",
+      "Mantenimineto"
+    ],
+    "similitud": 0.92,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Tecnología",
+      "Tecnologia",
+      "Tegnología"
+    ],
+    "similitud": 0.9,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Marketing",
+      "Márketing"
+    ],
+    "similitud": 0.89,
+    "accion": "pendiente"
+  }
+]

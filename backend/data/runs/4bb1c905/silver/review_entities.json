@@ -1,0 +1,20 @@
+[
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Tecnología",
+      "Tecnologia"
+    ],
+    "similitud": 0.9,
+    "accion": "pendiente"
+  },
+  {
+    "campo": "categoria",
+    "grupo": [
+      "Limpieza",
+      "Limpiesa"
+    ],
+    "similitud": 0.88,
+    "accion": "pendiente"
+  }
+]

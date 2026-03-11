@@ -18,7 +18,7 @@ logger = get_logger(__name__)
 SYSTEM_PROMPT = """You are a helpful assistant for analyzing Spanish CRM invoice data.
 You have access to invoice records and statistics. Answer questions accurately based on the provided context.
 
-The data contains invoices with fields:
+The data contains invoices with fields like:
 - num_factura: Invoice number
 - fecha: Date
 - proveedor: Supplier/provider name
@@ -90,6 +90,10 @@ class RAGQueryEngine:
 
         if provider == "ollama":
             self._init_ollama()
+        elif provider == "anthropic":
+            self._init_anthropic()
+        elif provider == "google":
+            self._init_google()
         else:
             self._init_openai()
 
@@ -139,6 +143,59 @@ class RAGQueryEngine:
             raise LLMError(
                 "LangChain Community package not installed. "
                 "Install with: pip install 'crm-medallion[ollama]'",
+                context={"error": str(e)},
+            ) from None
+
+    def _init_anthropic(self) -> None:
+        """Initialize Anthropic LLM with OpenAI embeddings fallback."""
+        try:
+            from langchain_anthropic import ChatAnthropic
+            from langchain_openai import OpenAIEmbeddings
+
+            self._llm = ChatAnthropic(
+                model=self.llm_config.model_name or "claude-sonnet-4-20250514",
+                temperature=self.llm_config.temperature,
+                api_key=self.llm_config.api_key,
+            )
+
+            # Anthropic doesn't have embeddings, use OpenAI or local
+            # Try to use OpenAI embeddings if OPENAI_API_KEY is set
+            import os
+            openai_key = os.environ.get("OPENAI_API_KEY")
+            if openai_key:
+                self._embeddings = OpenAIEmbeddings(api_key=openai_key)
+            else:
+                # Fallback to HuggingFace embeddings (local, no API key needed)
+                from langchain_community.embeddings import HuggingFaceEmbeddings
+                self._embeddings = HuggingFaceEmbeddings(
+                    model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+                )
+        except ImportError as e:
+            raise LLMError(
+                "LangChain Anthropic package not installed. "
+                "Install with: pip install langchain-anthropic",
+                context={"error": str(e)},
+            ) from None
+
+    def _init_google(self) -> None:
+        """Initialize Google LLM with embeddings."""
+        try:
+            from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
+
+            self._llm = ChatGoogleGenerativeAI(
+                model=self.llm_config.model_name or "gemini-1.5-flash",
+                temperature=self.llm_config.temperature,
+                google_api_key=self.llm_config.api_key,
+            )
+
+            self._embeddings = GoogleGenerativeAIEmbeddings(
+                model="models/embedding-001",
+                google_api_key=self.llm_config.api_key,
+            )
+        except ImportError as e:
+            raise LLMError(
+                "LangChain Google package not installed. "
+                "Install with: pip install langchain-google-genai",
                 context={"error": str(e)},
             ) from None
 
@@ -435,28 +492,31 @@ class RAGQueryEngine:
     def _build_metadata_filter(self, query: str, query_type: str) -> dict[str, Any] | None:
         """Build metadata filter for ChromaDB based on query content."""
         query_lower = query.lower()
-        filters = {}
-        
+        conditions = []
+
         # Filter by estado_factura
         if "pendiente" in query_lower:
-            filters["estado_factura"] = "Pendiente"
+            conditions.append({"estado_factura": {"$eq": "Pendiente"}})
         elif "pagada" in query_lower or "pagadas" in query_lower:
-            filters["estado_factura"] = "Pagada"
+            conditions.append({"estado_factura": {"$eq": "Pagada"}})
         elif "vencida" in query_lower or "vencidas" in query_lower:
-            filters["estado_factura"] = "Vencida"
+            conditions.append({"estado_factura": {"$eq": "Vencida"}})
         elif "parcialmente" in query_lower:
-            filters["estado_factura"] = "Parcialmente pagada"
-        
+            conditions.append({"estado_factura": {"$eq": "Parcialmente pagada"}})
+
         # Filter by tipo
         if "ingreso" in query_lower or "ingresos" in query_lower:
-            filters["tipo"] = "Ingreso"
+            conditions.append({"tipo": {"$eq": "Ingreso"}})
         elif "gasto" in query_lower or "gastos" in query_lower:
-            filters["tipo"] = "Gasto"
-        
+            conditions.append({"tipo": {"$eq": "Gasto"}})
+
         # Always filter to only record documents (not statistics/summary docs)
-        filters["doc_type"] = "record"
-        
-        return filters if len(filters) > 1 else {"doc_type": "record"}
+        conditions.append({"doc_type": {"$eq": "record"}})
+
+        # ChromaDB requires $and operator for multiple conditions
+        if len(conditions) == 1:
+            return conditions[0]
+        return {"$and": conditions}
 
     def _format_precomputed_stats(self) -> str:
         """Format precomputed statistics from Gold dataset for LLM context."""

@@ -27,14 +27,16 @@ class LLMConfig:
 
     def validate(self) -> None:
         """Validate LLM configuration."""
-        if self.provider not in ("openai", "ollama"):
+        valid_providers = ("openai", "anthropic", "google", "ollama")
+        if self.provider not in valid_providers:
             raise ConfigurationError(
-                f"Invalid provider: {self.provider}. Must be 'openai' or 'ollama'",
+                f"Invalid provider: {self.provider}. Must be one of: {', '.join(valid_providers)}",
                 context={"field": "llm_config.provider", "value": self.provider},
             )
-        if self.provider == "openai" and not self.api_key:
+        # API key required for cloud providers
+        if self.provider in ("openai", "anthropic", "google") and not self.api_key:
             raise ConfigurationError(
-                "API key is required for OpenAI provider",
+                f"API key is required for {self.provider} provider",
                 context={"field": "llm_config.api_key"},
             )
         if not 0.0 <= self.temperature <= 2.0:

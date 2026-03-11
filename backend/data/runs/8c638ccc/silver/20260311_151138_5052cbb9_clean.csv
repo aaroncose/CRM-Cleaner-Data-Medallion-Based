@@ -1,0 +1,6 @@
+num_factura,fecha,proveedor,nif_cif,tipo,categoria,importe_base,iva,importe_total,estado_factura,importe_pendiente
+FAC-2024-0001,2024-01-15,Empresa Abc,B12345678,Ingreso,Marketing,1000.0,0.0,210.0,00 €,0.0
+FAC-2024-0002,2024-01-20,Tech Solutions Sl,A87654321,Gasto,Tecnología,2500.5,525.11,3025.61,Pendiente,3025.61
+FAC-2024-0003,2024-01-25,Consulting Partners,B11223344,Ingreso,Consultoría,3500.0,735.0,4235.0,Pagada,0.0
+FAC-2024-0004,2024-02-01,Marketing Pro,C99887766,Gasto,Marketing,800.0,168.0,968.0,Vencida,968.0
+FAC-2024-0005,2024-02-05,Desarrollo Web,B55443322,Ingreso,Tecnología,1200.0,252.0,1452.0,Pendiente,1452.0

@@ -1,0 +1,6 @@
+num_factura,fecha,proveedor,nif_cif,tipo,categoria,importe_base,iva,importe_total,estado_factura
+FAC-2024-0001,15/01/2024,  Empresa ABC  ,B12345678,Ingreso,Marketing,1.000,00 €,210,00 €,1.210,00 €,Pagada
+fac/2024/002,20-01-2024,Tech Solutions SL,A-87654321,gasto,Tecnología,2500.50,525.11,3025.61,pendiente
+FAC 2024 003,25 de enero de 2024,Consulting Partners,B11223344,Ingrso,Consultoría,"3,500.00","735.00","4,235.00",Pagda
+FAC-2024-0004,2024-02-01,Marketing Pro,C99887766,Gasto,Marketing,800.00,168.00,968.00,Vencida
+FAC-2024-0005,05/02/2024,  desarrollo web  ,B55443322,ingeso,Tecnología,1200 EUR,252 EUR,1452 EUR,Pendiete

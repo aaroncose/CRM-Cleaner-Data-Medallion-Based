@@ -1,0 +1,1107 @@
+{
+  "records": [
+    {
+      "num_factura": "FAC-2023-0001",
+      "fecha": "2023-10-13 00:00:00",
+      "proveedor": "Distribuciones Lopez",
+      "nif_cif": "D86379402",
+      "tipo": "Ingreso",
+      "categoria": "Limpiesa",
+      "importe_base": 36955.33,
+      "iva": 7760.62,
+      "importe_total": 44715.95,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 44715.95
+    },
+    {
+      "num_factura": "FAC-2024-0002",
+      "fecha": "2024-08-23 00:00:00",
+      "proveedor": "Marketing Online Bcn",
+      "nif_cif": "E13164752",
+      "tipo": "Ingreso",
+      "categoria": "Marketing",
+      "importe_base": 41555.53,
+      "iva": 8726.66,
+      "importe_total": 50282.19,
+      "estado_factura": "Pagad",
+      "importe_pendiente": 0.0
+    },
+    {
+      "num_factura": "FAC-2025-0003",
+      "fecha": "2023-04-25 00:00:00",
+      "proveedor": "Fontaner\u00eda Express",
+      "nif_cif": "F37672423",
+      "tipo": "Gasto",
+      "categoria": "Infraestructura",
+      "importe_base": 5764.75,
+      "iva": 1210.6,
+      "importe_total": 6975.35,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 6975.35
+    },
+    {
+      "num_factura": "FAC-2023-0004",
+      "fecha": "2023-11-10 00:00:00",
+      "proveedor": "Materiales Hern\u00e1ndez",
+      "nif_cif": "E80184514",
+      "tipo": "Gasto",
+      "categoria": "Tecnolog\u00eda",
+      "importe_base": 15704.78,
+      "iva": 3298.0,
+      "importe_total": 19002.78,
+      "estado_factura": "Pagada",
+      "importe_pendiente": 0.0
+    },
+    {
+      "num_factura": "FAC-2024-0005",
+      "fecha": "2025-12-22 00:00:00",
+      "proveedor": "Limpieza Industrial Norte",
+      "nif_cif": "E30391171",
+      "tipo": "Ingreso",
+      "categoria": "Transporte",
+      "importe_base": 45965.43,
+      "iva": 9652.74,
+      "importe_total": 55618.17,
+      "estado_factura": "Vencida",
+      "importe_pendiente": 55618.17
+    },
+    {
+      "num_factura": "FAC-2025-0006",
+      "fecha": "2025-06-16 00:00:00",
+      "proveedor": "Transporte Veloz",
+      "nif_cif": "10310518",
+      "tipo": "Ingreso",
+      "categoria": "Limpieza",
+      "importe_base": 45030.9,
+      "iva": 9456.49,
+      "importe_total": 54487.39,
+      "estado_factura": "Parcialmente Pagada",
+      "importe_pendiente": 27243.695
+    },
+    {
+      "num_factura": "FAC-2023-0007",
+      "fecha": "2025-04-21 00:00:00",
+      "proveedor": "Distribuciones Lopez",
+      "nif_cif": "B33387262",
+      "tipo": "Ingreso",
+      "categoria": "Marketing",
+      "importe_base": 23617.72,
+      "iva": 4959.72,
+      "importe_total": 28577.44,
+      "estado_factura": "Vencida",
+      "importe_pendiente": 28577.44
+    },
+    {
+      "num_factura": "FAC-2024-0008",
+      "fecha": "2025-09-12 00:00:00",
+      "proveedor": "Log\u00edstica Mart\u00ednez",
+      "nif_cif": "E68723430",
+      "tipo": "Ingreso",
+      "categoria": "Transporte",
+      "importe_base": 11080.49,
+      "iva": 2326.9,
+      "importe_total": 13407.39,
+      "estado_factura": "Parcialmente Pagada",
+      "importe_pendiente": 6703.695
+    },
+    {
+      "num_factura": "FAC-2025-0009",
+      "fecha": "2025-04-06 00:00:00",
+      "proveedor": "Servicios Digitales Ruiz",
+      "nif_cif": "F43534624",
+      "tipo": "Ingreso",
+      "categoria": "Mantenimiento",
+      "importe_base": 6434.39,
+      "iva": 1351.22,
+      "importe_total": 7785.61,
+      "estado_factura": "Pagada",
+      "importe_pendiente": 0.0
+    },
+    {
+      "num_factura": "FAC-2023-0010",
+      "fecha": "2024-08-06 00:00:00",
+      "proveedor": "Materiales Hern\u00e1ndez",
+      "nif_cif": "A84124118",
+      "tipo": "Gasto",
+      "categoria": "Tecnologia",
+      "importe_base": 3985.78,
+      "iva": 837.01,
+      "importe_total": 4822.79,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 4822.79
+    },
+    {
+      "num_factura": "FAC-2024-0011",
+      "fecha": "2023-11-27 00:00:00",
+      "proveedor": "Techparts Espa\u00f1a",
+      "nif_cif": "A59826204",
+      "tipo": "Ingreso",
+      "categoria": "Consultor\u00eda",
+      "importe_base": 37190.93,
+      "iva": 7810.1,
+      "importe_total": 45001.03,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 45001.03
+    },
+    {
+      "num_factura": "FAC-2023-0001",
+      "fecha": "2023-11-29 00:00:00",
+      "proveedor": "Formaci\u00f3n Tech Academy",
+      "nif_cif": "D42160733",
+      "tipo": "Gasto",
+      "categoria": "Mantenimiento",
+      "importe_base": 24406.34,
+      "iva": 2440.63,
+      "importe_total": 26846.97,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 26846.97
+    },
+    {
+      "num_factura": "FAC-2023-0013",
+      "fecha": "2023-08-25 00:00:00",
+      "proveedor": "Electricidad P\u00e9rez",
+      "nif_cif": "56981693",
+      "tipo": "Gasto",
+      "categoria": "Infraestructura",
+      "importe_base": 21932.11,
+      "iva": 877.28,
+      "importe_total": 22809.39,
+      "estado_factura": "Vencida",
+      "importe_pendiente": 22809.39
+    },
+    {
+      "num_factura": "FAC-2024-0014",
+      "fecha": "2024-08-28 00:00:00",
+      "proveedor": "Limpieza Industrial Norte",
+      "nif_cif": "E68044369",
+      "tipo": "Gasto",
+      "categoria": "Marketing",
+      "importe_base": 13882.59,
+      "iva": 1388.26,
+      "importe_total": 15270.85,
+      "estado_factura": "Vencida",
+      "importe_pendiente": 15270.85
+    },
+    {
+      "num_factura": "FAC-2025-0015",
+      "fecha": "2024-04-05 00:00:00",
+      "proveedor": "Limpieza Industrial Norte",
+      "nif_cif": "76936763",
+      "tipo": "Gasto",
+      "categoria": "Tecnolog\u00eda",
+      "importe_base": 20173.74,
+      "iva": 2017.37,
+      "importe_total": 22191.11,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 22191.11
+    },
+    {
+      "num_factura": "FAC-2023-0016",
+      "fecha": "2025-07-23 00:00:00",
+      "proveedor": "Marketing Online Bcn",
+      "nif_cif": "H98687277",
+      "tipo": "Ingreso",
+      "categoria": "Infraestructura",
+      "importe_base": 7100.29,
+      "iva": 1491.06,
+      "importe_total": 8591.35,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 8591.35
+    },
+    {
+      "num_factura": "FAC-2024-0017",
+      "fecha": "2023-11-05 00:00:00",
+      "proveedor": "Consultor\u00eda Ramos",
+      "nif_cif": "D66909670",
+      "tipo": "Gasto",
+      "categoria": "Infraestructura",
+      "importe_base": 5819.97,
+      "iva": 582.0,
+      "importe_total": 6401.97,
+      "estado_factura": "Pagada",
+      "importe_pendiente": 0.0
+    },
+    {
+      "num_factura": "FAC-2025-0018",
+      "fecha": "2025-06-11 00:00:00",
+      "proveedor": "Moviliario Oficina Plus",
+      "nif_cif": "C98069901",
+      "tipo": "Ingreso",
+      "categoria": "Formacion",
+      "importe_base": 24539.28,
+      "iva": 5153.25,
+      "importe_total": 29692.53,
+      "estado_factura": "Pendiente",
+      "importe_pendiente": 29692.53
+    },
+    {
+      "num_factura": "FAC-2023-0019",
+      "fecha": "2023-04-17 00:00:00",
+      "proveedor": "Seguridad Total S.L.",
+      "nif_cif": "D09232719",
+      "tipo": "Gasto",
+      "categoria": "Tecnologia",
+      "importe_base": 24997.7,
+      "iva": 999.91,
+      "importe_total": 25997.61,
+      "estado_factura": "Parcialmente Pagada",
+      "importe_pendiente": 12998.805
+    },
+    {
+      "num_factura": "FAC-2024-0020",
+      "fecha": "2024-02-11 00:00:00",
+      "proveedor": "Distribuciones Lopez",
+      "nif_cif": "F86518506",
+      "tipo": "Ingreso",
+      "categoria": "Limpieza",
+      "importe_base": 4261.83,
+      "iva": 426.18,
+      "importe_total": 4688.01,
+      "estado_factura": "Parcialmente Pagada",
+      "importe_pendiente": 2344.005
+    }
+  ],
+  "statistics": {
+    "importe_base": {
+      "field_name": "importe_base",
+      "count": 20,
+      "sum": 420399.88,
+      "mean": 21019.994,
+      "median": 21052.925000000003,
+      "min": 3985.78,
+      "max": 45965.43,
+      "std": 14148.017069288098
+    },
+    "iva": {
+      "field_name": "iva",
+      "count": 20,
+      "sum": 72766.0,
+      "mean": 3638.3,
+      "median": 2172.135,
+      "min": 426.18,
+      "max": 9652.74,
+      "std": 3269.800569172055
+    },
+    "importe_total": {
+      "field_name": "importe_total",
+      "count": 20,
+      "sum": 493165.88,
+      "mean": 24658.293999999998,
+      "median": 22500.25,
+      "min": 4688.01,
+      "max": 55618.17,
+      "std": 17176.4334182634
+    },
+    "importe_pendiente": {
+      "field_name": "importe_pendiente",
+      "count": 20,
+      "sum": 360403.13,
+      "mean": 18020.1565,
+      "median": 14134.8275,
+      "min": 0.0,
+      "max": 55618.17,
+      "std": 16851.995762469884
+    }
+  },
+  "indexes": {
+    "fecha": {
+      "field_name": "fecha",
+      "unique_values": 20,
+      "entries": {
+        "2023-04-17": {
+          "key": "2023-04-17",
+          "count": 1,
+          "row_indices": [
+            18
+          ]
+        },
+        "2023-04-25": {
+          "key": "2023-04-25",
+          "count": 1,
+          "row_indices": [
+            2
+          ]
+        },
+        "2023-08-25": {
+          "key": "2023-08-25",
+          "count": 1,
+          "row_indices": [
+            12
+          ]
+        },
+        "2023-10-13": {
+          "key": "2023-10-13",
+          "count": 1,
+          "row_indices": [
+            0
+          ]
+        },
+        "2023-11-05": {
+          "key": "2023-11-05",
+          "count": 1,
+          "row_indices": [
+            16
+          ]
+        },
+        "2023-11-10": {
+          "key": "2023-11-10",
+          "count": 1,
+          "row_indices": [
+            3
+          ]
+        },
+        "2023-11-27": {
+          "key": "2023-11-27",
+          "count": 1,
+          "row_indices": [
+            10
+          ]
+        },
+        "2023-11-29": {
+          "key": "2023-11-29",
+          "count": 1,
+          "row_indices": [
+            11
+          ]
+        },
+        "2024-02-11": {
+          "key": "2024-02-11",
+          "count": 1,
+          "row_indices": [
+            19
+          ]
+        },
+        "2024-04-05": {
+          "key": "2024-04-05",
+          "count": 1,
+          "row_indices": [
+            14
+          ]
+        },
+        "2024-08-06": {
+          "key": "2024-08-06",
+          "count": 1,
+          "row_indices": [
+            9
+          ]
+        },
+        "2024-08-23": {
+          "key": "2024-08-23",
+          "count": 1,
+          "row_indices": [
+            1
+          ]
+        },
+        "2024-08-28": {
+          "key": "2024-08-28",
+          "count": 1,
+          "row_indices": [
+            13
+          ]
+        },
+        "2025-04-06": {
+          "key": "2025-04-06",
+          "count": 1,
+          "row_indices": [
+            8
+          ]
+        },
+        "2025-04-21": {
+          "key": "2025-04-21",
+          "count": 1,
+          "row_indices": [
+            6
+          ]
+        },
+        "2025-06-11": {
+          "key": "2025-06-11",
+          "count": 1,
+          "row_indices": [
+            17
+          ]
+        },
+        "2025-06-16": {
+          "key": "2025-06-16",
+          "count": 1,
+          "row_indices": [
+            5
+          ]
+        },
+        "2025-07-23": {
+          "key": "2025-07-23",
+          "count": 1,
+          "row_indices": [
+            15
+          ]
+        },
+        "2025-09-12": {
+          "key": "2025-09-12",
+          "count": 1,
+          "row_indices": [
+            7
+          ]
+        },
+        "2025-12-22": {
+          "key": "2025-12-22",
+          "count": 1,
+          "row_indices": [
+            4
+          ]
+        }
+      }
+    },
+    "categoria": {
+      "field_name": "categoria",
+      "unique_values": 10,
+      "entries": {
+        "Consultor\u00eda": {
+          "key": "Consultor\u00eda",
+          "count": 1,
+          "row_indices": [
+            10
+          ]
+        },
+        "Formacion": {
+          "key": "Formacion",
+          "count": 1,
+          "row_indices": [
+            17
+          ]
+        },
+        "Infraestructura": {
+          "key": "Infraestructura",
+          "count": 4,
+          "row_indices": [
+            2,
+            12,
+            15,
+            16
+          ]
+        },
+        "Limpiesa": {
+          "key": "Limpiesa",
+          "count": 1,
+          "row_indices": [
+            0
+          ]
+        },
+        "Limpieza": {
+          "key": "Limpieza",
+          "count": 2,
+          "row_indices": [
+            5,
+            19
+          ]
+        },
+        "Mantenimiento": {
+          "key": "Mantenimiento",
+          "count": 2,
+          "row_indices": [
+            8,
+            11
+          ]
+        },
+        "Marketing": {
+          "key": "Marketing",
+          "count": 3,
+          "row_indices": [
+            1,
+            6,
+            13
+          ]
+        },
+        "Tecnologia": {
+          "key": "Tecnologia",
+          "count": 2,
+          "row_indices": [
+            9,
+            18
+          ]
+        },
+        "Tecnolog\u00eda": {
+          "key": "Tecnolog\u00eda",
+          "count": 2,
+          "row_indices": [
+            3,
+            14
+          ]
+        },
+        "Transporte": {
+          "key": "Transporte",
+          "count": 2,
+          "row_indices": [
+            4,
+            7
+          ]
+        }
+      }
+    },
+    "proveedor": {
+      "field_name": "proveedor",
+      "unique_values": 14,
+      "entries": {
+        "Consultor\u00eda Ramos": {
+          "key": "Consultor\u00eda Ramos",
+          "count": 1,
+          "row_indices": [
+            16
+          ]
+        },
+        "Distribuciones Lopez": {
+          "key": "Distribuciones Lopez",
+          "count": 3,
+          "row_indices": [
+            0,
+            6,
+            19
+          ]
+        },
+        "Electricidad P\u00e9rez": {
+          "key": "Electricidad P\u00e9rez",
+          "count": 1,
+          "row_indices": [
+            12
+          ]
+        },
+        "Fontaner\u00eda Express": {
+          "key": "Fontaner\u00eda Express",
+          "count": 1,
+          "row_indices": [
+            2
+          ]
+        },
+        "Formaci\u00f3n Tech Academy": {
+          "key": "Formaci\u00f3n Tech Academy",
+          "count": 1,
+          "row_indices": [
+            11
+          ]
+        },
+        "Limpieza Industrial Norte": {
+          "key": "Limpieza Industrial Norte",
+          "count": 3,
+          "row_indices": [
+            4,
+            13,
+            14
+          ]
+        },
+        "Log\u00edstica Mart\u00ednez": {
+          "key": "Log\u00edstica Mart\u00ednez",
+          "count": 1,
+          "row_indices": [
+            7
+          ]
+        },
+        "Marketing Online Bcn": {
+          "key": "Marketing Online Bcn",
+          "count": 2,
+          "row_indices": [
+            1,
+            15
+          ]
+        },
+        "Materiales Hern\u00e1ndez": {
+          "key": "Materiales Hern\u00e1ndez",
+          "count": 2,
+          "row_indices": [
+            3,
+            9
+          ]
+        },
+        "Moviliario Oficina Plus": {
+          "key": "Moviliario Oficina Plus",
+          "count": 1,
+          "row_indices": [
+            17
+          ]
+        },
+        "Seguridad Total S.L.": {
+          "key": "Seguridad Total S.L.",
+          "count": 1,
+          "row_indices": [
+            18
+          ]
+        },
+        "Servicios Digitales Ruiz": {
+          "key": "Servicios Digitales Ruiz",
+          "count": 1,
+          "row_indices": [
+            8
+          ]
+        },
+        "Techparts Espa\u00f1a": {
+          "key": "Techparts Espa\u00f1a",
+          "count": 1,
+          "row_indices": [
+            10
+          ]
+        },
+        "Transporte Veloz": {
+          "key": "Transporte Veloz",
+          "count": 1,
+          "row_indices": [
+            5
+          ]
+        }
+      }
+    },
+    "tipo": {
+      "field_name": "tipo",
+      "unique_values": 2,
+      "entries": {
+        "Gasto": {
+          "key": "Gasto",
+          "count": 9,
+          "row_indices": [
+            2,
+            3,
+            9,
+            11,
+            12,
+            13,
+            14,
+            16,
+            18
+          ]
+        },
+        "Ingreso": {
+          "key": "Ingreso",
+          "count": 11,
+          "row_indices": [
+            0,
+            1,
+            4,
+            5,
+            6,
+            7,
+            8,
+            10,
+            15,
+            17,
+            19
+          ]
+        }
+      }
+    },
+    "estado_factura": {
+      "field_name": "estado_factura",
+      "unique_values": 5,
+      "entries": {
+        "Pagad": {
+          "key": "Pagad",
+          "count": 1,
+          "row_indices": [
+            1
+          ]
+        },
+        "Pagada": {
+          "key": "Pagada",
+          "count": 3,
+          "row_indices": [
+            3,
+            8,
+            16
+          ]
+        },
+        "Parcialmente Pagada": {
+          "key": "Parcialmente Pagada",
+          "count": 4,
+          "row_indices": [
+            5,
+            7,
+            18,
+            19
+          ]
+        },
+        "Pendiente": {
+          "key": "Pendiente",
+          "count": 8,
+          "row_indices": [
+            0,
+            2,
+            9,
+            10,
+            11,
+            14,
+            15,
+            17
+          ]
+        },
+        "Vencida": {
+          "key": "Vencida",
+          "count": 4,
+          "row_indices": [
+            4,
+            6,
+            12,
+            13
+          ]
+        }
+      }
+    }
+  },
+  "segmented_statistics": {
+    "tipo": {
+      "segment_field": "tipo",
+      "segments": {
+        "Gasto": {
+          "count": 9,
+          "importe_base_sum": 136667.76,
+          "importe_base_mean": 15185.306666666667,
+          "iva_sum": 13651.060000000001,
+          "iva_mean": 1516.7844444444445,
+          "importe_total_sum": 150318.82,
+          "importe_total_mean": 16702.091111111113,
+          "importe_pendiente_sum": 111915.26499999998,
+          "importe_pendiente_mean": 12435.029444444443
+        },
+        "Ingreso": {
+          "count": 11,
+          "importe_base_sum": 283732.12000000005,
+          "importe_base_mean": 25793.829090909097,
+          "iva_sum": 59114.939999999995,
+          "iva_mean": 5374.085454545454,
+          "importe_total_sum": 342847.06000000006,
+          "importe_total_mean": 31167.91454545455,
+          "importe_pendiente_sum": 248487.865,
+          "importe_pendiente_mean": 22589.80590909091
+        }
+      }
+    },
+    "estado_factura": {
+      "segment_field": "estado_factura",
+      "segments": {
+        "Pagad": {
+          "count": 1,
+          "importe_base_sum": 41555.53,
+          "importe_base_mean": 41555.53,
+          "iva_sum": 8726.66,
+          "iva_mean": 8726.66,
+          "importe_total_sum": 50282.19,
+          "importe_total_mean": 50282.19,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Pagada": {
+          "count": 3,
+          "importe_base_sum": 27959.140000000003,
+          "importe_base_mean": 9319.713333333335,
+          "iva_sum": 5231.22,
+          "iva_mean": 1743.74,
+          "importe_total_sum": 33190.36,
+          "importe_total_mean": 11063.453333333333,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Parcialmente Pagada": {
+          "count": 4,
+          "importe_base_sum": 85370.92,
+          "importe_base_mean": 21342.73,
+          "iva_sum": 13209.48,
+          "iva_mean": 3302.37,
+          "importe_total_sum": 98580.4,
+          "importe_total_mean": 24645.1,
+          "importe_pendiente_sum": 49290.2,
+          "importe_pendiente_mean": 12322.55
+        },
+        "Pendiente": {
+          "count": 8,
+          "importe_base_sum": 160116.44,
+          "importe_base_mean": 20014.555,
+          "iva_sum": 28720.64,
+          "iva_mean": 3590.08,
+          "importe_total_sum": 188837.08,
+          "importe_total_mean": 23604.635,
+          "importe_pendiente_sum": 188837.08,
+          "importe_pendiente_mean": 23604.635
+        },
+        "Vencida": {
+          "count": 4,
+          "importe_base_sum": 105397.84999999999,
+          "importe_base_mean": 26349.462499999998,
+          "iva_sum": 16878.0,
+          "iva_mean": 4219.5,
+          "importe_total_sum": 122275.85,
+          "importe_total_mean": 30568.9625,
+          "importe_pendiente_sum": 122275.85,
+          "importe_pendiente_mean": 30568.9625
+        }
+      }
+    },
+    "categoria": {
+      "segment_field": "categoria",
+      "segments": {
+        "Consultor\u00eda": {
+          "count": 1,
+          "importe_base_sum": 37190.93,
+          "importe_base_mean": 37190.93,
+          "iva_sum": 7810.1,
+          "iva_mean": 7810.1,
+          "importe_total_sum": 45001.03,
+          "importe_total_mean": 45001.03,
+          "importe_pendiente_sum": 45001.03,
+          "importe_pendiente_mean": 45001.03
+        },
+        "Formacion": {
+          "count": 1,
+          "importe_base_sum": 24539.28,
+          "importe_base_mean": 24539.28,
+          "iva_sum": 5153.25,
+          "iva_mean": 5153.25,
+          "importe_total_sum": 29692.53,
+          "importe_total_mean": 29692.53,
+          "importe_pendiente_sum": 29692.53,
+          "importe_pendiente_mean": 29692.53
+        },
+        "Infraestructura": {
+          "count": 4,
+          "importe_base_sum": 40617.12,
+          "importe_base_mean": 10154.28,
+          "iva_sum": 4160.9400000000005,
+          "iva_mean": 1040.2350000000001,
+          "importe_total_sum": 44778.06,
+          "importe_total_mean": 11194.515,
+          "importe_pendiente_sum": 38376.09,
+          "importe_pendiente_mean": 9594.0225
+        },
+        "Limpiesa": {
+          "count": 1,
+          "importe_base_sum": 36955.33,
+          "importe_base_mean": 36955.33,
+          "iva_sum": 7760.62,
+          "iva_mean": 7760.62,
+          "importe_total_sum": 44715.95,
+          "importe_total_mean": 44715.95,
+          "importe_pendiente_sum": 44715.95,
+          "importe_pendiente_mean": 44715.95
+        },
+        "Limpieza": {
+          "count": 2,
+          "importe_base_sum": 49292.73,
+          "importe_base_mean": 24646.365,
+          "iva_sum": 9882.67,
+          "iva_mean": 4941.335,
+          "importe_total_sum": 59175.4,
+          "importe_total_mean": 29587.7,
+          "importe_pendiente_sum": 29587.7,
+          "importe_pendiente_mean": 14793.85
+        },
+        "Mantenimiento": {
+          "count": 2,
+          "importe_base_sum": 30840.73,
+          "importe_base_mean": 15420.365,
+          "iva_sum": 3791.8500000000004,
+          "iva_mean": 1895.9250000000002,
+          "importe_total_sum": 34632.58,
+          "importe_total_mean": 17316.29,
+          "importe_pendiente_sum": 26846.97,
+          "importe_pendiente_mean": 13423.485
+        },
+        "Marketing": {
+          "count": 3,
+          "importe_base_sum": 79055.84,
+          "importe_base_mean": 26351.946666666667,
+          "iva_sum": 15074.640000000001,
+          "iva_mean": 5024.88,
+          "importe_total_sum": 94130.48000000001,
+          "importe_total_mean": 31376.82666666667,
+          "importe_pendiente_sum": 43848.29,
+          "importe_pendiente_mean": 14616.096666666666
+        },
+        "Tecnologia": {
+          "count": 2,
+          "importe_base_sum": 28983.48,
+          "importe_base_mean": 14491.74,
+          "iva_sum": 1836.92,
+          "iva_mean": 918.46,
+          "importe_total_sum": 30820.4,
+          "importe_total_mean": 15410.2,
+          "importe_pendiente_sum": 17821.595,
+          "importe_pendiente_mean": 8910.7975
+        },
+        "Tecnolog\u00eda": {
+          "count": 2,
+          "importe_base_sum": 35878.520000000004,
+          "importe_base_mean": 17939.260000000002,
+          "iva_sum": 5315.37,
+          "iva_mean": 2657.685,
+          "importe_total_sum": 41193.89,
+          "importe_total_mean": 20596.945,
+          "importe_pendiente_sum": 22191.11,
+          "importe_pendiente_mean": 11095.555
+        },
+        "Transporte": {
+          "count": 2,
+          "importe_base_sum": 57045.92,
+          "importe_base_mean": 28522.96,
+          "iva_sum": 11979.64,
+          "iva_mean": 5989.82,
+          "importe_total_sum": 69025.56,
+          "importe_total_mean": 34512.78,
+          "importe_pendiente_sum": 62321.865,
+          "importe_pendiente_mean": 31160.9325
+        }
+      }
+    },
+    "proveedor": {
+      "segment_field": "proveedor",
+      "segments": {
+        "Consultor\u00eda Ramos": {
+          "count": 1,
+          "importe_base_sum": 5819.97,
+          "importe_base_mean": 5819.97,
+          "iva_sum": 582.0,
+          "iva_mean": 582.0,
+          "importe_total_sum": 6401.97,
+          "importe_total_mean": 6401.97,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Distribuciones Lopez": {
+          "count": 3,
+          "importe_base_sum": 64834.880000000005,
+          "importe_base_mean": 21611.626666666667,
+          "iva_sum": 13146.52,
+          "iva_mean": 4382.173333333333,
+          "importe_total_sum": 77981.4,
+          "importe_total_mean": 25993.8,
+          "importe_pendiente_sum": 75637.395,
+          "importe_pendiente_mean": 25212.465
+        },
+        "Electricidad P\u00e9rez": {
+          "count": 1,
+          "importe_base_sum": 21932.11,
+          "importe_base_mean": 21932.11,
+          "iva_sum": 877.28,
+          "iva_mean": 877.28,
+          "importe_total_sum": 22809.39,
+          "importe_total_mean": 22809.39,
+          "importe_pendiente_sum": 22809.39,
+          "importe_pendiente_mean": 22809.39
+        },
+        "Fontaner\u00eda Express": {
+          "count": 1,
+          "importe_base_sum": 5764.75,
+          "importe_base_mean": 5764.75,
+          "iva_sum": 1210.6,
+          "iva_mean": 1210.6,
+          "importe_total_sum": 6975.35,
+          "importe_total_mean": 6975.35,
+          "importe_pendiente_sum": 6975.35,
+          "importe_pendiente_mean": 6975.35
+        },
+        "Formaci\u00f3n Tech Academy": {
+          "count": 1,
+          "importe_base_sum": 24406.34,
+          "importe_base_mean": 24406.34,
+          "iva_sum": 2440.63,
+          "iva_mean": 2440.63,
+          "importe_total_sum": 26846.97,
+          "importe_total_mean": 26846.97,
+          "importe_pendiente_sum": 26846.97,
+          "importe_pendiente_mean": 26846.97
+        },
+        "Limpieza Industrial Norte": {
+          "count": 3,
+          "importe_base_sum": 80021.76000000001,
+          "importe_base_mean": 26673.920000000002,
+          "iva_sum": 13058.369999999999,
+          "iva_mean": 4352.79,
+          "importe_total_sum": 93080.13,
+          "importe_total_mean": 31026.710000000003,
+          "importe_pendiente_sum": 93080.13,
+          "importe_pendiente_mean": 31026.710000000003
+        },
+        "Log\u00edstica Mart\u00ednez": {
+          "count": 1,
+          "importe_base_sum": 11080.49,
+          "importe_base_mean": 11080.49,
+          "iva_sum": 2326.9,
+          "iva_mean": 2326.9,
+          "importe_total_sum": 13407.39,
+          "importe_total_mean": 13407.39,
+          "importe_pendiente_sum": 6703.695,
+          "importe_pendiente_mean": 6703.695
+        },
+        "Marketing Online Bcn": {
+          "count": 2,
+          "importe_base_sum": 48655.82,
+          "importe_base_mean": 24327.91,
+          "iva_sum": 10217.72,
+          "iva_mean": 5108.86,
+          "importe_total_sum": 58873.54,
+          "importe_total_mean": 29436.77,
+          "importe_pendiente_sum": 8591.35,
+          "importe_pendiente_mean": 4295.675
+        },
+        "Materiales Hern\u00e1ndez": {
+          "count": 2,
+          "importe_base_sum": 19690.56,
+          "importe_base_mean": 9845.28,
+          "iva_sum": 4135.01,
+          "iva_mean": 2067.505,
+          "importe_total_sum": 23825.57,
+          "importe_total_mean": 11912.785,
+          "importe_pendiente_sum": 4822.79,
+          "importe_pendiente_mean": 2411.395
+        },
+        "Moviliario Oficina Plus": {
+          "count": 1,
+          "importe_base_sum": 24539.28,
+          "importe_base_mean": 24539.28,
+          "iva_sum": 5153.25,
+          "iva_mean": 5153.25,
+          "importe_total_sum": 29692.53,
+          "importe_total_mean": 29692.53,
+          "importe_pendiente_sum": 29692.53,
+          "importe_pendiente_mean": 29692.53
+        },
+        "Seguridad Total S.L.": {
+          "count": 1,
+          "importe_base_sum": 24997.7,
+          "importe_base_mean": 24997.7,
+          "iva_sum": 999.91,
+          "iva_mean": 999.91,
+          "importe_total_sum": 25997.61,
+          "importe_total_mean": 25997.61,
+          "importe_pendiente_sum": 12998.805,
+          "importe_pendiente_mean": 12998.805
+        },
+        "Servicios Digitales Ruiz": {
+          "count": 1,
+          "importe_base_sum": 6434.39,
+          "importe_base_mean": 6434.39,
+          "iva_sum": 1351.22,
+          "iva_mean": 1351.22,
+          "importe_total_sum": 7785.61,
+          "importe_total_mean": 7785.61,
+          "importe_pendiente_sum": 0.0,
+          "importe_pendiente_mean": 0.0
+        },
+        "Techparts Espa\u00f1a": {
+          "count": 1,
+          "importe_base_sum": 37190.93,
+          "importe_base_mean": 37190.93,
+          "iva_sum": 7810.1,
+          "iva_mean": 7810.1,
+          "importe_total_sum": 45001.03,
+          "importe_total_mean": 45001.03,
+          "importe_pendiente_sum": 45001.03,
+          "importe_pendiente_mean": 45001.03
+        },
+        "Transporte Veloz": {
+          "count": 1,
+          "importe_base_sum": 45030.9,
+          "importe_base_mean": 45030.9,
+          "iva_sum": 9456.49,
+          "iva_mean": 9456.49,
+          "importe_total_sum": 54487.39,
+          "importe_total_mean": 54487.39,
+          "importe_pendiente_sum": 27243.695,
+          "importe_pendiente_mean": 27243.695
+        }
+      }
+    }
+  }
+}

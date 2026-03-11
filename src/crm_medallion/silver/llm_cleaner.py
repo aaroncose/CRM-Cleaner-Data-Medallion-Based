@@ -113,6 +113,21 @@ class LLMCleaner:
         if self._initialized:
             return
 
+        provider = getattr(self.config, "provider", "openai")
+
+        if provider == "anthropic":
+            self._init_anthropic()
+        elif provider == "google":
+            self._init_google()
+        elif provider == "ollama":
+            self._init_ollama()
+        else:
+            self._init_openai()
+
+        self._initialized = True
+
+    def _init_openai(self) -> None:
+        """Initialize OpenAI LLM."""
         try:
             from langchain_openai import ChatOpenAI
 
@@ -121,11 +136,62 @@ class LLMCleaner:
                 temperature=self.config.temperature,
                 api_key=self.config.api_key,
             )
-            self._initialized = True
         except ImportError as e:
             raise LLMError(
                 "LangChain OpenAI package not installed. "
                 "Install with: pip install 'crm-medallion[llm]'",
+                context={"error": str(e)},
+            ) from None
+
+    def _init_anthropic(self) -> None:
+        """Initialize Anthropic LLM."""
+        try:
+            from langchain_anthropic import ChatAnthropic
+
+            self._llm = ChatAnthropic(
+                model=self.config.model_name or "claude-sonnet-4-20250514",
+                temperature=self.config.temperature,
+                api_key=self.config.api_key,
+            )
+        except ImportError as e:
+            raise LLMError(
+                "LangChain Anthropic package not installed. "
+                "Install with: pip install langchain-anthropic",
+                context={"error": str(e)},
+            ) from None
+
+    def _init_google(self) -> None:
+        """Initialize Google LLM."""
+        try:
+            from langchain_google_genai import ChatGoogleGenerativeAI
+
+            self._llm = ChatGoogleGenerativeAI(
+                model=self.config.model_name or "gemini-1.5-flash",
+                temperature=self.config.temperature,
+                google_api_key=self.config.api_key,
+            )
+        except ImportError as e:
+            raise LLMError(
+                "LangChain Google package not installed. "
+                "Install with: pip install langchain-google-genai",
+                context={"error": str(e)},
+            ) from None
+
+    def _init_ollama(self) -> None:
+        """Initialize Ollama LLM."""
+        try:
+            from langchain_community.chat_models import ChatOllama
+
+            host = getattr(self.config, "host", None) or "http://localhost:11434"
+            self._llm = ChatOllama(
+                model=self.config.model_name,
+                temperature=self.config.temperature,
+                base_url=host,
+            )
+        except ImportError as e:
+            raise LLMError(
+                "LangChain Community package not installed. "
+                "Install with: pip install langchain-community",
                 context={"error": str(e)},
             ) from None
 
